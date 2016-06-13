@@ -2,16 +2,16 @@
 Simple first letter mapping for nomesco chapters.
 */
 
--- INSERT INTO cdm5.procedure_occurrence (
---     procedure_occurrence_id,
---     person_id,
---     procedure_concept_id,
---     procedure_date,
---     procedure_type_concept_id,
---
---     visit_occurrence_id,
---     procedure_source_value
--- )
+INSERT INTO cdm5.procedure_occurrence (
+    procedure_occurrence_id,
+    person_id,
+    procedure_concept_id,
+    procedure_date,
+    procedure_type_concept_id,
+
+    visit_occurrence_id,
+    procedure_source_value
+)
     SELECT  row_number() OVER (ORDER BY lpnr),
             lpnr,
             CASE WHEN procedure_map.target_concept_id IS NULL
@@ -57,6 +57,6 @@ Simple first letter mapping for nomesco chapters.
 
     -- Only diagnostic codes
     WHERE code_type like 'op%'
-    AND lower(code) like 'f%'
+    -- AND lower(code) like 'f%'
     -- and procedure_map.target_concept_id is null
 ;
