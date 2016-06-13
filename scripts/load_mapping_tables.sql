@@ -69,7 +69,7 @@ CREATE TABLE mappings.unit (
 -- Mapping tables directly into cdm
 \copy cdm5.location (location_id, county) FROM './mapping_tables/lan_locations.csv' WITH HEADER CSV
 \copy cdm5.care_site ( care_site_id, care_site_source_value, care_site_name, location_id ) FROM './mapping_tables/sjukhus_care_site.csv' WITH HEADER CSV;
-\copy cdm5.provider (provider_id, provider_name, specialty_concept_id, specialty_source_value) FROM './mapping_tables/spkod_provider.csv' WITH HEADER CSV
+\copy cdm5.provider (provider_id, provider_name, specialty_concept_id, specialty_source_value) FROM './mapping_tables/spkod_specialty.csv' WITH HEADER CSV
 
 -- Set location_source_value to be the same as the location_id
 UPDATE cdm5.location

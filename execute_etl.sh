@@ -90,27 +90,27 @@ sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_procedure_occurre
 printf "%-30s" "Drug Exposure: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_drug_exposure.sql
 
-printf "%-30s" "Observation Civil Status: "
+printf "%-30s" "Observation Civil Status: " #Only where civil is not null
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_civil.sql
-printf "%-30s" "Observation Utsatt Status: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_utsatt.sql
-printf "%-30s" "Observation Insatt Status: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_insatt.sql
-printf "%-30s" "Observation Ekod: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_ekod.sql
-printf "%-30s" "Observation Work Status: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
-printf "%-30s" "Observation Education level: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
-printf "%-30s" "Observation Ethnic Background: "
-sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
-printf "%-30s" "Observation Planned visit: "
+printf "%-30s" "Observation Planned visit: " #all
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_pvard.sql
+printf "%-30s" "Observation Utsatt Status: " #Only sluten care
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_utsatt.sql
+printf "%-30s" "Observation Insatt Status: " #Only sluten care
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_insatt.sql
+printf "%-30s" "Observation Ekod: "          #Only where ekod is not null
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_ekod.sql
+printf "%-30s" "Observation Work Status: "       #Only Lisa
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
+printf "%-30s" "Observation Education level: "   #Only Lisa
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
+printf "%-30s" "Observation Ethnic Background: " #Only Lisa
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
 
 
-printf "%-30s" "Measurement Income: "
+printf "%-30s" "Measurement Income: " #Only Lisa
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
-printf "%-30s" "Measurement Age: "
+printf "%-30s" "Measurement Age: " #All registers
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
