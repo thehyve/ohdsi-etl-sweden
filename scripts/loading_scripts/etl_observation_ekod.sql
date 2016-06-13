@@ -11,7 +11,7 @@ INSERT INTO cdm5.observation (
 SELECT  lpnr,
         4081668 as observation_concept_id, -- Cause of accident type
 
-        snomed.target_concept_id as value_as_concept_id,
+        icd10.target_concept_id as value_as_concept_id,
 
         to_date(indatuma::varchar, 'yyyymmdd'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
@@ -30,6 +30,6 @@ FROM (
     FROM bayer.patient_oppen_long
     WHERE code_type LIKE 'ekod%'
 ) A
-LEFT JOIN mappings.snomed snomed
+LEFT JOIN mappings.icd10_ekod icd10
   ON code = source_code
 ;
