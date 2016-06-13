@@ -1,0 +1,493 @@
+id,sjukhus_id,sjukhus_name,lan_kom
+1,10010,Sabbatsbergs sjukhus,1
+2,10011,S:t Görans sjukhus,1
+3,10012,S:t Eriks sjukhus,1
+4,10013,Södersjukhuset,1
+5,10301,Blackebergs sjukhus,1
+6,10303,Sabbatsbergs sjukhem,1
+7,10306,Gamla st Södermalms socialpsykiatriska en,1
+8,10321,Stockholms sjukhem,1
+9,10322,Stora Sköndals sjukhem,1
+10,10331,Åkeshovs sjukhus,1
+11,10349,Dalens sjukhus,1
+12,10351,Serafens sjukhem,1
+13,104011,Privat vårdgivare,1
+14,104013,Privat vårdgivare,1
+15,104014,Privat vårdgivare,1
+16,104019,Privat vårdgivare,1
+17,104022,Privat vårdgivare,1
+18,104028,Privat vårdgivare,1
+19,104033,Privat vårdgivare,1
+20,104047,Privat vårdgivare,1
+21,10405,Privat vårdgivare,1
+22,104051,Privat vårdgivare,1
+23,104056,Privat vårdgivare,1
+24,10406,Privat vårdgivare,1
+25,104061,Privat vårdgivare,1
+26,104069,Privat vårdgivare,1
+27,10407,Privat vårdgivare,1
+28,104073,Privat vårdgivare,1
+29,104075,Privat vårdgivare,1
+30,104077,Privat vårdgivare,1
+31,104078,Privat vårdgivare,1
+32,104079,Privat vårdgivare,1
+33,10408,Privat vårdgivare,1
+34,104083,Privat vårdgivare,1
+35,10413,Privat vårdgivare,1
+36,10422,Privat vårdgivare,1
+37,10424,Privat vårdgivare,1
+38,10426,Privat vårdgivare,1
+39,10427,Privat vårdgivare,1
+40,10429,Privat vårdgivare,1
+41,10430,Privat vårdgivare,1
+42,10432,Privat vårdgivare,1
+43,10433,Privat vårdgivare,1
+44,10434,Privat vårdgivare,1
+45,10436,Privat vårdgivare,1
+46,10439,Privat vårdgivare,1
+47,10443,Privat vårdgivare,1
+48,10450,Privat vårdgivare,1
+49,10452,Privat vårdgivare,1
+50,10457,Privat vårdgivare,1
+51,10458,Privat vårdgivare,1
+52,10459,Privat vårdgivare,1
+53,10460,Optagon Kirurgi AB,1
+54,10461,Meducular Strandvägskliniken,1
+55,10462,Team LKC,1
+56,10463,Globen ögonklinik,1
+57,10464,Gynspecialisten AB,1
+58,10465,Privat vårdgivare,1
+59,10466,Privat vårdgivare,1
+60,10468,Privat vårdgivare,1
+61,10471,Stiftelsen Hublegården,1
+62,10472,Mössebergs Kurort & Behandlingscenter,1
+63,10473,Frösunda center,1
+64,10476,Mälargården,1
+65,10477,Spenshult Ab Rehabilitering,1
+66,10481,Ersta sjukhus,1
+67,10482,Röda Korsets sjukhus,1
+68,10483,Sophiahemmet,1
+69,10484,Sabbatsbergs Närsjukhus,1
+70,10486,Ortopediska Huset,1
+71,10487,Privat vårdgivare,1
+72,10488,Privat vårdgivare,1
+73,10489,Dalens Närsjukhus,1
+74,10490,Europakliniken,1
+75,10492,Cityakuten,1
+76,10493,Järva Närsjukhus,1
+77,10494,Privat vårdgivare,1
+78,10495,Vidarkliniken,1
+79,10496,Ericastiftelsen,1
+80,10497,Spine center Löwenströmska,1
+81,10498,Artro center Löwenströmska,1
+82,104X10,Privat vårdgivare,1
+83,104X11,Privat vårdgivare,1
+84,104XX4,Privat vårdgivare,1
+85,104XX7,Privat vårdgivare,1
+86,104XX9,Privat vårdgivare,1
+87,10501,Långbro sjukhus,1
+88,10502,Beckomberga sjukhus,1
+89,10503,Norrtulls sjukhus,1
+90,10505,Rånäs sjukhus,1
+91,10508,10508,1
+92,10519,10519,1
+93,10520,10520,1
+94,10601,Mariamottagningarna,1
+95,10602,Karlhälls sjukhem,1
+96,10611,Farsta Årsta Vantörs socialpsykiatriska e,1
+97,10XXXX,10XXXX,1
+98,11001,Karolinska sjukhuset,1
+99,11002,Huddinge sjukhus,1
+100,11010,Danderyds sjukhus,1
+101,11011,Södertälje sjukhus,1
+102,11012,Norrtälje sjukhus,1
+103,11013,Löwenströmska sjukhuset,1
+104,11014,Nacka sjukhus,1
+105,11330,Saltsjöbadens sjukhus,1
+106,11334,Nynäshamns sjukhus,1
+107,11335,Handens sjukhus,1
+108,11337,Jakobsbergs sjukhus,1
+109,11338,Lidingö sjukhus,1
+110,11346,Täby sjukhus,1
+111,11351,Sollentuna sjukhus,1
+112,11353,Åkersberga sjukhus,1
+113,11362,Sjukhemmet hatten,1
+114,11638,Tallbackens behandlingshem,1
+115,12001,Akademiska sjukhuset,3
+116,12010,Enköpings lasarett,3
+117,12400,Privat vårdgivare,3
+118,12402,Privat vårdgivare,3
+119,12404,Privat vårdgivare,3
+120,12405,Privat vårdgivare,3
+121,12407,Privat vårdgivare,3
+122,12409,Privat vårdgivare,3
+123,12481,Elisabethkliniken,3
+124,124XX2,Privat vårdgivare,3
+125,124XX3,Privat vårdgivare,3
+126,124XX6,Privat vårdgivare,3
+127,12850,12850,3
+128,13010,Mälarsjukhuset,4
+129,13011,Nyköpings lasarett,4
+130,13012,Kullbergska sjukhuset,4
+131,13325,Löts Rehabiliteringscentrum,1
+132,13403,Privat vårdgivare,4
+133,13406,Privat vårdgivare,4
+134,13480,Ryggkirurgiska kliniken i Strängnäs,4
+135,13540,Karsuddens sjukhus,4
+136,15101,"Mörby Vårdcentral, Danderyd",1
+137,15106,Vallentuna sjukhem,1
+138,15109,15109,1
+139,15122,15122,1
+140,15123,15123,1
+141,15129,Torsviks Vårscentral,1
+142,15145,15145,1
+143,15151,Tullportsgatan 12 c,1
+144,15152,Kanalvägen 17,1
+145,15164,Östermalm/Lidingö psykmottagning,1
+146,15170,Mörbymott DVÖ/psyk Danderyd,1
+147,15171,Rehab-enh Österm/Lidingö psyk,1
+148,15181,15181,1
+149,15185,15185,1
+150,15193,Östermalm/Lidingö psyk sektor,1
+151,15195,Djursholms doktorn,1
+152,15201,15201,1
+153,15403,PBU Globen,1
+154,15404,Hallunda PBU,1
+155,15405,Haninge PBU,1
+156,15406,Huddinge PBU,1
+157,15407,Hökarängens PBU,1
+158,15408,Jakobsbergs PBU,1
+159,15409,Järva PBU,1
+160,15410,Kungsholmens PBU,1
+161,15414,Nacka PBU,1
+162,15416,Norrtälje PBU,1
+163,15419,Skärholmens PBU,1
+164,15420,Sollentuna PBU,1
+165,15421,Solna PBU,1
+166,15422,Södermalms PBU,1
+167,15423,Södertälje PBU,1
+168,15425,Täby PBU,1
+169,15426,Vällingby PBU,1
+170,15428,Österåkers PBU,1
+171,15432,BUP Tideliusgatan,1
+172,15444,Privat vårdgivare,1
+173,16104,Skytteholms Vårdcentral,1
+174,16108,16108,1
+175,16109,Märsta  Vårdcentral,1
+176,16112,16112,1
+177,16114,Vårdcentralen Kronan,1
+178,16138,16138,1
+179,16154,Psykmottagningen Östervägen,1
+180,16158,Upplands Väsby Psykmott,1
+181,16162,Centrummottagningen,1
+182,16200,16200,1
+183,17104,17104,1
+184,17105,Rinkeby vårdcentral,1
+185,17110,Tappströms Hälsocentral Ekerö,1
+186,17119,Serafens vårdcentral,1
+187,17133,17133,1
+188,17135,17135,1
+189,17136,17136,1
+190,17137,17137,1
+191,17149,Spångamottagingen,1
+192,17156,17156,1
+193,17190,Rinkebytorget 8,1
+194,17196,Västra Mottagningen,1
+195,17198,17198,1
+196,17207,Psykmott Ekerö,1
+197,17226,Psykmottagningen Spånga-Kista,1
+198,17235,"Beroendecentrum Nord, Norrmalm",1
+199,17242,Missbruksvård i Vallentuna,1
+200,17243,Östermalms beroendemottagning,1
+201,17244,Lidingö beroendemottagning,1
+202,17245,Österåkers beroendemottagning,1
+203,17247,Alviks psykiatriska mottagning,1
+204,17249,Upplands Bro alk. pol.klinik,1
+205,17250,17250,1
+206,17251,Järfälla alk.mottagning,1
+207,17252,Sigtuna Vuxenenhet,1
+208,17253,Solna beroendevård,1
+209,17254,Sollentuna Andreamottagning,1
+210,17255,Upplands Väsby soc. läkarmottagning,1
+211,17256,Täby beroendemottagning,1
+212,17258,Hässelbymottagningen,1
+213,17259,Danderyds beroendemottagning,1
+214,17263,Norrtälje beroendevård,1
+215,17264,Psykversamheten Spånga,1
+216,17268,17268,1
+217,17273,Mini Maria Botkyrka,1
+218,18104,Farsta Gubbängen,1
+219,18106,18106,1
+220,18107,18107,1
+221,18118,Bollmora vårdcentral,1
+222,18123,Ektorps vårdcentral,1
+223,18125,Norra Mottagningen,1
+224,18184,Värmdö psykiatriska mottagning,1
+225,18186,Nynäshamns psykiatriska mottagning,1
+226,18187,Värmdö beroendemottagning,1
+227,18202,Maria ungdomsmottagning,1
+228,18207,Enskede psykoterapi,1
+229,18223,18223,1
+230,18225,Tyresö Psykmott Öpv,1
+231,18226,Handens socialpsykiatriska enhet,1
+232,18229,Ytterö behandlingshem,1
+233,18253,Andreashemmet,1
+234,18255,Enskede Årsta Vantörs socialpsykiatriska,1
+235,18262,Haninge Lokala mottagning,1
+236,18264,Skärholmens öppenvårds mottagning BCS,1
+237,18265,Årsta-Vantörs psykiatriska verksamhet,1
+238,18266,BC Södertäljemott,1
+239,18267,Krukis BC,1
+240,18268,Gullmarsplans beroendecentrum,1
+241,19090,Huddinge psykmottaging,1
+242,19091,Psykosteam Huddinge,1
+243,19100,Liljeholmens psykiatri,1
+244,19101,Skärholmens vårdcentral,1
+245,19102,Beroendecentrum,1
+246,19103,19103,1
+247,19104,19104,1
+248,19106,Huddinge vårdcentral,1
+249,19111,19111,1
+250,19112,Hallunda vårdcentral,1
+251,19114,19114,1
+252,19115,19115,1
+253,19144,Fittja vårdcentral,1
+254,19145,Älvsjö vårdcentral,1
+255,19147,19147,1
+256,19150,Liljeholmens vårdcentral,1
+257,19152,Gröndals vårdcentral,1
+258,19160,19160,1
+259,19171,BCS Alby-Botkyrkamottagningen,1
+260,19172,Utsikten BCS Huddingemottagningen,1
+261,19523,"Psyk mottagningen för döva, Älvsjö",1
+262,21001,Universitetssjukhuset i Linköping,5
+263,21011,Finspångs lasarett,5
+264,21013,Vrinnevisjukhuset,5
+265,21014,Motala lasarett,5
+266,21402,Privat vårdgivare,5
+267,21409,Privat vårdgivare,5
+268,21411,Privat vårdgivare,5
+269,21412,Privat vårdgivare,5
+270,21413,Privat vårdgivare,5
+271,21414,Privat vårdgivare,5
+272,22010,"Ryhov, länssjukhus",6
+273,22011,Höglandssjukhuset,6
+274,22012,Värnamo sjukhus,6
+275,22404,Privat vårdgivare,6
+276,22406,Privat vårdgivare,6
+277,224XX1,Privat vårdgivare,6
+278,224XX2,Privat vårdgivare,6
+279,224XX3,Privat vårdgivare,6
+280,224XX4,Privat vårdgivare,6
+281,23010,Växjö lasarett,7
+282,23011,Ljungby lasarett,7
+283,23401,Privat vårdgivare,7
+284,23404,Privat vårdgivare,7
+285,23405,Privat vårdgivare,7
+286,23406,Privat vårdgivare,7
+287,23408,Privat vårdgivare,7
+288,23500,S:t Sigfrids sjukhus,7
+289,24010,Västerviks sjukhus,8
+290,24101,24101,8
+291,24402,Privat vårdgivare,8
+292,24403,Privat vårdgivare,8
+293,24405,Privat vårdgivare,8
+294,24406,Privat vårdgivare,8
+295,24407,Privat vårdgivare,8
+296,25010,Länssjukhuset Kalmar,8
+297,25011,Oskarshamns sjukhus,8
+298,26010,Visby lasarett,9
+299,26400,Privat vårdgivare,9
+300,26401,Diarerum AB,9
+301,27012,Blekingesjukhuset,10
+302,28010,Kristianstads sjukhus,12
+303,28011,Ängelholms sjukhus,12
+304,28012,Hässleholms sjukhus,12
+305,28013,Simrishamns sjukhus,12
+306,28020,Hospice Kristianstad (PV),12
+307,28030,Hospice Hässleholm (PV),12
+309,30001,Skånes Universitetssjukhus Malmö,12
+310,30402,Privat vårdgivare,12
+311,304033,Privat vårdgivare,12
+312,30404,Privat vårdgivare,12
+313,30407,Privat vårdgivare,12
+314,30409,Privat vårdgivare,12
+315,30411,Privat vårdgivare,12
+316,30412,Privat vårdgivare,12
+317,30413,Privat vårdgivare,12
+318,30417,Privat vårdgivare,12
+319,30419,Privat vårdgivare,12
+320,30420,Privat vårdgivare,12
+321,30421,Privat vårdgivare,12
+322,30424,Privat vårdgivare,12
+323,30425,Privat vårdgivare,12
+324,30427,Privat vårdgivare,12
+325,30429,Privat vårdgivare,12
+326,30430,Privat vårdgivare,12
+327,30431,Privat vårdgivare,12
+328,30439,Privat vårdgivare,12
+329,30444,Privat vårdgivare,12
+330,30447,Privat vårdgivare,12
+331,30450,Privat vårdgivare,12
+332,30451,Privat vårdgivare,12
+333,30452,Privat vårdgivare,12
+334,30453,Privat vårdgivare,12
+335,30458,Privat vårdgivare,12
+336,30459,Privat vårdgivare,12
+337,304X10,Privat vårdgivare,12
+338,304X11,Privat vårdgivare,12
+339,304X12,Privat vårdgivare,12
+340,304X13,Privat vårdgivare,12
+341,304X14,Privat vårdgivare,12
+342,304XX1,Privat vårdgivare,12
+343,304XX2,Privat vårdgivare,12
+344,304XX3,Privat vårdgivare,12
+345,304XX4,Privat vårdgivare,12
+346,304XX5,Privat vårdgivare,12
+347,304XX6,Privat vårdgivare,12
+348,304XX7,Privat vårdgivare,12
+349,304XX9,Privat vårdgivare,12
+351,41001,Skånes Universitetssjukhus Lund,12
+352,41002,Skånes Universitetssjukhus,12
+353,41010,Landskrona lasarett,12
+354,41011,Trelleborgs lasarett,12
+355,41012,Helsingborgs lasarett,12
+356,41013,Ystads lasarett,12
+357,41360,Kungshults Hospice,12
+358,41403,Privat vårdgivare,12
+359,42010,Hallands sjukhus Halmstad,13
+360,42011,Hallands sjukhus Varberg,13
+361,42301,Kungsbacka sjukhus,13
+362,42400,Capio aneroxicenter H,13
+363,42402,Privat vårdgivare,13
+364,42403,Privat vårdgivare,13
+365,42406,Privat vårdgivare,13
+366,42410,Privat vårdgivare,13
+367,42420,Spenshults reumatikersjukhus,13
+368,424XX2,Privat vårdgivare,13
+369,424XX4,Privat vårdgivare,13
+370,42XX12,42XX12,13
+371,50031,Carlanderska,14
+372,50070,Lundby sjukhus,14
+373,50071,Västra Frölunda sjukhus,14
+374,50404,Göteborgs plastikcentrum,14
+375,50405,Privat  vårdgivare,14
+376,50407,Privat  vårdgivare,14
+377,50409,Privat  vårdgivare,14
+378,50410,Vasa sjukhus,14
+379,50420,Privat  vårdgivare,14
+380,50423,Privat  vårdgivare,14
+381,50427,Privat  vårdgivare,14
+382,50431,Privat  vårdgivare,14
+383,50434,Artro o Spinecenter Göteborg,14
+384,50435,Privat vårdgivare,14
+385,50436,Privat vårdgivare,14
+386,50437,Privat vårdgivare,14
+387,50439,Privat vårdgivare,14
+388,50442,Privat vårdgivare,14
+389,50446,Privat vårdgivare,14
+390,50447,Privat vårdgivare,14
+391,50449,Privat vårdgivare,14
+392,504X11,Privat vårdgivare,14
+393,504XX1,Privat vårdgivare,14
+394,504XX2,Privat vårdgivare,14
+395,504XX4,Privat vårdgivare,14
+396,504XX6,Privat vårdgivare,14
+397,504XX7,Privat vårdgivare,14
+398,50886,Angereds närsjukhus,14
+399,51001,Sahlgrenska universitetssjukhuset,14
+400,51012,Kungälvs sjukhus,14
+401,51013,NU-sjukvården,14
+402,51014,Södra Älvsborgs sjukhus,14
+403,52012,Alingsås lasarett,14
+404,53014,Skaraborgs sjukhus,14
+405,54010,Karlstads sjukhus,17
+406,54011,Kristinehamns sjukhus,17
+407,54012,Arvika sjukhus,17
+408,54013,Säffle sjukhus,17
+409,54014,Torsby sjukhus,17
+410,54050,Hagfors sjukstuga,17
+411,541008,VC Gripen,17
+412,541030,VC Kronoparken,17
+413,54401,Privat vårdgivare,17
+414,54402,Privat vårdgivare,17
+415,55010,Universitetssjukhuset Örebro,18
+416,55011,Karlskoga lasarett,18
+417,55012,Lindesbergs lasarett,18
+418,55401,Privat vårdgivare,18
+419,55403,Privat vårdgivare,18
+420,554XX1,Privat vårdgivare,18
+421,56010,Västerås lasarett,19
+422,56011,Sala lasarett,19
+423,56012,Köpings lasarett,19
+424,56013,Fagersta lasarett,19
+425,56402,Privat vårdgivare,19
+426,56403,Privat vårdgivare,19
+427,56404,Privat vårdgivare,19
+428,56406,Privat vårdgivare,19
+429,56407,Privat vårdgivare,19
+430,56408,Privat vårdgivare,19
+431,56409,Privat vårdgivare,19
+432,56410,Privat vårdgivare,19
+433,56411,Privat vårdgivare,19
+434,56412,Privat vårdgivare,3
+435,57010,Falu lasarett,20
+436,57011,Mora lasarett,20
+437,57012,Ludvika lasarett,20
+438,57013,Avesta lasarett,20
+439,57316,Borlänge sjukhus,20
+440,57401,Privat vårdgivare,20
+441,574XX1,Privat vårdgivare,20
+442,57500,Säters sjukhus,20
+443,57613,M.H.E. Kliniken,20
+444,61010,Gävle sjukhus,21
+445,61011,Bollnäs sjukhus,21
+446,61012,Hudiksvalls sjukhus,21
+447,611018,Ljusdals hälsocentral,21
+448,61401,Privat vårdgivare,21
+449,61402,Privat vårdgivare,21
+450,61404,Privat vårdgivare,21
+451,61499,Privat vårdgivare,21
+452,62010,Sundsvalls sjukhus,22
+453,62011,Örnsköldsviks sjukhus,22
+454,62012,Härnösands sjukhus,22
+455,62013,Sollefteå sjukhus,22
+456,62400,Privat vårdgivare,22
+457,62401,Privat vårdgivare,22
+458,62403,Privat vårdgivare,22
+459,624XX1,Privat vårdgivare,22
+460,63010,Östersunds sjukhus,23
+461,63305,Strömsunds sjukhus,23
+462,63401,Privat vårdgivare,23
+463,64001,Norrlands Universitetssjukhus,24
+464,64010,Skellefteå lasarett,24
+465,64011,Lycksele lasarett,24
+466,64308,Malå sjukhem,24
+467,64309,Dorotea sjukhem,24
+468,64311,Sorsele sjukhem,24
+469,64313,Tärnaby sjukhem,24
+470,64317,Åsele sjukhem,24
+471,64318,Storumans sjukhem,24
+472,64321,Vilhelmina sjukhem,24
+473,64326,MS-hemmet Björkgården,24
+474,64401,Privat vårdgivare,24
+475,64403,Privat vårdgivare,24
+476,64406,Privat vårdgivare,24
+477,64407,Privat vårdgivare,24
+478,65012,Gällivare sjukhus,25
+479,65013,Piteå sjukhus,25
+480,65014,Kalix sjukhus,25
+481,65015,Kiruna sjukhus,25
+482,65016,Sunderby sjukhus,25
+483,65303,Haparanda hälsocentral,25
+484,65304,Arvidsjaurs hälsocentral,25
+485,65305,Arjeplogs hälsocentral,25
+486,65306,Jokkmokks hälsocentral,25
+487,65307,Pajala hälsocentral,25
+488,65310,Övertorneå hälsocentral,25
+489,65403,Privat vårdgivare,25
+490,65408,Privat vårdgivare,25
+491,65600,Psykiatrin länsgemensamt,25
+501,65010,Bodens lasarett,25
+502,61013,Sandvikens sjukhus,21
+503,61015,Hälsinglands sjukhus,21

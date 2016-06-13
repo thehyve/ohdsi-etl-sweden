@@ -1,0 +1,163 @@
+sourceCode,ADD_INFO:original,conceptId,ADD_INFO:original
+0,Allmänmedicin,38004446,Allmänmedicin
+1,Anestesi- och intensivvård,38004450,Anestesi- och intensivvård
+5,Barn- och ungdomsmedicin,38004477,Barn- och ungdomsmedicin
+599,Barn- och ungdomsmedicin,38004477,Barn- och ungdomsmedicin
+8,Hud- och könssjukdomar,38004484,Hud- och könssjukdomar
+10,Internmedicin,38004456,Internmedicin
+11,8 Endokrinologi och diabetologi,44813779,8 Endokrinologi och diabetologi
+12,Kardiologi,38004451,Kardiologi
+13,Infektionssjukdomar,38004484,Infektionssjukdomar
+14,Lungsjukdomar,38004472,Lungsjukdomar
+15,Medicinsk gastroenterologi och hepatologi,38004455,Medicinsk gastroenterologi och hepatologi
+16,Medicinska njursjukdomar,38004474,Medicinska njursjukdomar
+17,Reumatologi,38004491,Reumatologi
+18,Geriatrik,38004478,Geriatrik
+19,Yrkesmedicin,38004492,Yrkesmedicin
+20,Kirurgi,38004447,Kirurgi
+21,Barn- och ungdomskirurgi,45756819,Barn- och ungdomskirurgi
+22,Handkirurgi,38004480,Handkirurgi
+23,Neurokirurgi,38004459,Neurokirurgi
+24,Ortopedi,38004465,Ortopedi
+25,Plastikkirurgi,38004467,Plastikkirurgi
+26,Thoraxkirurgi,38004473,Thoraxkirurgi
+27,Urologi,38004474,Urologi
+30,Transfusionsmedicin,45756752,Transfusionsmedicin
+31,Klinisk bakteriologi,4078136,Klinisk bakteriologi
+32,Klinisk fysiologi,4215131,Klinisk fysiologi
+33,Klinisk kemi,45769519,Klinisk kemi
+34,Klinisk neurofysiologi,45756763,Klinisk neurofysiologi
+35,Klinisk patologi,45756797,Klinisk patologi
+36,Klinisk virologi,44808182,Klinisk virologi
+37,Klinisk immunologi,4252371,Klinisk immunologi
+40,Obstetrik och gynekologi,38004461,Obstetrik och gynekologi
+45,Neurologi,38004458,Neurologi
+50,Psykiatri,38004469,Psykiatri
+51,Barn- och ungdomspsykiatri,45756756,Barn- och ungdomspsykiatri
+52,Rättspsykiatri,45756775,Rättspsykiatri
+54,Socialmedicin,4084207,Socialmedicin
+60,Medicinsk radiologi,4180938,Medicinsk radiologi
+61,Onkologi,38004507,Onkologi
+62,Gynekologisk onkologi,38004513,Gynekologisk onkologi
+65,Ögonsjukdomar,38004463,Ögonsjukdomar
+70,"Öron-, näs- och halssjukdomar",38004449,"Öron-, näs- och halssjukdomar"
+71,Hörselrubbningar,38004489,Hörselrubbningar
+72,Röst- och talrubbningar,38004125,Röst- och talrubbningar
+73,Smärtlindring,38004494,Smärtlindring
+74,Nukleärmedicin,38004476,Nukleärmedicin
+75,Rehabiliteringsmedicin,38004468,Rehabiliteringsmedicin
+76,Hematologi,38004501,Hematologi
+77,Allergisjukdomar,38004448,Allergisjukdomar
+78,Barn- och ungdomsallergologi,38004448,Barn- och ungdomsallergologi
+79,Barn- och ungdomsneurologi med habilitering,45756788,Barn- och ungdomsneurologi med habilitering
+80,Tändernas sjukdomar,38003672,Tändernas sjukdomar
+87,Barn- och ungdomskardiologi,45756805,Barn- och ungdomskardiologi
+88,Neonatologi,45756786,Neonatologi
+89,Neuroradiologi,45756791,Neuroradiologi
+90,Barn- och ungdomsradiologi,45756816,Barn- och ungdomsradiologi
+91,Koagulations- och blödningsrubbningar,38004501,Koagulations- och blödningsrubbningar
+92,Klinisk farmakologi,38003815,Klinisk farmakologi
+93,Klinisk genetik,45756757,Klinisk genetik
+94,Klinisk cytologi,45756766,Klinisk cytologi
+95,Rättsmedicin,38003790,Rättsmedicin
+96,Företagshälsovård,38004492,Företagshälsovård
+97,Skolhälsovård,38003654,Skolhälsovård
+98,Klinisk nutrition,38003689,Klinisk nutrition
+99,Yrkes- och miljömedicin,38003974,Yrkes- och miljömedicin
+100,Internmedicin,38004456,Internmedicin
+101,Internmedicin,38004456,Internmedicin
+199,Yrkesmedicin,38004492,Yrkesmedicin
+899,Neuroradiologi,45756791,Neuroradiologi
+1099,Internmedicin,38004456,Internmedicin
+1198,8 Endokrinologi och diabetologi,44813779,8 Endokrinologi och diabetologi
+1199,8 Endokrinologi och diabetologi,38004485,8 Endokrinologi och diabetologi
+1299,Kardiologi,38004451,Kardiologi
+1399,Infektionssjukdomar,38004484,Infektionssjukdomar
+1499,Lungsjukdomar,38004472,Lungsjukdomar
+1599,Medicinsk gastroenterologi och hepatologi,38004455,Medicinsk gastroenterologi och hepatologi
+1699,Medicinska njursjukdomar,38004474,Medicinska njursjukdomar
+1799,Reumatologi,38004491,Reumatologi
+1899,Geriatrik,38004478,Geriatrik
+2099,Kirurgi,38004447,Kirurgi
+2199,Barn- och ungdomskirurgi,45756819,Barn- och ungdomskirurgi
+2299,Handkirurgi,38004480,Handkirurgi
+2399,Neurokirurgi,38004459,Neurokirurgi
+2499,Ortopedi,38004465,Ortopedi
+2599,Plastikkirurgi,38004464,Plastikkirurgi
+2699,Thoraxkirurgi,38004473,Thoraxkirurgi
+2799,Urologi,38004474,Urologi
+3099,Transfusionsmedicin,45756752,Transfusionsmedicin
+3199,Klinisk bakteriologi,45756763,Klinisk bakteriologi
+3299,Klinisk fysiologi,45756763,Klinisk fysiologi
+3399,Klinisk kemi,45756757,Klinisk kemi
+3499,Klinisk neurofysiologi,45756763,Klinisk neurofysiologi
+3599,Klinisk patologi,45756797,Klinisk patologi
+3699,Klinisk virologi,38004493,Klinisk virologi
+3799,Klinisk immunologi,38004493,Klinisk immunologi
+4099,Obstetrik och gynekologi,38004461,Obstetrik och gynekologi
+4599,Neurologi,38004458,Neurologi
+5099,Psykiatri,38004469,Psykiatri
+5199,Barn- och ungdomspsykiatri,45756756,Barn- och ungdomspsykiatri
+5299,Rättspsykiatri,45756775,Rättspsykiatri
+5499,Socialmedicin,38004477,Socialmedicin
+6099,Medicinsk radiologi,38004507,Medicinsk radiologi
+6199,Onkologi,38004507,Onkologi
+6299,Gynekologisk onkologi,38004508,Gynekologisk onkologi
+6599,Ögonsjukdomar,38004484,Ögonsjukdomar
+7099,"Öron-, näs- och halssjukdomar",38004449,"Öron-, näs- och halssjukdomar"
+7199,Hörselrubbningar,38004127,Hörselrubbningar
+7299,Röst- och talrubbningar,38004125,Röst- och talrubbningar
+7599,Rehabiliteringsmedicin,38004468,Rehabiliteringsmedicin
+9899,Klinisk nutrition,38003689,Klinisk nutrition
+9999,Yrkes- och miljömedicin,38003974,Yrkes- och miljömedicin
+10100,Internmedicin,38004456,Internmedicin
+10101,Internmedicin,38004456,Internmedicin
+10103,Internmedicin,38004456,Internmedicin
+10104,Internmedicin,38004456,Internmedicin
+10200,Internmedicin,38004456,Internmedicin
+10300,Internmedicin,38004456,Internmedicin
+10301,Internmedicin,38004456,Internmedicin
+10400,Internmedicin,38004456,Internmedicin
+10500,Internmedicin,38004456,Internmedicin
+10600,Internmedicin,38004456,Internmedicin
+10601,Internmedicin,38004456,Internmedicin
+10700,Internmedicin,38004456,Internmedicin
+20100,Kirurgi,38004447,Kirurgi
+20101,Kirurgi,38004464,Kirurgi
+20102,Kirurgi,38004464,Kirurgi
+20103,Kirurgi,38004464,Kirurgi
+20104,Kirurgi,38004464,Kirurgi
+20105,Kirurgi,38004464,Kirurgi
+20106,Kirurgi,38004464,Kirurgi
+20107,Kirurgi,38004464,Kirurgi
+20200,Kirurgi,38004464,Kirurgi
+30100,Transfusionsmedicin,45756752,Transfusionsmedicin
+30101,Transfusionsmedicin,45756752,Transfusionsmedicin
+30102,Transfusionsmedicin,45756752,Transfusionsmedicin
+30103,Transfusionsmedicin,45756752,Transfusionsmedicin
+30104,Transfusionsmedicin,45756752,Transfusionsmedicin
+30105,Transfusionsmedicin,45756752,Transfusionsmedicin
+40100,Obstetrik och gynekologi,43125859,Obstetrik och gynekologi
+40101,Obstetrik och gynekologi,43125859,Obstetrik och gynekologi
+40200,Obstetrik och gynekologi,43125859,Obstetrik och gynekologi
+50100,Psykiatri,38004469,Psykiatri
+50102,Psykiatri,38004469,Psykiatri
+60200,Medicinsk radiologi,38004507,Medicinsk radiologi
+60300,Medicinsk radiologi,38004507,Medicinsk radiologi
+60400,Medicinsk radiologi,38004507,Medicinsk radiologi
+60500,Medicinsk radiologi,38004507,Medicinsk radiologi
+70100,"Öron-, näs- och halssjukdomar",38004449,"Öron-, näs- och halssjukdomar"
+70200,"Öron-, näs- och halssjukdomar",38004449,"Öron-, näs- och halssjukdomar"
+70400,"Öron-, näs- och halssjukdomar",38004449,"Öron-, näs- och halssjukdomar"
+80100,Tändernas sjukdomar,38003672,Tändernas sjukdomar
+80200,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80201,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80300,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80400,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80500,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80600,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80700,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+80800,Tändernas sjukdomar,45756812,Tändernas sjukdomar
+99101,Yrkes- och miljömedicin,38003974,Yrkes- och miljömedicin
+99201,Yrkes- och miljömedicin,38003974,Yrkes- och miljömedicin
+99999,Other,0,Other

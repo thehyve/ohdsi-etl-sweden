@@ -1,0 +1,12 @@
+source_column_name,data_type,required,target_column_name,description
+lopnr,integer,1,lpnr,
+civil,varchar(2),,civil,
+lan,integer,,lan,
+famtypf,integer,,famtypf,
+konsviktf04,decimal,,konsviktf04,
+dispinkpersf04,integer,1,dispinkpersf04,
+sun2000niva,integer,,sun2000niva,
+syssstat11,integer,,syssstat11,
+utlsvbakgalt,integer,,utlsvbakgalt,
+yseg,varchar(2),,yseg,
+year,varchar(10),,year,
