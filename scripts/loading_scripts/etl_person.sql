@@ -35,5 +35,4 @@ FULL OUTER JOIN bayer.lpnr_aggregated AS age_gender
   ON lisa.lpnr = age_gender.lpnr
 -- Remove persons which have no year of birth.
 WHERE age_gender.year_of_birth IS NOT NULL
-ORDER BY lpnr2
 ;

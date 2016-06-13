@@ -2,16 +2,16 @@
 Simple first letter mapping for nomesco chapters.
 */
 
-INSERT INTO cdm5.procedure_occurrence (
-    procedure_occurrence_id,
-    person_id,
-    procedure_concept_id,
-    procedure_date,
-    procedure_type_concept_id,
-
-    visit_occurrence_id,
-    procedure_source_value
-)
+-- INSERT INTO cdm5.procedure_occurrence (
+--     procedure_occurrence_id,
+--     person_id,
+--     procedure_concept_id,
+--     procedure_date,
+--     procedure_type_concept_id,
+--
+--     visit_occurrence_id,
+--     procedure_source_value
+-- )
     SELECT  row_number() OVER (ORDER BY lpnr),
             lpnr,
             CASE WHEN procedure_map.target_concept_id IS NULL
@@ -48,11 +48,15 @@ INSERT INTO cdm5.procedure_occurrence (
 
     LEFT JOIN mappings.nomesco AS procedure_map
       ON code = procedure_map.source_code OR
-         -- Match on first letter. Only if complete code not in the mappping table (otherwise double entries)
+         -- Match on first two letters. Only if complete code not in the mappping table (otherwise double entries)
+         (SUBSTRING(code FROM 1 FOR 2) = procedure_map.source_code AND
+          code NOT IN (SELECT source_code FROM mappings.nomesco) ) OR
+         -- Match on first letter. Only if complete code and 2 letter code not in the mappping table (otherwise double entries)
          (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
-          code NOT IN (SELECT source_code FROM mappings.nomesco) )
+          SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM mappings.nomesco) )
 
     -- Only diagnostic codes
     WHERE code_type like 'op%'
+    AND lower(code) like 'f%'
     -- and procedure_map.target_concept_id is null
 ;
