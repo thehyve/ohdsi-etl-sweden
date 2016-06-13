@@ -102,8 +102,10 @@ printf "%-30s" "Observation Work Status: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
 printf "%-30s" "Observation Education level: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
-printf "%-30s" "Observation Background: "
+printf "%-30s" "Observation Ethnic Background: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
+printf "%-30s" "Observation Planned visit: "
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_pvard.sql
 
 
 printf "%-30s" "Measurement Income: "

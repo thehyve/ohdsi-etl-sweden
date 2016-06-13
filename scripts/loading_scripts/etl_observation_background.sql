@@ -1,3 +1,6 @@
+/* Ethnic background, native or not.
+*/
+
 INSERT INTO cdm5.observation (
         person_id,
         observation_concept_id,
