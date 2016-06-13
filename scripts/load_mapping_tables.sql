@@ -31,14 +31,9 @@ CREATE TABLE mappings.snomed (
 
 CREATE TABLE mappings.nomesco (
     source_code	varchar(50) PRIMARY KEY,
-    source_concept_id integer,
-    source_vocabulary_id varchar(50),
-    source_code_description	varchar(200),
-    target_concept_id integer,
-    target_vocabulary_id varchar(50),
-    valid_start_date varchar(20),
-    valid_end_date varchar(20),
-    invalid_reason varchar(5)
+    source_name varchar(255),
+    target_name varchar(255),
+    target_concept_id integer
 )
 ;
 

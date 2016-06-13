@@ -61,9 +61,9 @@ sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_atcToRxNorm.sql
 
 echo
 echo "Preprocessing..."
-printf "%-30s" "Unique persons from registers: "
+printf "%-35s" "Unique persons from registers: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/lpnr_aggregated.sql
-printf "%-30s" "Single Ingredient Drugs.: "
+printf "%-35s" "Single Ingredient Drugs.: "
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/drug_strength_single_ingredient.sql
 echo "Create supporting SQL functions:"
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStartDate.sql
@@ -72,50 +72,50 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndD
 # Actual ETL. Always first Person and Death tables. Other tables rely on that
 echo
 echo "Performing ETL..."
-printf "%-30s" "Person: "
+printf "%-35s" "Person: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_person.sql
-printf "%-30s" "Death with addendum table: "
+printf "%-35s" "Death with addendum table: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
 # 26-05-2016: disabled death addendum. It is slow.
 # sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
-printf "%-30s" "Observation Period: "
+printf "%-35s" "Observation Period: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql
-printf "%-30s" "Visit Occurrence: "
+printf "%-35s" "Visit Occurrence: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_visit_occurrence.sql
 
-printf "%-30s" "Condition Occurrence: "
+printf "%-35s" "Condition Occurrence: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_condition_occurrence.sql
-printf "%-30s" "Procedure Occurrence: "
+printf "%-35s" "Procedure Occurrence: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_procedure_occurrence.sql
-printf "%-30s" "Drug Exposure: "
+printf "%-35s" "Drug Exposure: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_drug_exposure.sql
 
-printf "%-30s" "Observation Civil Status: " #Only where civil is not null
+printf "%-35s" "Observation Civil Status: " #Only where civil is not null
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_civil.sql
-printf "%-30s" "Observation Planned visit: " #all
+printf "%-35s" "Observation Planned visit: " #all
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_pvard.sql
-printf "%-30s" "Observation Utsatt Status: " #Only sluten care
+printf "%-35s" "Observation Utsatt Status: " #Only sluten care
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_utsatt.sql
-printf "%-30s" "Observation Insatt Status: " #Only sluten care
+printf "%-35s" "Observation Insatt Status: " #Only sluten care
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_insatt.sql
-printf "%-30s" "Observation Ekod: "          #Only where ekod is not null
+printf "%-35s" "Observation Ekod: "          #Only where ekod is not null
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_ekod.sql
-printf "%-30s" "Observation Work Status: "       #Only Lisa
+printf "%-35s" "Observation Work Status: "       #Only Lisa
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
-printf "%-30s" "Observation Education level: "   #Only Lisa
+printf "%-35s" "Observation Education level: "   #Only Lisa
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
-printf "%-30s" "Observation Ethnic Background: " #Only Lisa
+printf "%-35s" "Observation Ethnic Background: " #Only Lisa
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
 
 
-printf "%-30s" "Measurement Income: " #Only Lisa
+printf "%-35s" "Measurement Income: " #Only Lisa
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
-printf "%-30s" "Measurement Age: " #All registers
+printf "%-35s" "Measurement Age: " #All registers
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
 echo "Postprocessing..."
-printf "%-30s" "Condition Era: "
+printf "%-35s" "Condition Era: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_era.sql
-printf "%-30s" "Drug Era: "
+printf "%-35s" "Drug Era: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
