@@ -24,11 +24,16 @@ SELECT  -- If record not in LISA, then use the lpnr from the registries.
         age_gender.year_of_birth, -- CASE WHEN age_gender.year_of_birth IS NULL
         8552 as race_concept_id,      -- unknown race
         0 as ethnicity_concept_id     -- not mappable
-FROM bayer.lisa AS lisa
+FROM
+    -- 13-06-2016. No duplicate persons allowed. Could be duplicates
+    -- from different lisa years. If duplicate, the last year is chosen (for location).
+    ( SELECT lpnr, MAX(year) as year FROM bayer.lisa GROUP BY lpnr) AS temp
+LEFT JOIN bayer.lisa AS lisa
+  ON temp.lpnr = lisa.lpnr AND temp.year = lisa.year
 -- Full outer to also keep missing data on both tables.
 FULL OUTER JOIN bayer.lpnr_aggregated AS age_gender
- ON lisa.lpnr = age_gender.lpnr
+  ON lisa.lpnr = age_gender.lpnr
 -- Remove persons which have no year of birth.
 WHERE age_gender.year_of_birth IS NOT NULL
--- order by lpnr1
+ORDER BY lpnr2
 ;

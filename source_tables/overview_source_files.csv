@@ -3,6 +3,7 @@ patient_sluten.csv,patient_register,patient_sluten,columns_patient_register.csv,
 patient_oppen.csv,patient_register,patient_oppen,columns_patient_register.csv,care_type,oppen
 patient_dag_kiru.csv,patient_register,patient_dag_kiru,columns_patient_register.csv,care_type,dag_kiru
 lisa2013.csv,lisa_register,lisa,columns_lisa_register.csv,year,2013
+lisa2011.csv,lisa_register,lisa,columns_lisa_register.csv,year,2011
 dod_2015.csv,death_register,death,columns_death_register.csv,,
 dod_6114.csv,death_register,death,columns_death_register.csv,,
 *,drug_register,drug,columns_drug_register.csv,,

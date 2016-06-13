@@ -32,7 +32,7 @@ echo "Using $ENCODING encoding of the source files."
 # echo "TODO: Specify cdm5 schema in addition to database"
 
 echo
-echo "Preprocessing patient registries..."
+echo "Preprocessing patient registers..."
 python $SCRIPTS_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
@@ -42,7 +42,7 @@ python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRI
 
 echo
 # The following is executed quiet (-q)
-echo "Truncating cdm5 tables and empty bayer and mappings schemas..."
+echo "Truncating cdm5 tables and empty schemas. Drop sequences"
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/empty_schemas.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 
@@ -61,7 +61,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_atcToRxNorm.sql
 
 echo
 echo "Preprocessing..."
-printf "%-30s" "Unique persons from registr.: "
+printf "%-30s" "Unique persons from registers: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/lpnr_aggregated.sql
 printf "%-30s" "Single Ingredient Drugs.: "
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/drug_strength_single_ingredient.sql
