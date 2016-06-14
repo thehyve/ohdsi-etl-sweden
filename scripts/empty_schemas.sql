@@ -1,5 +1,5 @@
 /* Empty the tables in reversed order of creation*/
-SET client_min_messages TO WARNING; -- turn off
+SET client_min_messages TO WARNING; -- turns off cascading warnings
 TRUNCATE TABLE cdm5.drug_exposure CASCADE;
 TRUNCATE TABLE cdm5.condition_occurrence CASCADE;
 TRUNCATE TABLE cdm5.visit_occurrence CASCADE;

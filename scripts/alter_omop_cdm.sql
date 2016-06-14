@@ -2,6 +2,7 @@
 Assigns auto increment to measurement and observation tables.
 Needed to quarentee an unique primary key.
 */
+SET client_min_messages TO WARNING; -- turns off cascading warnings
 
 DROP SEQUENCE IF EXISTS measurement_seq CASCADE;
 CREATE SEQUENCE measurement_seq;
