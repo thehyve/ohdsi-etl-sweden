@@ -60,3 +60,72 @@ KF,Scrotum and scrotal organs,Operation on scrotum,4077750
 KG,Penis,Operation on penis,4324260
 KK,Retroperitoneal space,Retroperitoneal tissue operations,4121769
 FNG06,Percutaneous transluminal coronary angioplasty withinsertion of stent,Percutaneous transluminal coronary angioplasty,4006788
+FNG05,Percutaneous transluminal coronary angioplasty (PTCA) with implantation of a stent (in),Placement of stent in coronary artery,4283892
+FXA00,Total cardiopulmonary bypass in normothermia or moderate hypothermia,Cardiopulmonary bypass operation,4272324
+FNA00,Anastomosis between the artery thoracica internal and coronary artery,Anastomosis of thoracic artery to coronary artery single,4168141
+FPE20,Implantation of transvenous pacemaker with atrial and ventrikelelektrod,Implantation of cardiac pacemaker,4144921
+FNC20,Aortokoronar bypass with two vein graft,Aortocoronary artery bypass graft with two vein grafts,4228304
+FNG00,Dilation of the coronary artery (s),Coronary angioplasty,4184832
+FNC10,Aortokoronar bypass with simple vein graft,Aortocoronary artery bypass graft with vein graft,4063237
+FNG02,Percutaneous transluminal coronary angioplasty (PTCA) (in),Percutaneous transluminal coronary angioplasty,4006788
+FNC30,Aortokoronar bypass with three vein graft,Aortocoronary artery bypass graft with three vein grafts,4228305
+FMD10,Implantation of biological aortic valve prosthesis,Replacement of aortic valve with tissue graft,40480947
+FPB22,Transvenous radiofrequency ablation of aberrant conduction pathway or arytmifokus (i),Radiofrequency ablation operation for arrhythmia,4049987
+FPE00,Implantation of transvenous pacemaker with ventrikelelektrod,Insertion of permanent pacemaker with transvenous electrodes ventricular,4204395
+FPE30,Replacing pulse generator on permanent transvenous pacemaker,Replacement of electronic heart device pulse generator,4149327
+FMD00,Implantation of mechanical aortic valve prosthesis,Mechanical prosthetic aortic valve replacement,4018561
+FWE00,Reoperation for deep haemorrhage,Control of hemorrhage,4201120
+FNC40,Aortokoronar bypass with four vein grafts,Aortocoronary artery bypass graft with vein graft,4063237
+FKB10,Anuloplastik ring at mitral insufficiency,Mitral annuloplasty using ring,4337061
+FPG33,Implantation of transvenous cardioverter-defibrillators and atrial and ventricular electrode,Implantation of cardioverter defibrillator with two electrode leads,4144899
+FWC00,Reoperation for deep infection,Infection control procedure,4298121
+FPB32,Transvenous radiofrequency ablation of the saphenous pulmonalisfokus or -bana,Laser ablation of long saphenous vein,4324784
+FPB32,Transvenous radiofrequency ablation of the saphenous pulmonalisfokus or -bana,Percutaneous transluminal laser ablation of long saphenous vein,4325852
+FPB20,Radio frequency ablation of aberrant cardiac focus (i),Radiofrequency ablation operation for arrhythmia,4049987
+FCA50,Resection and reconstruction of the ascending aorta with a vascular prosthesis,Repair of ascending aorta,44782479
+FPE96,Other implantation or replacement of transvenous pacemaker (i),Implantation of cardiac pacemaker,4144921
+FJA12,Percutaneous transluminal biopsy of the right ventricle,Percutaneous transluminal biopsy of right ventricle,4181954
+FXG00,Use of IABP,Cardioassist by aortic balloon pump,4163287
+FPE26,Implantation of transvenous pacemaker with biventricular electrodes,Implantation of biventricular cardiac pacemaker system,4179363
+FPJ00,Revision of pacemaker or electrodes,Revision of pacemaker electrode leads,4209904
+FPE40,Replacement electrode for permanent transvenous pacemaker,Replacement of permanent transvenous electrodes,4046707
+FPD96,Other operation for atrial fibrillation (i),Procedure for arrhythmia,4051932
+FPG30,Implantation of transvenous cardioverter-defibrillator and ventricular lead,Implantation of cardioverter defibrillator with one electrode lead,4137700
+FCA60,Resection of aortic root and ascending aorta with reimplantation of the coronary arteries and use of flap bearing Endoprosthesis,Replacement of root of aorta with reimplantation of coronary arteries using button technique,40493484
+FKD00,Implantation of mechanical mitralklaffprotes,Mechanical prosthetic mitral valve replacement,4160418
+FPE10,Implantation of transvenous pacemaker with atrial lead,Implantation of cardiac pacemaker,4144921
+FNA10,Sequential anastomoses between arteria thoracica internal and coronary arteries,Coronary artery bypass graft anastomosis of artery of thorax to coronary artery,4000733
+FXA20,Total cardiopulmonary bypass deep hypothermia and cardiac arrest,Cardiopulmonary bypass operation,4272324
+FWB00,Reoperation for superficial infection,Infection control procedure,4298121
+FPG36,Implantation of transvenous cardioverter-defibrillator with biventricular electrodes,Implantation of automatic cardiac defibrillator,4050572
+FNE96,Coronary bypass with other free arterial graft,Coronary artery bypass graft,4336464
+FPH00,Transvenous extraction of transvenous systems,Removal of transvenous electrodes,4099484
+FKC60,Resection of mitralklaffsegel with reconstruction,Mitral valve operation,4337060
+FPG40,Replacing pulse generator in transvenous cardioverter-defibrillator systems,Replacement of pulse generator of automatic cardioverter/defibrillator,44782864
+FXH00,Removal of IABP,Intraaortic balloon pump removal,4222272
+FKC20,Flapper Sail Plastik at mitral insufficiency,Mitral valve operation,4337060
+PA,Operations on arteries of aortic arch and branches,Operation on aorta ,4139931
+PB,Operations on arteries of upper extremity,Operative procedure on artery of extremity,4331725
+PC,Operations on suprarenal abdominal aorta and visceral arteries,Procedure on artery of abdomen,4040554
+PD,Operations on infrarenal abdominal aorta and iliac arteries and distal connections,Procedure on artery of abdomen,4040554
+PE,Operations on femoral artery with branches and connection to popliteal artery,Operative procedure on artery of extremity,4331725
+PF,Connection from femoral artery to infrapopliteal arteries and operations on popliteal artery and arteries of lower leg and foot,Operative procedure on artery of extremity,4331725
+PG,Extra-anatomic bypass operations,Extra-anatomical bypass graft,4050281
+PH,Operations on veins,Operative procedure on vein,4302533
+PJ,Operations on lymphatic system,Operation on lymphatic structure,4175627
+DR014,Hemodiafiltration (in),Hemodiafiltration,4049845
+DR015,Hemodialysis acute (in),Emergency hemodialysis,46270933
+DR016,Hemodialysis chronic (in),Maintenance hemodialysis,46273700
+DR023,Peritoneal dialysis acute,Peritoneal dialysis,4324124
+DR024,Peritoneal dialysis chronic (in),Chronic peritoneal dialysis,4021976
+DR029,Transfusion erythrocytes allogeneic,Transfusion of red blood cells,4022173
+DR030,Transfusion red cells autologous,Autotransfusion of red cells,4037780
+DR033,Transfusion of whole blood allogeneic,Transfusion of whole blood,4142651
+DR034,Transfusion of whole blood autologous,Autotransfusion of whole blood,4035109
+DR036,Transfusion plasma allogeneic,Transfusion of plasma,4028665
+DR037,Transfusion plasma autologous,Transfusion of plasma,4028665
+DR055,Citratdialys (in),Dialysis procedure,4032243
+DR056,Heparinfri dialysis (in),Dialysis procedure,4032243
+UJD02,Gastroscopy,Endoscopy of stomach,4297516
+UJD05,Gastroscopy with biopsy,Endoscopic biopsy of stomach,4004241
+UJF32,Colonoscopy,Colonoscopy,4249893
