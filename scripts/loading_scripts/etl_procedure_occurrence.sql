@@ -55,8 +55,7 @@ INSERT INTO cdm5.procedure_occurrence (
          (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
           SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM mappings.nomesco) )
 
-    -- Only diagnostic codes
-    WHERE code_type like 'op%'
-    -- AND lower(code) like 'f%'
-    -- and procedure_map.target_concept_id is null
+    -- Only procedure codes
+    -- Only codes starting with three letters (=NOMESCO), otherwise KVA (two letters) (15-06-2016)
+    WHERE code_type like 'op%' AND code ~ '[a-zA-Z][a-zA-Z][a-zA-Z]'
 ;
