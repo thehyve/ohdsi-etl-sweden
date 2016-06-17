@@ -10,6 +10,7 @@ INSERT INTO cdm5.drug_exposure (
 
     drug_source_value,
     quantity,
+    effective_drug_dose,
     dose_unit_concept_id,
     dose_unit_source_value,
     provider_id,
@@ -29,6 +30,7 @@ SELECT  row_number() OVER (ORDER BY lpnr),
         SUBSTRING( atc || ' ' || lnamn FROM 0 FOR 50) as drug_source_value, -- Just 50 characters allowed
         quantity, -- TODO: combine with forpstl for actual number of dispensed.
 
+        styrknum,
         CASE WHEN unit.target_concept_id IS NOT NULL
              THEN unit.target_concept_id
              ELSE 0
