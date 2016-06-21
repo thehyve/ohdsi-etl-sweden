@@ -53,6 +53,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
 echo "Loading source tables..."
 # sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_source_tables.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $DYNAMIC_SCRIPT_FOLDER/load_tables.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/modify_source_tables.sql
 echo
 echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
