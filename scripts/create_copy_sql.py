@@ -212,8 +212,12 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
 
             formatRegistry = FormatRegistry( file_path, target_table, schema_name )
             formatRegistry.set_format( format_path )
-
-            formatRegistry.process_file( )
+            
+            try:
+                formatRegistry.process_file( )
+            except IOError:
+                print "Warning: could not find '%s'" % file_path
+                continue
 
             with open(out_filepath, 'a') as f_out:
                 f_out.write( formatRegistry.create_add_column_query() )
