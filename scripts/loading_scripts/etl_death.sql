@@ -7,7 +7,7 @@ SELECT lpnr,
        ulorsak,
        38003569 -- EHR record patient status "Deceased"
 
-FROM bayer.death
+FROM (SELECT DISTINCT ON (lpnr) * FROM bayer.death ) AS death -- Only one row per person. One death per person
 
 LEFT JOIN mappings.snomed AS ulorsak_map
   ON ulorsak =

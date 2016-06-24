@@ -52,6 +52,7 @@ def main( input_files, path_out ):
 
             # Read in the header with column names
             column_names = csv_reader.next()
+            column_names = [x.lower() for x in column_names]
             # Determine which columns contain codes (op/dia/ekod)
             code_columns_bool = [is_code_column(col_name) for col_name in column_names]
 
