@@ -34,10 +34,11 @@ echo "Using $ENCODING encoding of the source files."
 echo
 echo "Preprocessing patient registers..."
 python $SCRIPTS_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
+python $SCRIPTS_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
-python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER #TODO: change encoding to LATIN1
+python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
 # TODO: exit from python with error if source files do not exist
 
 echo
@@ -77,8 +78,7 @@ printf "%-35s" "Person: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_person.sql
 printf "%-35s" "Death with addendum table: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
-# 26-05-2016: disabled death addendum. It is slow.
-# sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
 printf "%-35s" "Observation Period: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql
 printf "%-35s" "Visit Occurrence: "
@@ -91,6 +91,8 @@ sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_procedure_occurre
 printf "%-35s" "Drug Exposure: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_drug_exposure.sql
 
+printf "%-35s" "Observation Death Morsak: " #Additional causes of death
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_death.sql
 printf "%-35s" "Observation Civil Status: " #Only where civil is not null
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_civil.sql
 printf "%-35s" "Observation Planned visit: " #all

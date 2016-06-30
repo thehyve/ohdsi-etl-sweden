@@ -238,9 +238,14 @@ def process_overview_file( file_object ):
     for row in csv_file_overview:
         result.append(row)
 
-        # Also read preprocessed patient registries
+        # Also read preprocessed long patient and death registries
         filename, folder, target_table, format_filename, type_column, type_value = row
         if folder == 'patient_register' :
+            base, extension = filename.rsplit('.',1)
+            new_filename = '%s_long.%s' % (base, extension)
+            target_table_new = target_table + '_long'
+            result.append([new_filename, folder, target_table_new, format_filename, type_column, type_value])
+        if folder == 'death_register':
             base, extension = filename.rsplit('.',1)
             new_filename = '%s_long.%s' % (base, extension)
             target_table_new = target_table + '_long'

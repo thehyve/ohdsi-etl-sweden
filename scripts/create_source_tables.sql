@@ -77,7 +77,7 @@ CREATE TABLE bayer.lisa (
 ;
 
 CREATE TABLE bayer.death (
-    dodsdat	    integer,
+    dodsdat	    varchar(20),
     dodsdatn	varchar(20),
     ar          integer,
     kon         integer,
@@ -153,6 +153,35 @@ CREATE TABLE bayer.death (
     lan_kom	    integer,
     lan_text	varchar(20),
     skadans_natur	varchar(10)
+)
+;
+
+CREATE TABLE bayer.death_long (
+    dodsdat	    varchar(20),
+    dodsdatn	varchar(20),
+    ar          integer,
+    kon         integer,
+    ulorsak	    varchar(10),
+    dalddag	    integer,
+    daldman	    integer,
+    alder       integer,
+    fciv        varchar(2),
+    nation      varchar(5),
+    lpnr	    integer,
+    alkohol	    integer,
+    narkotik	integer,
+    dodutl      integer,
+    opererad	integer,
+    opdat       varchar(10),
+    skada       integer,
+    mord        varchar(10),
+    dodspl      integer,
+    aolycka     integer,
+    lan_kom	    integer,
+    lan_text	varchar(20),
+    skadans_natur	varchar(10),
+    code_type   varchar(20),
+    code        varchar(10)
 )
 ;
 
@@ -378,9 +407,9 @@ CREATE TABLE bayer.patient_oppen_long (
   lan_text	varchar(20),
   lan_kom	varchar(10),
   visit_id	integer,
+  care_type   varchar(20),
   code_type	varchar(10), -- ekod#, hdia, bdia#, op#
-  code	    varchar(10),
-  care_type   varchar(20)
+  code	    varchar(10)
 )
 ;
 

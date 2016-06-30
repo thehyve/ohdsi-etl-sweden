@@ -16,8 +16,8 @@ SELECT  lpnr,
         -- 11 and 12 are foreign, 21,22,23 are native Swedish
         -- TODO: find a observation value for foreign
         CASE utlsvbakgalt
-            WHEN 11 THEN  NULL-- Received elementary school education
-            WHEN 12 THEN  NULL-- Educated to primary school level
+            WHEN 11 THEN  NULL
+            WHEN 12 THEN  NULL
             WHEN 21 THEN 43021808  -- Native
             WHEN 22 THEN 43021808  -- Native
             WHEN 23 THEN 43021808  -- Native
