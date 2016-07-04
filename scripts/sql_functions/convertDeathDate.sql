@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION convertDeathDate( death_date integer )
+CREATE OR REPLACE FUNCTION convertDeathDate( death_date varchar )
     RETURNS date AS
 $$
 DECLARE
