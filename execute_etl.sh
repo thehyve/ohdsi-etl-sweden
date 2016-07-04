@@ -44,7 +44,7 @@ python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRI
 
 echo
 # The following is executed quiet (-q)
-echo "Truncating cdm5 tables and empty schemas. Drop sequences"
+echo "Truncating cdm5 tables and empty schemas. Dropping sequences"
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/empty_schemas.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 

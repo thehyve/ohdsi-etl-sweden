@@ -28,10 +28,10 @@ SELECT  row_number() OVER (ORDER BY lpnr),
         to_date(edatum, 'mm/dd/yyyy') as drug_exposure_start_date,
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
-        -- Combine ATC code with drug name
-        SUBSTRING( atc || '|' || lnamn FROM 0 FOR 50) as drug_source_value, -- Just 50 characters allowed
-        getDrugQuantity(forpstl, antal) as quantity,
+        -- Combine varunr with drug name. Just 50 characters allowed
+        SUBSTRING( varunr || '|' || lnamn FROM 0 FOR 50) as drug_source_value,
 
+        getDrugQuantity(forpstl, antal) as quantity,
         styrknum,
         CASE WHEN unit.target_concept_id IS NOT NULL
              THEN unit.target_concept_id
