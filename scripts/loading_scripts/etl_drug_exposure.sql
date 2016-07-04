@@ -1,4 +1,5 @@
-/* TODO: advanced drug mapping, with beredningsform, styrknum, styrka_enh, styrka_tf.
+/* Saves drugs to the drug_exposure table with simple mapping to to ingredient.
+TODO: advanced drug mapping, with beredningsform, styrknum, styrka_enh, styrka_tf.
 */
 
 INSERT INTO cdm5.drug_exposure (
@@ -27,7 +28,8 @@ SELECT  row_number() OVER (ORDER BY lpnr),
         to_date(edatum, 'mm/dd/yyyy') as drug_exposure_start_date,
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
-        SUBSTRING( atc || ' ' || lnamn FROM 0 FOR 50) as drug_source_value, -- Just 50 characters allowed
+        -- Combine ATC code with drug name
+        SUBSTRING( atc || '|' || lnamn FROM 0 FOR 50) as drug_source_value, -- Just 50 characters allowed
         quantity, -- TODO: combine with forpstl for actual number of dispensed.
 
         styrknum,

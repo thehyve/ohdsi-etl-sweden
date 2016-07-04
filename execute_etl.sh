@@ -12,7 +12,8 @@ SOURCE_FOLDER="source_tables"
 MAP_SCRIPT_FOLDER="$SCRIPTS_FOLDER/mapping_scripts"
 ETL_SCRIPT_FOLDER="$SCRIPTS_FOLDER/loading_scripts"
 DYNAMIC_SCRIPT_FOLDER="$SCRIPTS_FOLDER/rendered_sql"
-SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/functionsSQL"
+SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/sql_functions"
+PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
 
 # Check whether command line arguments are given
 if [[ $DATABASE_NAME = "" ]] || [[ $USER = "" ]]; then
@@ -33,8 +34,8 @@ echo "Using $ENCODING encoding of the source files."
 
 echo
 echo "Preprocessing patient registers..."
-python $SCRIPTS_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
-python $SCRIPTS_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
+python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
+python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
@@ -70,6 +71,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/drug_strength_single_
 echo "Create supporting SQL functions:"
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStartDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndDate.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/convertDeathDate.sql
 
 # Actual ETL. Always first Person and Death tables. Other tables rely on that
 echo

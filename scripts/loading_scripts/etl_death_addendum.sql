@@ -1,15 +1,22 @@
-CREATE TABLE bayer.death_addendum (
-    person_id integer, -- Links to OMOP death table. (one person, one row in death)
-    alcohol integer, -- 0 or 1
+/* Put additional death information in this addendum table.
+Records whether death is:
+    - Related to Alcohol, Narcotics, Work or Surgical Procedure.
+    - Happened abroad
+    - Where death occurred
+Note that this table allows multiple rows with the same person_id.
+*/
+
+CREATE TABLE cdm5.death_addendum (
+    person_id integer, -- Links to OMOP death table.
+    alcohol integer,
     narcotic integer,
     work integer,
     abroad integer,
     surgical_procedure integer,
     place_of_service_concept_id integer -- Hospital, Home, rehabilitation clinic, other.
 );
--- TODO: index on person_id
 
-INSERT INTO bayer.death_addendum
+INSERT INTO cdm5.death_addendum
 SELECT
     lpnr,
 
@@ -33,15 +40,15 @@ SELECT
          ELSE 0
     END AS abroad,
 
-    --
+    -- Source value 1 = yes, 2 = no, 3/blank are unknown.
     CASE WHEN opererad = 1
          THEN 1
          WHEN opererad = 2
          THEN 0
-         ELSE Null -- 3 and blank are unknown.
+         ELSE Null
     END AS surgical_procedure,
 
-    -- Place of death. Refers to a place of service id in concept.
+    -- Place of death. Refers to a place of service id in concept table.
     CASE dodspl
          WHEN 1 THEN 8717
          WHEN 2 THEN 8844
@@ -52,3 +59,5 @@ SELECT
 
 FROM bayer.death
 ;
+
+CREATE INDEX person_index ON cdm5.death_addendum (person_id);

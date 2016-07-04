@@ -1,7 +1,5 @@
 /* Observation period for each person.
     Hard coded parameters: data cut start = 19970101, data cut end = 20150801.
-    TODO: add death as end of observation
-    TODO: unit test the rules.
     Fails if emigration before start of datacut and no immigration (unlikely event)
 */
 INSERT INTO cdm5.observation_period (
