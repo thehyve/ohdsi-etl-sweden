@@ -13,8 +13,7 @@ INSERT INTO cdm5.observation (
 SELECT  lpnr,
         4136468 as observation_concept_id, -- Ethnic background
 
-        -- 11 and 12 are foreign, 21,22,23 are native Swedish
-        -- TODO: find a observation value for foreign
+        -- 11 and 12 are foreign (no OMOP concept found), 21,22,23 are native Swedish        
         CASE utlsvbakgalt
             WHEN 11 THEN  NULL
             WHEN 12 THEN  NULL

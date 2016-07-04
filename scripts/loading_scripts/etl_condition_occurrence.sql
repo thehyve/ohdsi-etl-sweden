@@ -13,7 +13,6 @@ INSERT INTO cdm5.condition_occurrence (
                  ELSE condition_map.target_concept_id
             END as concept_id,
 
-            -- TODO add actual first time observation of this condition.
             CASE WHEN indatuma IS NULL
                 THEN to_date( '19000101', 'yyyymmdd')
                 ELSE to_date( indatuma::varchar, 'yyyymmdd')
