@@ -30,7 +30,7 @@ SELECT  row_number() OVER (ORDER BY lpnr),
 
         -- Combine ATC code with drug name
         SUBSTRING( atc || '|' || lnamn FROM 0 FOR 50) as drug_source_value, -- Just 50 characters allowed
-        quantity, -- TODO: combine with forpstl for actual number of dispensed.
+        getDrugQuantity(forpstl, antal) as quantity,
 
         styrknum,
         CASE WHEN unit.target_concept_id IS NOT NULL
@@ -46,7 +46,7 @@ SELECT  row_number() OVER (ORDER BY lpnr),
         END as provider_id,
         doser as sig, -- The directions (signetur) of prescription as printed on container
 
-        -- lformgrupp as route_concept_id, --TODO: route mapping
+        -- lformgrupp as route_concept_id
         lformgrupp as route_source_value
 
 FROM bayer.drug
