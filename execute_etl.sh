@@ -14,6 +14,7 @@ ETL_SCRIPT_FOLDER="$SCRIPTS_FOLDER/loading_scripts"
 DYNAMIC_SCRIPT_FOLDER="$SCRIPTS_FOLDER/rendered_sql"
 SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/sql_functions"
 PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
+DRUG_MAPPING_FOLDER="$SCRIPTS_FOLDER/drug_mapping"
 
 # Check whether command line arguments are given
 if [[ $DATABASE_NAME = "" ]] || [[ $USER = "" ]]; then
@@ -26,6 +27,7 @@ if [[ $ENCODING = "" ]]; then
     ENCODING="UTF8"
 fi
 
+echo 
 echo "===== Starting the ETL procedure to OMOP CDM ====="
 echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
@@ -59,15 +61,13 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
 echo
 echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
-sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_atcToRxNorm.sql
+sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
 # sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
 
 echo
 echo "Preprocessing..."
 printf "%-35s" "Unique persons from registers: "
 sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/lpnr_aggregated.sql
-printf "%-35s" "Single Ingredient Drugs.: "
-sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/drug_strength_single_ingredient.sql
 echo "Create supporting SQL functions:"
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStartDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndDate.sql

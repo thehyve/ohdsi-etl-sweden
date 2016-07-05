@@ -11,7 +11,7 @@ SELECT 	atc.concept_code AS atc_concept_code,
 		ingredient.concept_id  AS ingredient_concept_id,
 		ingredient.standard_concept,
 		relation.relationship_id
-INTO mappings.atc_to_ingredient
+INTO drugmap.atc_to_ingredient
 FROM cdm5.concept_relationship AS relation
 
 INNER JOIN cdm5.concept AS atc

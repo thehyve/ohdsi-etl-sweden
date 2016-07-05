@@ -1,7 +1,7 @@
 /* Preprocesses the drug_strength table to get all drugs with one ingredient */
 
 SELECT drug_strength.*
-INTO mappings.drug_strength_single_ingredient
+INTO drugmap.drug_strength_single_ingredient
 FROM (
     SELECT drug_concept_id
     FROM cdm5.drug_strength

@@ -21,15 +21,15 @@ INSERT INTO cdm5.drug_exposure (
 )
 SELECT  row_number() OVER (ORDER BY lpnr),
         lpnr,
-        CASE WHEN ingredient_concept_id IS NULL
+        CASE WHEN vnr_mapping.target_concept_id IS NULL
              THEN 0 -- Not mappable
-             ELSE ingredient_concept_id
+             ELSE vnr_mapping.target_concept_id
         END as drug_concept_id,
         to_date(edatum, 'mm/dd/yyyy') as drug_exposure_start_date,
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
         -- Combine varunr with drug name. Just 50 characters allowed
-        SUBSTRING( varunr || '|' || lnamn FROM 0 FOR 50) as drug_source_value,
+        SUBSTRING( varunr || '|' || drug_source.lnamn FROM 0 FOR 50) as drug_source_value,
 
         getDrugQuantity(forpstl, antal) as quantity,
         styrknum,
@@ -49,16 +49,18 @@ SELECT  row_number() OVER (ORDER BY lpnr),
         -- lformgrupp as route_concept_id
         lformgrupp as route_source_value
 
-FROM bayer.drug
+FROM bayer.drug as drug_source
 
-LEFT JOIN mappings.atc_to_ingredient
-  ON atc_concept_code = atc
+-- LEFT JOIN mappings.atc_to_ingredient
+  -- ON atc_concept_code = atc
+LEFT JOIN mappings.vnr_mapping
+  ON drug_source.varunr = vnr_mapping.source_concept_id
 
 LEFT JOIN cdm5.provider
-  ON provider_id = spkod1
+  ON drug_source.spkod1 = provider_id
 
 LEFT JOIN mappings.unit
-  ON styrka_enh = unit.source_code
+  ON drug_source.styrka_enh = unit.source_code
 
 WHERE antal > 0 -- Ignore negative antals, administrative issue.
 ;
