@@ -10,7 +10,7 @@ TRUNCATE TABLE cdm5.care_site CASCADE;
 TRUNCATE TABLE cdm5.location CASCADE;
 
 /* Delete and empty the schemas */
-DROP TABLE cdm5.death_addendum CASCADE;
+DROP TABLE IF EXISTS cdm5.death_addendum CASCADE;
 DROP SCHEMA IF EXISTS bayer CASCADE;
 DROP SCHEMA IF EXISTS mappings CASCADE;
 
