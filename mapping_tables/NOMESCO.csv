@@ -1,4 +1,3 @@
-source_code,source_name,target_name,target_concept_id
 A,Nervous system,Operation on nervous system,4041193
 B,Endocrine system,Operation on endocrine system,4194964
 C,Eye and adjacent structures,Surgical procedure on eye region,4154279
@@ -79,7 +78,6 @@ FNC40,Aortokoronar bypass with four vein grafts,Aortocoronary artery bypass graf
 FKB10,Anuloplastik ring at mitral insufficiency,Mitral annuloplasty using ring,4337061
 FPG33,Implantation of transvenous cardioverter-defibrillators and atrial and ventricular electrode,Implantation of cardioverter defibrillator with two electrode leads,4144899
 FWC00,Reoperation for deep infection,Infection control procedure,4298121
-FPB32,Transvenous radiofrequency ablation of the saphenous pulmonalisfokus or -bana,Percutaneous transluminal laser ablation of long saphenous vein,4325852
 FPB20,Radio frequency ablation of aberrant cardiac focus (i),Radiofrequency ablation operation for arrhythmia,4049987
 FCA50,Resection and reconstruction of the ascending aorta with a vascular prosthesis,Repair of ascending aorta,44782479
 FPE96,Other implantation or replacement of transvenous pacemaker (i),Implantation of cardiac pacemaker,4144921
@@ -90,7 +88,7 @@ FPJ00,Revision of pacemaker or electrodes,Revision of pacemaker electrode leads,
 FPE40,Replacement electrode for permanent transvenous pacemaker,Replacement of permanent transvenous electrodes,4046707
 FPD96,Other operation for atrial fibrillation (i),Procedure for arrhythmia,4051932
 FPG30,Implantation of transvenous cardioverter-defibrillator and ventricular lead,Implantation of cardioverter defibrillator with one electrode lead,4137700
-FCA60,Resection of aortic root and ascending aorta with reimplantation of the coronary arteries and use of flap bearing Endoprosthesis,Replacement of root of aorta with reimplantation of coronary arteries using button technique,40493484
+FCA60,Resection of aortic root and ascending aorta with reimplantation of the coronary arteries and use of flap bearing Endoprosthesis,Repair of ascending aorta,44782479
 FKD00,Implantation of mechanical mitralklaffprotes,Mechanical prosthetic mitral valve replacement,4160418
 FPE10,Implantation of transvenous pacemaker with atrial lead,Implantation of cardiac pacemaker,4144921
 FNA10,Sequential anastomoses between arteria thoracica internal and coronary arteries,Coronary artery bypass graft anastomosis of artery of thorax to coronary artery,4000733
@@ -102,7 +100,7 @@ FPH00,Transvenous extraction of transvenous systems,Removal of transvenous elect
 FKC60,Resection of mitralklaffsegel with reconstruction,Mitral valve operation,4337060
 FPG40,Replacing pulse generator in transvenous cardioverter-defibrillator systems,Replacement of pulse generator of automatic cardioverter/defibrillator,44782864
 FXH00,Removal of IABP,Intraaortic balloon pump removal,4222272
-FKC20,Flapper Sail Plastik at mitral insufficiency,Mitral valve operation,4337060
+FKC20,Mitral valve repair operation,Repair of mitral valve,4297235
 PA,Operations on arteries of aortic arch and branches,Operation on aorta ,4139931
 PB,Operations on arteries of upper extremity,Operative procedure on artery of extremity,4331725
 PC,Operations on suprarenal abdominal aorta and visceral arteries,Procedure on artery of abdomen,4040554
