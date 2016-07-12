@@ -16,3 +16,6 @@ JOIN varunr_counts
     ON unique_varunr.varunr = varunr_counts.varunr
 ORDER BY frequency DESC
 ;
+
+ALTER TABLE drugmap.unique_varunr ADD PRIMARY KEY (varunr);
+CREATE INDEX dose_index ON drugmap.unique_varunr (styrka_tf);

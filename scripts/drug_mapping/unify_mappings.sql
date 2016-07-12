@@ -51,3 +51,5 @@ LEFT JOIN cdm5.concept
 ORDER BY vnr
 -- GROUP BY concept_class_id
 ;
+
+CREATE INDEX source_concept_index ON mappings.vnr_mapping (source_concept_id);

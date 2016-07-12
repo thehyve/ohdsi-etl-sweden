@@ -11,3 +11,6 @@ FROM (
 LEFT JOIN cdm5.drug_strength
     ON drug_strength.drug_concept_id = temp.drug_concept_id
 ;
+
+ALTER TABLE drugmap.drug_strength_single_ingredient ADD PRIMARY KEY (drug_concept_id);
+CREATE INDEX ingredient_concept_id_index ON drugmap.drug_strength_single_ingredient (ingredient_concept_id);

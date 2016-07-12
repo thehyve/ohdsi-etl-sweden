@@ -25,6 +25,7 @@ echo
 echo "Create unique drugs, atc mapping and single ingredient strengths"
 sudo -u $USER psql -d $DATABASE_NAME -f $DRUG_MAPPING_FOLDER/unique_varunr.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $DRUG_MAPPING_FOLDER/atcToRxNorm.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $DRUG_MAPPING_FOLDER/single_ingredient_drugs.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $DRUG_MAPPING_FOLDER/drug_strength_single_ingredient.sql
 
 echo

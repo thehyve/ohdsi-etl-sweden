@@ -3,7 +3,7 @@ Simple first letter mapping for nomesco chapters.
 */
 
 INSERT INTO cdm5.procedure_occurrence (
-    procedure_occurrence_id,
+    -- procedure_occurrence_id,
     person_id,
     procedure_concept_id,
     procedure_date,
@@ -12,7 +12,7 @@ INSERT INTO cdm5.procedure_occurrence (
     visit_occurrence_id,
     procedure_source_value
 )
-    SELECT  row_number() OVER (ORDER BY lpnr),
+    SELECT  --row_number() OVER (ORDER BY lpnr),
             lpnr,
             CASE WHEN procedure_map.target_concept_id IS NULL
                  THEN 0 --not mappable

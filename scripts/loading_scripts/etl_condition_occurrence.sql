@@ -2,11 +2,12 @@
 */
 
 INSERT INTO cdm5.condition_occurrence (
-    condition_occurrence_id, person_id, condition_concept_id, condition_start_date,
+    -- condition_occurrence_id,
+    person_id, condition_concept_id, condition_start_date,
     condition_type_concept_id, visit_occurrence_id, condition_source_value
 )
 
-    SELECT  row_number() OVER (ORDER BY lpnr) as condition_occurrence_id,
+    SELECT  --row_number() OVER (ORDER BY lpnr) as condition_occurrence_id,
             lpnr,
             CASE WHEN condition_map.target_concept_id IS NULL
                  THEN 0 -- cannot be mapped

@@ -1,9 +1,8 @@
 /* Saves drugs to the drug_exposure table with simple mapping to to ingredient.
-TODO: advanced drug mapping, with beredningsform, styrknum, styrka_enh, styrka_tf.
 */
 
 INSERT INTO cdm5.drug_exposure (
-    drug_exposure_id,
+    -- drug_exposure_id,
     person_id,
     drug_concept_id,
     drug_exposure_start_date,
@@ -19,7 +18,8 @@ INSERT INTO cdm5.drug_exposure (
     -- route_concept_id,
     route_source_value
 )
-SELECT  row_number() OVER (ORDER BY lpnr),
+-- EXPLAIN ANALYZE
+SELECT  --row_number() OVER (ORDER BY lpnr),
         lpnr,
         CASE WHEN vnr_mapping.target_concept_id IS NULL
              THEN 0 -- Not mappable
@@ -53,7 +53,7 @@ FROM bayer.drug as drug_source
 
 -- LEFT JOIN mappings.atc_to_ingredient
   -- ON atc_concept_code = atc
-LEFT JOIN mappings.vnr_mapping
+LEFT JOIN mappings.vnr_mapping as vnr_mapping
   ON drug_source.varunr = vnr_mapping.source_concept_id
 
 LEFT JOIN cdm5.provider
