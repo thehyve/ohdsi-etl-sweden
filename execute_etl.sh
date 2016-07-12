@@ -27,7 +27,7 @@ if [[ $ENCODING = "" ]]; then
     ENCODING="UTF8"
 fi
 
-echo 
+echo
 echo "===== Starting the ETL procedure to OMOP CDM ====="
 echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
@@ -57,7 +57,11 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
 echo "Loading source tables..."
 # sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_source_tables.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $DYNAMIC_SCRIPT_FOLDER/load_tables.sql
+echo "Filtering rows without date..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
+echo "Creating indices source tables..."
+sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables.sql
+
 echo
 echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
