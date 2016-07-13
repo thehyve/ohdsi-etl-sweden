@@ -4,7 +4,8 @@
 INSERT INTO cdm5.condition_occurrence (
     -- condition_occurrence_id,
     person_id, condition_concept_id, condition_start_date,
-    condition_type_concept_id, visit_occurrence_id, condition_source_value
+    condition_type_concept_id, visit_occurrence_id,
+    condition_source_value, condition_source_concept_id
 )
 
     SELECT  --row_number() OVER (ORDER BY lpnr) as condition_occurrence_id,
@@ -26,7 +27,8 @@ INSERT INTO cdm5.condition_occurrence (
             END as condition_type_concept_id,
 
             visit_id,
-            code as condition_source_value
+            code as condition_source_value,
+            intermediate_concept_id as condition_source_concept_id -- 13-07-2016
     FROM (
         SELECT lpnr, indatuma, code_type, code, visit_id
         FROM bayer.patient_sluten_long
@@ -47,5 +49,4 @@ INSERT INTO cdm5.condition_occurrence (
 
     -- Only diagnostic codes
     WHERE code_type = 'hdia' or code_type like 'bdia%'
-    -- and condition_map.target_concept_id is not null
 ;
