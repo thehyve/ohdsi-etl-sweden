@@ -5,13 +5,13 @@ USER="$2"
 DRUG_MAPPING_FOLDER="$3"
 
 # Check whether command line arguments are given
-if [[ $DATABASE_NAME = "" ]] || [[ $USER = "" ]]; then
+if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
     echo "Please input a database name and username: "
     echo "./execute_drug_mapping.sh <database_name> <user_name>"
     exit 1
 fi
 
-if [[ $DRUG_MAPPING_FOLDER = "" ]]; then
+if [ "$DRUG_MAPPING_FOLDER" = "" ]; then
     DRUG_MAPPING_FOLDER="scripts/drug_mapping"
 fi
 

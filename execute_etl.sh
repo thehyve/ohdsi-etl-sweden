@@ -15,16 +15,16 @@ DYNAMIC_SCRIPT_FOLDER="$SCRIPTS_FOLDER/rendered_sql"
 SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/sql_functions"
 PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
 DRUG_MAPPING_FOLDER="$SCRIPTS_FOLDER/drug_mapping"
-TIME_FORMAT="%E real, %U user, %s|%P sys"
+OMOP_CDM_FOLDER="$SCRIPTS_FOLDER/OMOPCDM"
 
 # Check whether command line arguments are given
-if [ $DATABASE_NAME = "" ] || [ $USER = "" ]; then
+if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
     echo "Please input a database name and username: "
     echo "./execute_etl.sh <database_name> <user_name>"
     exit 1
 fi
 
-if [ $ENCODING = "" ]; then
+if [ "$ENCODING" = "" ]; then
     ENCODING="UTF8"
 fi
 
@@ -43,12 +43,13 @@ echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
 python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
-# TODO: exit from python with error if source files do not exist
 
 echo
-# The following is executed quiet (-q)
-echo "Truncating cdm5 tables and empty schemas. Dropping sequences"
+# The following is executed quietly (-q)
+echo "Dropping cdm5 tables and empty schemas. Creating sequences"
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/empty_schemas.sql -q
+sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/drop_cdm_tables.sql -q
+sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM ddl.sql" -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 
 echo
@@ -130,3 +131,9 @@ printf "%-35s" "Condition Era: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_era.sql
 printf "%-35s" "Drug Era: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
+
+echo
+echo "Adding constraints..."
+time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM constraints.sql" -q
+echo "Adding indices..."
+time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM indexes required.sql" -q
