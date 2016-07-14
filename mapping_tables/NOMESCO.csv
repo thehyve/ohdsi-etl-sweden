@@ -1,3 +1,4 @@
+source_code,source_name,target_name,target_concept_id
 A,Nervous system,Operation on nervous system,4041193
 B,Endocrine system,Operation on endocrine system,4194964
 C,Eye and adjacent structures,Surgical procedure on eye region,4154279
@@ -69,7 +70,9 @@ FNC10,Aortokoronar bypass with simple vein graft,Aortocoronary artery bypass gra
 FNG02,Percutaneous transluminal coronary angioplasty (PTCA) (in),Percutaneous transluminal coronary angioplasty,4006788
 FNC30,Aortokoronar bypass with three vein graft,Aortocoronary artery bypass graft with three vein grafts,4228305
 FMD10,Implantation of biological aortic valve prosthesis,Replacement of aortic valve with tissue graft,40480947
+FPB10,Kryoablation ectopic cardiac focus,Cryoablation operation for arrhythmia,4050570
 FPB22,Transvenous radiofrequency ablation of aberrant conduction pathway or arytmifokus (i),Radiofrequency ablation operation for arrhythmia,4049987
+FPB32,Transvenous radio frequency ablation of focus or pathway in vena pulmonalis,Radiofrequency ablation operation for arrhythmia,4049987
 FPE00,Implantation of transvenous pacemaker with ventrikelelektrod,Insertion of permanent pacemaker with transvenous electrodes ventricular,4204395
 FPE30,Replacing pulse generator on permanent transvenous pacemaker,Replacement of electronic heart device pulse generator,4149327
 FMD00,Implantation of mechanical aortic valve prosthesis,Mechanical prosthetic aortic valve replacement,4018561
