@@ -2,18 +2,6 @@
 -- DROP SCHEMA IF EXISTS mappings CASCADE;
 CREATE SCHEMA mappings;
 
--- CREATE TABLE mappings.icd10 (
---     source_code	varchar(50),-- primary key,
---     source_concept_id integer,
---     source_vocabulary_id varchar(50), -- manual
---     source_code_description	varchar(200), -- frequency
---     target_concept_id integer,
---     target_vocabulary_id varchar(50), -- concept_class_id
---     valid_start_date varchar(20), -- target_code
---     valid_end_date varchar(20), -- target_name
---     invalid_reason varchar(5)
--- )
--- ;
 CREATE TABLE mappings.snomed (
     source_code	varchar(50) PRIMARY KEY,
     frequency integer,
