@@ -20,6 +20,7 @@ JOIN mappings.dose_form as map_dose_form
 JOIN cdm5.concept_relationship AS relation_ing
     ON relation_ing.concept_id_1 = v_t_i.ingredient_concept_id
     AND relation_ing.relationship_id = 'RxNorm ing of'
+    AND relation_ing.invalid_reason IS NULL
 
 JOIN cdm5.concept drug
     ON drug.concept_id = relation_ing.concept_id_2
@@ -32,7 +33,7 @@ JOIN drugmap.single_ingredient_drugs as single_ing
 JOIN cdm5.concept_relationship AS relation_dose_form
     ON drug.concept_id = relation_dose_form.concept_id_1
     AND relation_dose_form.relationship_id = 'RxNorm has dose form' -- Only dose form relations
---
+    AND relation_dose_form.invalid_reason IS NULL
 -- LEFT JOIN cdm5.concept dose_form_concept
 --     ON relation_form.concept_id_2 = dose_form_concept.concept_id
 --

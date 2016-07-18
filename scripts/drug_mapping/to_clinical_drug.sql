@@ -43,6 +43,7 @@ JOIN cdm5.concept drug
 JOIN cdm5.concept_relationship AS relation_form
     ON drug.concept_id = relation_form.concept_id_1
     AND relation_form.relationship_id = 'RxNorm has dose form' -- Only dose form relations
+    AND relation_form.invalid_reason IS NULL
 
 WHERE (drug.concept_class_id LIKE 'Clinical%') -- Filter out o.a. branded
      -- Select correct dose form.

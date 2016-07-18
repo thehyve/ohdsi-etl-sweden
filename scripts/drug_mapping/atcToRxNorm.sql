@@ -22,4 +22,5 @@ WHERE atc.vocabulary_id = 'ATC'
 	AND ingredient.vocabulary_id = 'RxNorm'
 	AND ingredient.concept_class_id = 'Ingredient'
 	AND relation.relationship_id = 'ATC - RxNorm'
+	AND relation.invalid_reason IS NULL
 ;
