@@ -16,7 +16,6 @@ SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/sql_functions"
 PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
 DRUG_MAPPING_FOLDER="$SCRIPTS_FOLDER/drug_mapping"
 OMOP_CDM_FOLDER="$SCRIPTS_FOLDER/OMOPCDM"
-TIME_FORMAT="Elapsed Time: %e sec"
 
 # Check whether command line arguments are given
 if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
@@ -35,11 +34,11 @@ echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
 # echo "TODO: Specify cdm5 schema in addition to database"
-
+STARTTIME=$(date +%s)
 echo
 echo "Preprocessing patient registers..."
-python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
-python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
+time python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
+time python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
@@ -55,26 +54,26 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 
 echo
 echo "Creating source tables..."
-sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
 
 echo "Loading source tables..."
 # sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_source_tables.sql
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $DYNAMIC_SCRIPT_FOLDER/load_tables.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $DYNAMIC_SCRIPT_FOLDER/load_tables.sql
 echo "Filtering rows without date..."
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
 echo "Creating indices source tables..."
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables.sql
 
 echo
 echo "Creating mapping tables..."
-sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
-time -f "$TIME_FORMAT" sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
-# time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
+time sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
+# time sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
 
 echo
 echo "Preprocessing..."
 printf "%-35s" "Unique persons from registers: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/lpnr_aggregated.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/lpnr_aggregated.sql
 echo "Create supporting SQL functions:"
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStartDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndDate.sql
@@ -85,58 +84,57 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugQuantity.sq
 echo
 echo "Performing ETL..."
 printf "%-35s" "Person: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_person.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_person.sql
 printf "%-35s" "Death with addendum table: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
 printf "%-35s" "Observation Period: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql
 printf "%-35s" "Visit Occurrence: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_visit_occurrence.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_visit_occurrence.sql
 
 printf "%-35s" "Condition Occurrence: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_condition_occurrence.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_condition_occurrence.sql
 printf "%-35s" "Procedure Occurrence: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_procedure_occurrence.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_procedure_occurrence.sql
 printf "%-35s" "Drug Exposure: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_drug_exposure.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_drug_exposure.sql
 
 printf "%-35s" "Observation Death Morsak: " #Additional causes of death
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_death.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_death.sql
 printf "%-35s" "Observation Civil Status: " #Only where civil is not null
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_civil.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_civil.sql
 printf "%-35s" "Observation Planned visit: " #all
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_pvard.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_pvard.sql
 printf "%-35s" "Observation Utsatt Status: " #Only sluten care
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_utsatt.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_utsatt.sql
 printf "%-35s" "Observation Insatt Status: " #Only sluten care
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_insatt.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_insatt.sql
 printf "%-35s" "Observation Ekod: "          #Only where ekod is not null
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_ekod.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_ekod.sql
 printf "%-35s" "Observation Work Status: "       #Only Lisa
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_work_status.sql
 printf "%-35s" "Observation Education level: "   #Only Lisa
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_education.sql
 printf "%-35s" "Observation Ethnic Background: " #Only Lisa
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_background.sql
 
 
 printf "%-35s" "Measurement Income: " #Only Lisa
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
 printf "%-35s" "Measurement Age: " #All registers
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
-echo "Building Eras..."
+echo "Postprocessing..."
 printf "%-35s" "Condition Era: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_era.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_era.sql
 printf "%-35s" "Drug Era: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
 
 echo
 echo "Adding constraints..."
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM constraints.sql" -q
+time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM constraints.sql" -q
 echo "Adding indices..."
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM indexes required.sql" -q
-
+time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM indexes required.sql" -q
 date
