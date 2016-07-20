@@ -46,14 +46,14 @@ INSERT INTO cdm5.procedure_occurrence (
         FROM bayer.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN mappings.nomesco AS procedure_map
-      ON code = procedure_map.source_code OR
-         -- Match on first two letters. Only if complete code not in the mappping table (otherwise double entries)
-         (SUBSTRING(code FROM 1 FOR 2) = procedure_map.source_code AND
-          code NOT IN (SELECT source_code FROM mappings.nomesco) ) OR
-         -- Match on first letter. Only if complete code and 2 letter code not in the mappping table (otherwise double entries)
-         (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
-          SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM mappings.nomesco) )
+    LEFT JOIN mappings.nomesco_processed AS procedure_map
+      ON code = procedure_map.source_code --OR
+    --      -- Match on first two letters. Only if complete code not in the mappping table (otherwise double entries)
+    --      (SUBSTRING(code FROM 1 FOR 2) = procedure_map.source_code AND
+    --       code NOT IN (SELECT source_code FROM mappings.nomesco) ) OR
+    --      -- Match on first letter. Only if complete code and 2 letter code not in the mappping table (otherwise double entries)
+    --      (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
+    --       SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM mappings.nomesco) )
 
     -- Only procedure codes
     -- Only codes starting with three letters (=NOMESCO), otherwise KVA (two letters) (15-06-2016)

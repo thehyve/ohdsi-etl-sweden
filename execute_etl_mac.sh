@@ -46,10 +46,11 @@ python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRI
 
 echo
 # The following is executed quietly (-q)
-echo "Dropping cdm5 tables and empty schemas. Creating sequences"
+echo "Dropping cdm5 tables and empty schemas..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/empty_schemas.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/drop_cdm_tables.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM ddl.sql" -q
+echo "Creating sequences..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 
 echo
@@ -66,7 +67,8 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables
 
 echo
 echo "Creating mapping tables..."
-time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_mapping_tables.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_mapping_tables.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/process_nomesco_mapping.sql
 time sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
 # time sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
 
