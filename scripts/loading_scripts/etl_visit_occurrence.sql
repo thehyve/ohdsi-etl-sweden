@@ -21,9 +21,9 @@ INSERT INTO visit_occurrence (visit_occurrence_id, person_id,
             END,
 
             CASE visit_source_value
-                WHEN 'sluten' THEN 9201
-                WHEN 'oppen' THEN 9202
-                WHEN 'dag kiru' THEN 45878057
+                WHEN 'sluten' THEN 9201 -- Inpatient visit
+                WHEN 'oppen' THEN 9202 -- Outpatient visit
+                WHEN 'dag kiru' THEN 9202 -- 45878057 ambulatory surgery
                 ELSE 0
             END as visit_concept_id,
 
