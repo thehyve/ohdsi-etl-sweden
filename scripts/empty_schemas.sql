@@ -2,7 +2,7 @@
 SET client_min_messages TO WARNING; -- turns off cascading warnings
 
 /* Delete and empty the non-omop schemas */
-DROP TABLE IF EXISTS cdm5.death_addendum CASCADE;
+DROP TABLE IF EXISTS death_addendum CASCADE;
 DROP SCHEMA IF EXISTS bayer CASCADE;
 DROP SCHEMA IF EXISTS mappings CASCADE;
 

@@ -1,6 +1,6 @@
 /* Populate death table */
 
-INSERT INTO cdm5.death (person_id, death_date, cause_concept_id, cause_source_value, death_type_concept_id)
+INSERT INTO death (person_id, death_date, cause_concept_id, cause_source_value, death_type_concept_id)
 SELECT lpnr,
        convertDeathDate(dodsdat),
        CASE WHEN ulorsak_map.target_concept_id IS NULL

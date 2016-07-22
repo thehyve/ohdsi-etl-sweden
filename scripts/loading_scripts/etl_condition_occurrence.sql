@@ -1,7 +1,7 @@
 /* Procedures
 */
 
-INSERT INTO cdm5.condition_occurrence (
+INSERT INTO condition_occurrence (
     -- condition_occurrence_id,
     person_id, condition_concept_id, condition_start_date,
     condition_type_concept_id, visit_occurrence_id,

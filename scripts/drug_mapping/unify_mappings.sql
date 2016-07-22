@@ -46,7 +46,7 @@ FROM (
 ) U
 RIGHT JOIN drugmap.unique_varunr
   ON unique_varunr.varunr = U.vnr
-LEFT JOIN cdm5.concept
+LEFT JOIN concept
   ON U.drug_concept_id = concept_id
 ORDER BY vnr
 -- GROUP BY concept_class_id

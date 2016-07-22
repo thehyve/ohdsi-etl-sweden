@@ -1,4 +1,4 @@
-INSERT INTO cdm5.person
+INSERT INTO person
 ( person_id, person_source_value, location_id, gender_concept_id, gender_source_value,
     year_of_birth, race_concept_id, ethnicity_concept_id )
 SELECT  -- If record not in LISA, then use the lpnr from the registries.

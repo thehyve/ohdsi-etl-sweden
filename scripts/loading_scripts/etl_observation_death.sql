@@ -1,4 +1,4 @@
-INSERT INTO cdm5.observation (
+INSERT INTO observation (
         person_id,
         observation_concept_id,
         value_as_concept_id,
@@ -23,7 +23,7 @@ SELECT  lpnr,
 
 FROM bayer.death_long as death
 -- ONLY persons that are present in the person table! Otherwise foreign key constraint fails.
-INNER JOIN cdm5.person as person ON person.person_id = death.lpnr
+INNER JOIN person as person ON person.person_id = death.lpnr
 LEFT JOIN mappings.snomed AS snomed
   ON death.code = snomed.source_code
 WHERE death.code_type LIKE 'morsak%'

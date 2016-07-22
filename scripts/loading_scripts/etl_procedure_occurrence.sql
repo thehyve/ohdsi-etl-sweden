@@ -2,7 +2,7 @@
 Simple first letter mapping for nomesco chapters.
 */
 
-INSERT INTO cdm5.procedure_occurrence (
+INSERT INTO procedure_occurrence (
     -- procedure_occurrence_id,
     person_id,
     procedure_concept_id,

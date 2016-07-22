@@ -1,4 +1,4 @@
-INSERT INTO cdm5.observation (
+INSERT INTO observation (
         -- observation_id is auto incremented by a sequence
         person_id,
         visit_occurrence_id,

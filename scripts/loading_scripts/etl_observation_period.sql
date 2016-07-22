@@ -2,7 +2,7 @@
     Hard coded parameters: data cut start = 19970101, data cut end = 20150801.
     Fails if emigration before start of datacut and no immigration (unlikely event)
 */
-INSERT INTO cdm5.observation_period (
+INSERT INTO observation_period (
         observation_period_id,
         person_id,
         observation_period_start_date,
@@ -25,10 +25,10 @@ SELECT  row_number() OVER(ORDER BY person_id) AS observation_period_id,
                -- 1997 is converted by to_date to 01-01-1997
                to_date(seninv, 'yyyymmdd') as immi_date,
                to_date(senutv, 'yyyymmdd') as emi_date
-        FROM cdm5.person as person
+        FROM person as person
         LEFT JOIN bayer.lpnr_aggregated as emmigration
           ON person.person_id = emmigration.lpnr
-        LEFT JOIN cdm5.death as death
+        LEFT JOIN death as death
           ON person.person_id = death.person_id
         -- WHERE senutv IS NOT NULL OR seninv IS NOT NULL
     ) A

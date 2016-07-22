@@ -13,9 +13,9 @@ cteDrugTarget (drug_exposure_id, person_id, drug_concept_id, drug_type_concept_i
 			COALESCE(drug_exposure_end_date,
 					 drug_exposure_start_date + days_supply * INTERVAL '1 day',
 					 drug_exposure_start_date + INTERVAL '1 day') as drug_exposure_end_date
-	FROM cdm5.drug_exposure d
-		JOIN cdm5.concept_ancestor ca ON ca.DESCENDANT_CONCEPT_ID = d.DRUG_CONCEPT_ID
-		JOIN cdm5.concept c ON ca.ANCESTOR_CONCEPT_ID = c.CONCEPT_ID
+	FROM drug_exposure d
+		JOIN concept_ancestor ca ON ca.DESCENDANT_CONCEPT_ID = d.DRUG_CONCEPT_ID
+		JOIN concept c ON ca.ANCESTOR_CONCEPT_ID = c.CONCEPT_ID
 		WHERE c.VOCABULARY_ID = 'RxNorm'
 		AND c.CONCEPT_CLASS_ID = 'Ingredient'
 ),
@@ -62,7 +62,7 @@ GROUP BY d.DRUG_EXPOSURE_ID,
 )
 
 -- Add INSERT statement here
-INSERT INTO cdm5.drug_era (
+INSERT INTO drug_era (
 	drug_era_id,
 	person_id,
 	drug_concept_id,

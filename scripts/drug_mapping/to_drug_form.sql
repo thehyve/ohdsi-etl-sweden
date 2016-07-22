@@ -17,12 +17,12 @@ JOIN mappings.dose_form as map_dose_form
     ON unique_varunr.styrka_tf = map_dose_form.source_code
 
 -- /* Search all drugs which have this ingredient */
-JOIN cdm5.concept_relationship AS relation_ing
+JOIN concept_relationship AS relation_ing
     ON relation_ing.concept_id_1 = v_t_i.ingredient_concept_id
     AND relation_ing.relationship_id = 'RxNorm ing of'
     AND relation_ing.invalid_reason IS NULL
 
-JOIN cdm5.concept drug
+JOIN concept drug
     ON drug.concept_id = relation_ing.concept_id_2
 
 -- Filter out any with multiple ingredient
@@ -30,11 +30,11 @@ JOIN drugmap.single_ingredient_drugs as single_ing
     ON single_ing.concept_id = drug.concept_id
 
 -- Add dose form concept_id to drug_concept_id
-JOIN cdm5.concept_relationship AS relation_dose_form
+JOIN concept_relationship AS relation_dose_form
     ON drug.concept_id = relation_dose_form.concept_id_1
     AND relation_dose_form.relationship_id = 'RxNorm has dose form' -- Only dose form relations
     AND relation_dose_form.invalid_reason IS NULL
--- LEFT JOIN cdm5.concept dose_form_concept
+-- LEFT JOIN concept dose_form_concept
 --     ON relation_form.concept_id_2 = dose_form_concept.concept_id
 --
 WHERE (drug.concept_class_id LIKE 'Clinical Drug Form') -- Filter out o.a. branded and Drug Component

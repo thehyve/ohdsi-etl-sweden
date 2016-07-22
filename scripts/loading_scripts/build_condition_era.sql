@@ -1,6 +1,6 @@
 /* Source: https://gist.github.com/taylordelehanty/01fe9e92a322331a8b35
 */
--- TRUNCATE cdm5.condition_era;
+-- TRUNCATE condition_era;
 
 WITH
 cteConditionTarget (condition_occurrence_id, person_id, condition_concept_id, condition_start_date, condition_end_date) AS
@@ -8,7 +8,7 @@ cteConditionTarget (condition_occurrence_id, person_id, condition_concept_id, co
 	SELECT co.condition_occurrence_id, co.person_id, co.condition_concept_id, co.condition_start_date,
 	       COALESCE(NULLIF(co.condition_end_date,NULL), condition_start_date + INTERVAL '1 day') AS condition_end_date
 	---Format for FROM statement below is like this: "FROM <schema>.<table> co"
-	FROM cdm5.condition_occurrence co
+	FROM condition_occurrence co
 ),
 --------------------------------------------------------------------------------------------------------------
 cteEndDates (person_id, condition_concept_id, end_date) AS -- the magic
@@ -54,7 +54,7 @@ GROUP BY
 )
 --------------------------------------------------------------------------------------------------------------
 ---This INSERT INTO statement is similar to the FROM statement at the beginning. This is the format: "INSERT INTO <schema>.<table>(<fields>)"
-INSERT INTO cdm5.condition_era(
+INSERT INTO condition_era(
 	condition_era_id,
 	person_id,
 	condition_concept_id,

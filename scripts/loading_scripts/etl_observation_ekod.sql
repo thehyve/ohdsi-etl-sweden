@@ -1,4 +1,4 @@
-INSERT INTO cdm5.observation (
+INSERT INTO observation (
         person_id,
         observation_concept_id,
         value_as_concept_id,

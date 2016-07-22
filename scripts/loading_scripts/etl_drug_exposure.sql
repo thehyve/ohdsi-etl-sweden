@@ -1,7 +1,7 @@
 /* Saves drugs to the drug_exposure table with simple mapping to to ingredient.
 */
 
-INSERT INTO cdm5.drug_exposure (
+INSERT INTO drug_exposure (
     -- drug_exposure_id,
     person_id,
     drug_concept_id,
@@ -56,7 +56,7 @@ FROM bayer.drug as drug_source
 LEFT JOIN mappings.vnr_mapping as vnr_mapping
   ON drug_source.varunr = vnr_mapping.source_concept_id
 
-LEFT JOIN cdm5.provider
+LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
 
 LEFT JOIN mappings.unit

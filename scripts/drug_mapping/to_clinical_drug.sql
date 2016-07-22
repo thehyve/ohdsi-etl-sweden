@@ -36,11 +36,11 @@ JOIN drugmap.drug_strength_single_ingredient AS drug_strength
     )
 
 /* Add all info of the drug concepts */
-JOIN cdm5.concept drug
+JOIN concept drug
     ON drug.concept_id = drug_strength.drug_concept_id
 
 /* Add dose form concept_id to drug_concept_id*/
-JOIN cdm5.concept_relationship AS relation_form
+JOIN concept_relationship AS relation_form
     ON drug.concept_id = relation_form.concept_id_1
     AND relation_form.relationship_id = 'RxNorm has dose form' -- Only dose form relations
     AND relation_form.invalid_reason IS NULL

@@ -12,11 +12,11 @@ SELECT 	atc.concept_code AS atc_concept_code,
 		ingredient.standard_concept,
 		relation.relationship_id
 INTO drugmap.atc_to_ingredient
-FROM cdm5.concept_relationship AS relation
+FROM concept_relationship AS relation
 
-INNER JOIN cdm5.concept AS atc
+INNER JOIN concept AS atc
 	ON atc.concept_id = relation.concept_id_1
-INNER JOIN cdm5.concept AS ingredient
+INNER JOIN concept AS ingredient
 	ON ingredient.concept_id = relation.concept_id_2
 WHERE atc.vocabulary_id = 'ATC'
 	AND ingredient.vocabulary_id = 'RxNorm'

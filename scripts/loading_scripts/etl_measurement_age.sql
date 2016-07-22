@@ -2,7 +2,7 @@
 For each visit the age is reported. Save the age as observation.
 */
 
-INSERT INTO cdm5.measurement (
+INSERT INTO measurement (
         person_id,
         measurement_concept_id,
         measurement_date,

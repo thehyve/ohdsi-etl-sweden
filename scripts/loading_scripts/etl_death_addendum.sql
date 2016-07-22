@@ -6,7 +6,7 @@ Records whether death is:
 Note that this table allows multiple rows with the same person_id.
 */
 
-CREATE TABLE cdm5.death_addendum (
+CREATE TABLE death_addendum (
     person_id integer, -- Links to OMOP death table.
     alcohol integer,
     narcotic integer,
@@ -16,7 +16,7 @@ CREATE TABLE cdm5.death_addendum (
     place_of_service_concept_id integer -- Hospital, Home, rehabilitation clinic, other.
 );
 
-INSERT INTO cdm5.death_addendum
+INSERT INTO death_addendum
 SELECT
     lpnr,
 
@@ -60,4 +60,4 @@ SELECT
 FROM bayer.death
 ;
 
-CREATE INDEX person_index ON cdm5.death_addendum (person_id);
+CREATE INDEX person_index ON death_addendum (person_id);

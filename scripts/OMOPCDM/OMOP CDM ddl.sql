@@ -54,7 +54,7 @@ Standardized clinical data
 ************************/
 
 
-CREATE TABLE cdm5.person
+CREATE TABLE person
     (
      person_id						INTEGER		NOT NULL ,
      gender_concept_id				INTEGER		NOT NULL ,
@@ -81,7 +81,7 @@ CREATE TABLE cdm5.person
 
 
 
-CREATE TABLE cdm5.observation_period
+CREATE TABLE observation_period
     (
      observation_period_id				INTEGER		NOT NULL ,
      person_id							INTEGER		NOT NULL ,
@@ -93,7 +93,7 @@ CREATE TABLE cdm5.observation_period
 
 
 
-CREATE TABLE cdm5.specimen
+CREATE TABLE specimen
     (
      specimen_id						INTEGER			NOT NULL ,
 	 person_id							INTEGER			NOT NULL ,
@@ -115,7 +115,7 @@ CREATE TABLE cdm5.specimen
 
 
 
-CREATE TABLE cdm5.death
+CREATE TABLE death
     (
      person_id							INTEGER			NOT NULL ,
      death_date							DATE			NOT NULL ,
@@ -128,7 +128,7 @@ CREATE TABLE cdm5.death
 
 
 
-CREATE TABLE cdm5.visit_occurrence
+CREATE TABLE visit_occurrence
     (
      visit_occurrence_id			INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -147,7 +147,7 @@ CREATE TABLE cdm5.visit_occurrence
 
 
 
-CREATE TABLE cdm5.procedure_occurrence
+CREATE TABLE procedure_occurrence
     (
      procedure_occurrence_id		INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -166,7 +166,7 @@ CREATE TABLE cdm5.procedure_occurrence
 
 
 
-CREATE TABLE cdm5.drug_exposure
+CREATE TABLE drug_exposure
     (
      drug_exposure_id				INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -193,7 +193,7 @@ CREATE TABLE cdm5.drug_exposure
 ;
 
 
-CREATE TABLE cdm5.device_exposure
+CREATE TABLE device_exposure
     (
      device_exposure_id				INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -211,7 +211,7 @@ CREATE TABLE cdm5.device_exposure
 ;
 
 
-CREATE TABLE cdm5.condition_occurrence
+CREATE TABLE condition_occurrence
     (
      condition_occurrence_id		INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -229,7 +229,7 @@ CREATE TABLE cdm5.condition_occurrence
 
 
 
-CREATE TABLE cdm5.measurement
+CREATE TABLE measurement
     (
      measurement_id					INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -254,7 +254,7 @@ CREATE TABLE cdm5.measurement
 
 
 
-CREATE TABLE cdm5.note
+CREATE TABLE note
     (
      note_id						INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -270,7 +270,7 @@ CREATE TABLE cdm5.note
 
 
 
-CREATE TABLE cdm5.observation
+CREATE TABLE observation
     (
      observation_id					INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -294,7 +294,7 @@ CREATE TABLE cdm5.observation
 
 
 
-CREATE TABLE cdm5.fact_relationship
+CREATE TABLE fact_relationship
     (
      domain_concept_id_1			INTEGER			NOT NULL ,
 	 fact_id_1						INTEGER			NOT NULL ,
@@ -315,7 +315,7 @@ Standardized health system data
 
 
 
-CREATE TABLE cdm5.location
+CREATE TABLE location
     (
      location_id					INTEGER			NOT NULL ,
      address_1						VARCHAR(50)		NULL ,
@@ -330,7 +330,7 @@ CREATE TABLE cdm5.location
 
 
 
-CREATE TABLE cdm5.care_site
+CREATE TABLE care_site
     (
      care_site_id						INTEGER			NOT NULL ,
 	 care_site_name						VARCHAR(255)	NULL ,
@@ -343,7 +343,7 @@ CREATE TABLE cdm5.care_site
 
 
 
-CREATE TABLE cdm5.provider
+CREATE TABLE provider
     (
      provider_id					INTEGER			NOT NULL ,
 	 provider_name					VARCHAR(255)	NULL ,
@@ -371,7 +371,7 @@ Standardized health economics
 ************************/
 
 
-CREATE TABLE cdm5.payer_plan_period
+CREATE TABLE payer_plan_period
     (
      payer_plan_period_id			INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -385,7 +385,7 @@ CREATE TABLE cdm5.payer_plan_period
 
 
 
-CREATE TABLE cdm5.visit_cost
+CREATE TABLE visit_cost
     (
      visit_cost_id					INTEGER			NOT NULL ,
      visit_occurrence_id			INTEGER			NOT NULL ,
@@ -403,7 +403,7 @@ CREATE TABLE cdm5.visit_cost
 
 
 
-CREATE TABLE cdm5.procedure_cost
+CREATE TABLE procedure_cost
     (
      procedure_cost_id				INTEGER			NOT NULL ,
      procedure_occurrence_id		INTEGER			NOT NULL ,
@@ -423,7 +423,7 @@ CREATE TABLE cdm5.procedure_cost
 
 
 
-CREATE TABLE cdm5.drug_cost
+CREATE TABLE drug_cost
     (
      drug_cost_id					INTEGER			NOT NULL ,
      drug_exposure_id				INTEGER			NOT NULL ,
@@ -446,7 +446,7 @@ CREATE TABLE cdm5.drug_cost
 
 
 
-CREATE TABLE cdm5.device_cost
+CREATE TABLE device_cost
     (
      device_cost_id					INTEGER			NOT NULL ,
      device_exposure_id				INTEGER			NOT NULL ,
@@ -471,7 +471,7 @@ Standardized derived elements
 
 ************************/
 
-CREATE TABLE cdm5.cohort
+CREATE TABLE cohort
     (
 	 cohort_definition_id			INTEGER			NOT NULL ,
      subject_id						INTEGER			NOT NULL ,
@@ -481,7 +481,7 @@ CREATE TABLE cdm5.cohort
 ;
 
 
-CREATE TABLE cdm5.cohort_attribute
+CREATE TABLE cohort_attribute
     (
 	 cohort_definition_id			INTEGER			NOT NULL ,
      cohort_start_date				DATE			NOT NULL ,
@@ -496,7 +496,7 @@ CREATE TABLE cdm5.cohort_attribute
 
 
 
-CREATE TABLE cdm5.drug_era
+CREATE TABLE drug_era
     (
      drug_era_id					INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -509,7 +509,7 @@ CREATE TABLE cdm5.drug_era
 ;
 
 
-CREATE TABLE cdm5.dose_era
+CREATE TABLE dose_era
     (
      dose_era_id					INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -524,7 +524,7 @@ CREATE TABLE cdm5.dose_era
 
 
 
-CREATE TABLE cdm5.condition_era
+CREATE TABLE condition_era
     (
      condition_era_id				INTEGER			NOT NULL ,
      person_id						INTEGER			NOT NULL ,
@@ -542,7 +542,7 @@ Standardized meta-data
 ***************************/
 
 
-CREATE TABLE cdm5.cdm_source
+CREATE TABLE cdm_source
     (
      cdm_source_name					VARCHAR(255)	NOT NULL,
 	 cdm_source_abbreviation			VARCHAR(25)		NULL,

@@ -52,9 +52,6 @@ Standardized meta-data
 ***************************/
 
 
-SET search_path TO cdm5, public;
-
-
 /************************
 
 Standardized clinical data

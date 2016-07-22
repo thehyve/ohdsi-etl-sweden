@@ -1,4 +1,4 @@
-INSERT INTO cdm5.measurement (
+INSERT INTO measurement (
         -- measurement_id is auto incremented by a sequence,
         person_id,
         measurement_concept_id,
@@ -20,5 +20,5 @@ SELECT  lpnr,
         44818647 as unit_concept_id -- Currency: Swedish krona/kronor
 FROM bayer.lisa as lisa
 -- ONLY persons that are present in the person table!
-INNER JOIN cdm5.person as person ON person.person_id = lisa.lpnr
+INNER JOIN person as person ON person.person_id = lisa.lpnr
 ;

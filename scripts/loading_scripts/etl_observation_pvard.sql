@@ -1,6 +1,6 @@
 /* Planned or not. observation = 'Planned', value = 'Yes' or 'No'.
 */
-INSERT INTO cdm5.observation (
+INSERT INTO observation (
         person_id,
         observation_concept_id,
         qualifier_concept_id,

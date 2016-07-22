@@ -5,6 +5,8 @@
 DATABASE_NAME="$1"
 USER="$2"
 ENCODING="$3"
+DATABASE_SCHEMA="$4" # Schema of the vocabulary tables
+VOCAB_SCHEMA="$5"
 
 # Constants
 SCRIPTS_FOLDER="scripts"
@@ -16,29 +18,35 @@ SQL_FUNCTIONS_FOLDER="$SCRIPTS_FOLDER/sql_functions"
 PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
 DRUG_MAPPING_FOLDER="$SCRIPTS_FOLDER/drug_mapping"
 OMOP_CDM_FOLDER="$SCRIPTS_FOLDER/OMOPCDM"
+TIME_FORMAT="Elapsed Time: %e sec"
 
 # Check whether command line arguments are given
 if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
-    echo "Please input a database name and username: "
-    echo "./execute_etl.sh <database_name> <user_name>"
+    echo "Please input a database name and username of the database. Usage: "
+    echo "./execute_etl.sh <database_name> <user_name> [<encoding>] [<database_schema>] [<vocabulary_schema>]"
     exit 1
 fi
-
-if [ "$ENCODING" = "" ]; then
-    ENCODING="UTF8"
-fi
+# Defaults
+if [ "$ENCODING" = "" ]; then ENCODING="UTF8"; fi
+if [ "$DATABASE_SCHEMA" = "" ]; then SCHEMA="cdm5"; fi
+if [ "$VOCAB_SCHEMA" = "" ]; then VOCAB_SCHEMA="cdm5"; fi
 
 date
 echo "===== Starting the ETL procedure to OMOP CDM ====="
 echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
-# echo "TODO: Specify cdm5 schema in addition to database"
-STARTTIME=$(date +%s)
+
+# Search for tables first in database schema, then in vocabulary schema (and alst in public schema)
+# (if schema not specified specifically)
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA, $VOCAB_SCHEMA, public;"
+# Create cdm5 schema. Assume vocab schema exists and is filled.
+sudo -u $USER psql -d $DATABASE_NAME -c "CREATE SCHEMA IF NOT EXISTS $DATABASE_SCHEMA;"
+
 echo
 echo "Preprocessing patient registers..."
-time python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
-time python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
+python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
+python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
@@ -55,7 +63,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_omop_cdm.sql -q
 
 echo
 echo "Creating source tables..."
-time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/create_source_tables.sql
 
 echo "Loading source tables..."
 # sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/load_source_tables.sql
@@ -128,7 +136,7 @@ printf "%-35s" "Measurement Age: " #All registers
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
-echo "Postprocessing..."
+echo "Building Eras..."
 printf "%-35s" "Condition Era: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_era.sql
 printf "%-35s" "Drug Era: "
@@ -139,4 +147,7 @@ echo "Adding constraints..."
 time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM constraints.sql" -q
 echo "Adding indices..."
 time sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM indexes required.sql" -q
+
+# Restore search path
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO \"\$user\", public;"
 date

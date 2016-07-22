@@ -33,7 +33,7 @@ JOIN drugmap.drug_strength_single_ingredient AS drug_strength
     )
 
 /* Add all info of the drug concepts */
-JOIN cdm5.concept drug
+JOIN concept drug
     ON drug.concept_id = drug_strength.drug_concept_id
 
 WHERE (drug.concept_class_id LIKE 'Clinical Drug Comp'

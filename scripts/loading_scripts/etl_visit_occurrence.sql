@@ -4,7 +4,7 @@
    Unique visit identifier (visit_id) stored in the long tables.
 */
 
-INSERT INTO cdm5.visit_occurrence (visit_occurrence_id, person_id,
+INSERT INTO visit_occurrence (visit_occurrence_id, person_id,
         visit_start_date, visit_end_date, visit_concept_id, visit_source_value,
         care_site_id, visit_type_concept_id)
 
@@ -47,6 +47,6 @@ INSERT INTO cdm5.visit_occurrence (visit_occurrence_id, person_id,
 
     -- It is possible that hospitals in patient registries
     -- are missing in care_site table. Thus, left join.
-    LEFT JOIN cdm5.care_site care_site
+    LEFT JOIN care_site care_site
         ON patient_reg.sjukhus = care_site.care_site_source_value
 ;
