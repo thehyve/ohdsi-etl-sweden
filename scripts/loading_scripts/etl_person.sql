@@ -27,11 +27,11 @@ SELECT  -- If record not in LISA, then use the lpnr from the registries.
 FROM
     -- 13-06-2016. No duplicate persons allowed. Could be duplicates
     -- from different lisa years. If duplicate, the first row is chosen
-( SELECT DISTINCT ON (lpnr) * FROM bayer.lisa ) AS lisa
--- LEFT JOIN bayer.lisa AS lisa
+( SELECT DISTINCT ON (lpnr) * FROM etl_input.lisa ) AS lisa
+-- LEFT JOIN etl_input.lisa AS lisa
   -- ON temp.lpnr = lisa.lpnr AND temp.year = lisa.year
 -- Full outer to also keep missing data on both tables.
-FULL OUTER JOIN bayer.lpnr_aggregated AS age_gender
+FULL OUTER JOIN etl_input.lpnr_aggregated AS age_gender
   ON lisa.lpnr = age_gender.lpnr
 -- Remove persons which have no year of birth.
 WHERE age_gender.year_of_birth IS NOT NULL

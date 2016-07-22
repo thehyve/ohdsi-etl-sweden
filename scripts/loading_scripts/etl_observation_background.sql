@@ -27,7 +27,7 @@ SELECT  lpnr,
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
         'UtlSvBakgAlt' as observation_source_value,
         utlsvbakgalt as value_as_string -- Maybe redundant
-FROM bayer.lisa as lisa
+FROM etl_input.lisa as lisa
 -- ONLY persons that are present in the person table! Otherwise foreign key constraint fails.
 INNER JOIN person as person ON person.person_id = lisa.lpnr
 ;

@@ -51,7 +51,7 @@ class ColumnFormat(object):
 
 class FormatRegistry(object):
 
-    def __init__(self, input_filename, out_table_name, out_schema_name = 'bayer'):
+    def __init__(self, input_filename, out_table_name, out_schema_name = 'etl_input'):
         self.table_name = "%s.%s" % (out_schema_name, out_table_name)
         self.input_filename = input_filename
         self.column_formats = dict()
@@ -212,7 +212,7 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
 
             formatRegistry = FormatRegistry( file_path, target_table, schema_name )
             formatRegistry.set_format( format_path )
-            
+
             try:
                 formatRegistry.process_file( )
             except IOError:
@@ -257,7 +257,7 @@ def process_overview_file( file_object ):
 if __name__ == '__main__':
 
     FILE_EXTENSION = 'csv'
-    SCHEMA_NAME = 'bayer'
+    SCHEMA_NAME = 'etl_input'
     OUT_FILENAME = 'load_tables.sql'
     OVERVIEW_FILENAME = 'overview_source_files.csv'
 

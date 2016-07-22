@@ -13,10 +13,10 @@ FROM drugmap.unique_varunr
 JOIN drugmap.vnr_to_ingredient AS v_t_i
     ON unique_varunr.varunr = v_t_i.vnr
 
-JOIN mappings.dose_form as map_dose_form
+JOIN etl_mappings.dose_form as map_dose_form
     ON unique_varunr.styrka_tf = map_dose_form.source_code
 
-JOIN mappings.unit as unit_map
+JOIN etl_mappings.unit as unit_map
     ON unique_varunr.styrka_enh = unit_map.source_code
 
 JOIN drugmap.drug_strength_single_ingredient AS drug_strength

@@ -36,12 +36,12 @@ SELECT
 FROM (
     -- Civil status only in sluten and oppen registries
     SELECT DISTINCT lpnr, indatuma, utdatuma, civil, visit_id
-    FROM bayer.patient_sluten_long
+    FROM etl_input.patient_sluten_long
 
     UNION ALL
 
     SELECT DISTINCT lpnr, indatuma, indatuma as utdatuma, civil, visit_id
-    FROM bayer.patient_oppen_long
+    FROM etl_input.patient_oppen_long
 
 ) patient_reg
 WHERE civil IS NOT NULL -- Skip if civil is empty. No observation to record.

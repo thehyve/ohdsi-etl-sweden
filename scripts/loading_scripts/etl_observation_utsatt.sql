@@ -31,7 +31,7 @@ SELECT
 FROM (
     -- Civil status only in sluten and oppen registries
     SELECT DISTINCT lpnr, indatuma, utdatuma, utsatt, visit_id
-    FROM bayer.patient_sluten_long
+    FROM etl_input.patient_sluten_long
 
 ) patient_reg
 WHERE utsatt IS NOT NULL -- Skip if utsatt is empty. No observation to record.

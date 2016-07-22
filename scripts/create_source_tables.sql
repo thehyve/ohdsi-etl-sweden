@@ -1,11 +1,10 @@
 /* Creates the tables in which the raw source data is loaded.
-   Created in the bayer schema.
+   Created in the etl_input schema.
 */
 
--- DROP SCHEMA IF EXISTS bayer CASCADE;
-CREATE SCHEMA bayer;
+CREATE SCHEMA etl_input;
 
-CREATE TABLE bayer.drug (
+CREATE TABLE etl_input.drug (
     atc		    varchar(10),
     forpstl		varchar(20),
     lnamn		varchar(100),
@@ -61,7 +60,7 @@ CREATE TABLE bayer.drug (
 ;
 
 
-CREATE TABLE bayer.lisa (
+CREATE TABLE etl_input.lisa (
     lpnr	integer,
     civil	varchar(2),
     lan	    integer,
@@ -76,7 +75,7 @@ CREATE TABLE bayer.lisa (
 )
 ;
 
-CREATE TABLE bayer.death (
+CREATE TABLE etl_input.death (
     dodsdat	    varchar(20),
     dodsdatn	varchar(20),
     ar          integer,
@@ -156,7 +155,7 @@ CREATE TABLE bayer.death (
 )
 ;
 
-CREATE TABLE bayer.death_long (
+CREATE TABLE etl_input.death_long (
     dodsdat	    varchar(20),
     dodsdatn	varchar(20),
     ar          integer,
@@ -186,7 +185,7 @@ CREATE TABLE bayer.death_long (
 ;
 
 /* Create tables */
-CREATE TABLE bayer.patient_oppen (
+CREATE TABLE etl_input.patient_oppen (
   ar        integer,
   kon       integer,
   alder     integer,
@@ -261,7 +260,7 @@ CREATE TABLE bayer.patient_oppen (
 )
 ;
 
-CREATE TABLE bayer.patient_sluten (
+CREATE TABLE etl_input.patient_sluten (
     ar        integer,
     kon       integer,
     alder     integer,
@@ -346,7 +345,7 @@ CREATE TABLE bayer.patient_sluten (
 )
 ;
 
-CREATE TABLE bayer.patient_dag_kiru (
+CREATE TABLE etl_input.patient_dag_kiru (
     ar        integer,
     kon       integer,
     alder     integer,
@@ -386,7 +385,7 @@ CREATE TABLE bayer.patient_dag_kiru (
 ;
 
 /* Create tables in the long format for processed patient registeries*/
-CREATE TABLE bayer.patient_oppen_long (
+CREATE TABLE etl_input.patient_oppen_long (
   ar        integer,
   kon       integer,
   alder     integer,
@@ -413,7 +412,7 @@ CREATE TABLE bayer.patient_oppen_long (
 )
 ;
 
-CREATE TABLE bayer.patient_sluten_long (
+CREATE TABLE etl_input.patient_sluten_long (
     ar        integer,
     kon       integer,
     alder     integer,
@@ -444,7 +443,7 @@ CREATE TABLE bayer.patient_sluten_long (
 )
 ;
 
-CREATE TABLE bayer.patient_dag_kiru_long (
+CREATE TABLE etl_input.patient_dag_kiru_long (
     ar        integer,
     kon       integer,
     alder     integer,

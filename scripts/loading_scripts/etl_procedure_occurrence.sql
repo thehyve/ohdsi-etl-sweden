@@ -33,27 +33,27 @@ INSERT INTO procedure_occurrence (
             code as condition_source_value
     FROM (
         SELECT lpnr, indatuma, utdatuma, code_type, code, visit_id
-        FROM bayer.patient_sluten_long
+        FROM etl_input.patient_sluten_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, indatuma as utdatuma, code_type, code, visit_id
-        FROM bayer.patient_oppen_long
+        FROM etl_input.patient_oppen_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, indatuma as utdatuma, code_type, code, visit_id
-        FROM bayer.patient_dag_kiru_long
+        FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN mappings.nomesco_processed AS procedure_map
+    LEFT JOIN etl_mappings.nomesco_processed AS procedure_map
       ON code = procedure_map.source_code --OR
     --      -- Match on first two letters. Only if complete code not in the mappping table (otherwise double entries)
     --      (SUBSTRING(code FROM 1 FOR 2) = procedure_map.source_code AND
-    --       code NOT IN (SELECT source_code FROM mappings.nomesco) ) OR
+    --       code NOT IN (SELECT source_code FROM etl_mappings.nomesco) ) OR
     --      -- Match on first letter. Only if complete code and 2 letter code not in the mappping table (otherwise double entries)
     --      (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
-    --       SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM mappings.nomesco) )
+    --       SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM etl_mappings.nomesco) )
 
     -- Only procedure codes
     -- Only codes starting with three letters (=NOMESCO), otherwise KVA (two letters) (15-06-2016)

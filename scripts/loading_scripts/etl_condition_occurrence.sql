@@ -31,20 +31,20 @@ INSERT INTO condition_occurrence (
             intermediate_concept_id as condition_source_concept_id -- 13-07-2016
     FROM (
         SELECT lpnr, indatuma, code_type, code, visit_id
-        FROM bayer.patient_sluten_long
+        FROM etl_input.patient_sluten_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, code_type, code, visit_id
-        FROM bayer.patient_oppen_long
+        FROM etl_input.patient_oppen_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, code_type, code, visit_id
-        FROM bayer.patient_dag_kiru_long
+        FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN mappings.snomed AS condition_map
+    LEFT JOIN etl_mappings.snomed AS condition_map
       ON code = condition_map.source_code
 
     -- Only diagnostic codes

@@ -32,17 +32,17 @@ INSERT INTO visit_occurrence (visit_occurrence_id, person_id,
             44818518 AS visit_type_concept_id -- 'Visit derived from EHR record'
     FROM (
         SELECT lpnr, indatuma, utdatuma, sjukhus, visit_id, 'sluten' AS visit_source_value -- 'Outpatient'
-        FROM bayer.patient_sluten_long
+        FROM etl_input.patient_sluten_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, indatuma as utdatuma, sjukhus, visit_id, 'oppen' AS visit_source_value -- 'Inpatient'
-        FROM bayer.patient_oppen_long
+        FROM etl_input.patient_oppen_long
 
         UNION ALL
 
         SELECT lpnr, indatuma, indatuma as utdatuma, sjukhus, visit_id, 'dag kiru' AS visit_source_value -- 'Ambulant Surgery'
-        FROM bayer.patient_dag_kiru_long
+        FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
     -- It is possible that hospitals in patient registries

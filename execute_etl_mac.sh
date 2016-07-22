@@ -28,20 +28,19 @@ if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
 fi
 # Defaults
 if [ "$ENCODING" = "" ]; then ENCODING="UTF8"; fi
-if [ "$DATABASE_SCHEMA" = "" ]; then SCHEMA="cdm5"; fi
+if [ "$DATABASE_SCHEMA" = "" ]; then DATABASE_SCHEMA="cdm5"; fi
 if [ "$VOCAB_SCHEMA" = "" ]; then VOCAB_SCHEMA="cdm5"; fi
 
 date
 echo "===== Starting the ETL procedure to OMOP CDM ====="
-echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
+echo "Using the database '$DATABASE_NAME' and the '$VOCAB_SCHEMA' schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
 
-# Search for tables first in database schema, then in vocabulary schema (and alst in public schema)
-# (if schema not specified specifically)
-sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA, $VOCAB_SCHEMA, public;"
 # Create cdm5 schema. Assume vocab schema exists and is filled.
 sudo -u $USER psql -d $DATABASE_NAME -c "CREATE SCHEMA IF NOT EXISTS $DATABASE_SCHEMA;"
+# Search for tables in database schema, if schema name not specified explicitly.
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA;"
 
 echo
 echo "Preprocessing patient registers..."
@@ -72,6 +71,9 @@ echo "Filtering rows without date..."
 time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
 echo "Creating indices source tables..."
 time sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables.sql
+
+# Search for tables first in database schema, then in vocabulary schema (and last in public schema)
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA, $VOCAB_SCHEMA, public;"
 
 echo
 echo "Creating mapping tables..."

@@ -1,8 +1,8 @@
 /* Load and create the manual mapping tables */
 -- DROP SCHEMA IF EXISTS mappings CASCADE;
-CREATE SCHEMA mappings;
+CREATE SCHEMA etl_mappings;
 
-CREATE TABLE mappings.snomed (
+CREATE TABLE etl_mappings.snomed (
     source_code	varchar(50) PRIMARY KEY,
     frequency integer,
     intermediate_concept_id integer,
@@ -17,7 +17,7 @@ CREATE TABLE mappings.snomed (
 )
 ;
 
-CREATE TABLE mappings.nomesco (
+CREATE TABLE etl_mappings.nomesco (
     source_code	varchar(50) PRIMARY KEY,
     source_name varchar(255),
     target_name varchar(255),
@@ -25,7 +25,7 @@ CREATE TABLE mappings.nomesco (
 )
 ;
 
-CREATE TABLE mappings.dose_form (
+CREATE TABLE etl_mappings.dose_form (
     source_code	varchar(50) PRIMARY KEY,
     frequency integer,
     source_code_description varchar(200),
@@ -34,7 +34,7 @@ CREATE TABLE mappings.dose_form (
 )
 ;
 
-CREATE TABLE mappings.unit (
+CREATE TABLE etl_mappings.unit (
     source_code	varchar(50) PRIMARY KEY,
     frequency integer,
     target_concept_id integer,
@@ -42,7 +42,7 @@ CREATE TABLE mappings.unit (
 )
 ;
 
-CREATE TABLE mappings.icd10_ekod (
+CREATE TABLE etl_mappings.icd10_ekod (
     source_code varchar(50) PRIMARY KEY,
     frequency integer,
     target_concept_id integer,
@@ -52,12 +52,12 @@ CREATE TABLE mappings.icd10_ekod (
 ;
 
 -- Load the tables
--- \copy mappings.icd10 FROM './mapping_tables/icd10.csv'   WITH HEADER CSV
-\copy mappings.snomed FROM './mapping_tables/ICD10_SNOMED.csv'   WITH HEADER CSV
-\copy mappings.nomesco FROM './mapping_tables/NOMESCO.csv'   WITH HEADER CSV
-\copy mappings.dose_form FROM './mapping_tables/dose_form.csv'   WITH HEADER CSV
-\copy mappings.unit FROM './mapping_tables/unit.csv'   WITH HEADER CSV
-\copy mappings.icd10_ekod FROM './mapping_tables/ekod_icd10.csv'   WITH HEADER CSV
+-- \copy etl_mappings.icd10 FROM './mapping_tables/icd10.csv'   WITH HEADER CSV
+\copy etl_mappings.snomed FROM './mapping_tables/ICD10_SNOMED.csv'   WITH HEADER CSV
+\copy etl_mappings.nomesco FROM './mapping_tables/NOMESCO.csv'   WITH HEADER CSV
+\copy etl_mappings.dose_form FROM './mapping_tables/dose_form.csv'   WITH HEADER CSV
+\copy etl_mappings.unit FROM './mapping_tables/unit.csv'   WITH HEADER CSV
+\copy etl_mappings.icd10_ekod FROM './mapping_tables/ekod_icd10.csv'   WITH HEADER CSV
 
 -- Mapping tables directly into cdm
 \copy location (location_id, county) FROM './mapping_tables/lan_locations.csv' WITH HEADER CSV

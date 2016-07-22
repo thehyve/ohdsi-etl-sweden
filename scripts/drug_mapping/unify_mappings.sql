@@ -11,7 +11,7 @@ SELECT  vnr as source_concept_id,
         concept_id as target_concept_id,
         concept_name,
         U.concept_class_id
-INTO mappings.vnr_mapping -- Note: final mapping stored in mappings schema
+INTO etl_mappings.vnr_mapping -- Note: final mapping stored in mappings schema
 FROM (
     SELECT *
     FROM drugmap.vnr_to_clinical_drug
@@ -52,4 +52,4 @@ ORDER BY vnr
 -- GROUP BY concept_class_id
 ;
 
-CREATE INDEX source_concept_index ON mappings.vnr_mapping (source_concept_id);
+CREATE INDEX source_concept_index ON etl_mappings.vnr_mapping (source_concept_id);

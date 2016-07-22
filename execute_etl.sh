@@ -37,11 +37,10 @@ echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
 
-# Search for tables first in database schema, then in vocabulary schema (and alst in public schema)
-# (if schema not specified specifically)
-sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA, $VOCAB_SCHEMA, public;"
 # Create cdm5 schema. Assume vocab schema exists and is filled.
 sudo -u $USER psql -d $DATABASE_NAME -c "CREATE SCHEMA IF NOT EXISTS $DATABASE_SCHEMA;"
+# Search for tables in database schema, if schema name not specified explicitly.
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA;"
 
 echo
 echo "Preprocessing patient registers..."
@@ -72,6 +71,9 @@ echo "Filtering rows without date..."
 time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/filter_source_tables.sql
 echo "Creating indices source tables..."
 time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/alter_source_tables.sql
+
+# Search for tables first in database schema, then in vocabulary schema (and last in public schema)
+sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET search_path TO $DATABASE_SCHEMA, $VOCAB_SCHEMA, public;"
 
 echo
 echo "Creating mapping tables..."

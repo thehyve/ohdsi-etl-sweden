@@ -57,7 +57,7 @@ SELECT
          ELSE 44814649
     END AS place_of_service_concept_id
 
-FROM bayer.death
+FROM etl_input.death
 ;
 
 CREATE INDEX person_index ON death_addendum (person_id);

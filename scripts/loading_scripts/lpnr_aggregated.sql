@@ -6,7 +6,7 @@
     */
 
 -- SELECT * FROM (
-CREATE TABLE bayer.lpnr_aggregated AS
+CREATE TABLE etl_input.lpnr_aggregated AS
     SELECT  lpnr,
             ROUND( AVG(kon) ) as kon, -- Should be all consistent
             FLOOR( AVG(ar - alder) ) as year_of_birth,
@@ -31,26 +31,26 @@ CREATE TABLE bayer.lpnr_aggregated AS
     (
         SELECT lpnr, kon, ar, alder, seninv, senutv,
                 'oppen' AS source_file
-        FROM bayer.patient_oppen
+        FROM etl_input.patient_oppen
 
         UNION ALL
 
         SELECT lpnr, kon, ar, alder, seninv, senutv,
                 'sluten' AS source_file
-        FROM bayer.patient_sluten
+        FROM etl_input.patient_sluten
 
         UNION ALL
 
         SELECT lpnr, kon, ar, alder, NULL, NULL,
                 'dag_kiru' AS source_file
-        FROM bayer.patient_dag_kiru
+        FROM etl_input.patient_dag_kiru
 
         UNION ALL
 
         -- edatum: '24/01/2015'. Year is last four characters from edatum. cast as integer
         SELECT lpnr, kon, SUBSTRING(edatum FROM '....$')::integer as ar, alder, NULL, NULL,
                 'drug' AS source_file
-        FROM bayer.drug
+        FROM etl_input.drug
 
         UNION ALL
 
@@ -58,7 +58,7 @@ CREATE TABLE bayer.lpnr_aggregated AS
         -- Gender turned off: too many aberrant readings
         SELECT lpnr, NULL, ar, alder, NULL, NULL,
                 'death' AS source_file
-        FROM bayer.death
+        FROM etl_input.death
 
     ) persons
     WHERE lpnr IS NOT NULL
@@ -67,4 +67,4 @@ CREATE TABLE bayer.lpnr_aggregated AS
 ;
 
 -- Add primary key index on lpnr to speed up joins on lpnr.
-ALTER TABLE bayer.lpnr_aggregated ADD PRIMARY KEY (lpnr);
+ALTER TABLE etl_input.lpnr_aggregated ADD PRIMARY KEY (lpnr);

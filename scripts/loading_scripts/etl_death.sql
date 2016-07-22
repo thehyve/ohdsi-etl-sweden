@@ -10,9 +10,9 @@ SELECT lpnr,
        ulorsak,
        38003569 -- EHR record patient status "Deceased"
 
-FROM (SELECT DISTINCT ON (lpnr) * FROM bayer.death ) AS death -- Only one row per person. One death per person
+FROM (SELECT DISTINCT ON (lpnr) * FROM etl_input.death ) AS death -- Only one row per person. One death per person
 
-LEFT JOIN mappings.snomed AS ulorsak_map
+LEFT JOIN etl_mappings.snomed AS ulorsak_map
   ON death.ulorsak = ulorsak_map.source_code
 
 -- WHERE dodsdat::varchar LIKE '%00'

@@ -26,7 +26,7 @@ SELECT  row_number() OVER(ORDER BY person_id) AS observation_period_id,
                to_date(seninv, 'yyyymmdd') as immi_date,
                to_date(senutv, 'yyyymmdd') as emi_date
         FROM person as person
-        LEFT JOIN bayer.lpnr_aggregated as emmigration
+        LEFT JOIN etl_input.lpnr_aggregated as emmigration
           ON person.person_id = emmigration.lpnr
         LEFT JOIN death as death
           ON person.person_id = death.person_id

@@ -49,17 +49,17 @@ SELECT  --row_number() OVER (ORDER BY lpnr),
         -- lformgrupp as route_concept_id
         lformgrupp as route_source_value
 
-FROM bayer.drug as drug_source
+FROM etl_input.drug as drug_source
 
--- LEFT JOIN mappings.atc_to_ingredient
+-- LEFT JOIN etl_mappings.atc_to_ingredient
   -- ON atc_concept_code = atc
-LEFT JOIN mappings.vnr_mapping as vnr_mapping
+LEFT JOIN etl_mappings.vnr_mapping as vnr_mapping
   ON drug_source.varunr = vnr_mapping.source_concept_id
 
 LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
 
-LEFT JOIN mappings.unit
+LEFT JOIN etl_mappings.unit
   ON drug_source.styrka_enh = unit.source_code
 
 WHERE antal > 0 -- Ignore negative antals, administrative issue.

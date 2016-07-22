@@ -21,10 +21,10 @@ SELECT  lpnr,
         code_type as observation_source_value,
         death.code as value_as_string -- Original source concept
 
-FROM bayer.death_long as death
+FROM etl_input.death_long as death
 -- ONLY persons that are present in the person table! Otherwise foreign key constraint fails.
 INNER JOIN person as person ON person.person_id = death.lpnr
-LEFT JOIN mappings.snomed AS snomed
+LEFT JOIN etl_mappings.snomed AS snomed
   ON death.code = snomed.source_code
 WHERE death.code_type LIKE 'morsak%'
 ;

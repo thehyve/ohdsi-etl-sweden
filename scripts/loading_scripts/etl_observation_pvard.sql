@@ -27,11 +27,11 @@ SELECT  lpnr,
 FROM (
     -- ekod status only in sluten and oppen registries
     SELECT DISTINCT lpnr, indatuma, pvard, visit_id
-    FROM bayer.patient_sluten_long
+    FROM etl_input.patient_sluten_long
 
     UNION ALL
 
     SELECT DISTINCT lpnr, indatuma, pvard, visit_id
-    FROM bayer.patient_oppen_long
+    FROM etl_input.patient_oppen_long
 ) A
 ;

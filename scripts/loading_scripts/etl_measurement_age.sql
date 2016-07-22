@@ -25,22 +25,22 @@ SELECT  lpnr,
         --visit_id
 FROM (
     SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
-    FROM bayer.patient_sluten
+    FROM etl_input.patient_sluten
 
     UNION ALL
 
     SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
-    FROM bayer.patient_oppen
+    FROM etl_input.patient_oppen
 
     UNION ALL
 
     SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
-    FROM bayer.patient_dag_kiru
+    FROM etl_input.patient_dag_kiru
 
     UNION ALL
 
     SELECT lpnr, to_date(edatum,'dd/mm/yyyy') as indate, alder--, visit_id
-    FROM bayer.drug
+    FROM etl_input.drug
 
 ) patient_reg
 -- Some dates are null, that is not allowed in OMOP

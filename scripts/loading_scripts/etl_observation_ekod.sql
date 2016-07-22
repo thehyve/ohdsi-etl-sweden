@@ -21,15 +21,15 @@ SELECT  lpnr,
 FROM (
     -- ekod status only in sluten and oppen registries
     SELECT DISTINCT lpnr, indatuma, utdatuma, code, visit_id
-    FROM bayer.patient_sluten_long
+    FROM etl_input.patient_sluten_long
     WHERE code_type LIKE 'ekod%'
 
     UNION ALL
 
     SELECT DISTINCT lpnr, indatuma, indatuma as utdatuma, code, visit_id
-    FROM bayer.patient_oppen_long
+    FROM etl_input.patient_oppen_long
     WHERE code_type LIKE 'ekod%'
 ) A
-LEFT JOIN mappings.icd10_ekod icd10
+LEFT JOIN etl_mappings.icd10_ekod icd10
   ON code = source_code
 ;
