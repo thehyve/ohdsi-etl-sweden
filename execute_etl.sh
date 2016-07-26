@@ -144,6 +144,9 @@ time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDE
 printf "%-35s" "Drug Era: "
 time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
 
+# Insert data information in cdm_source
+sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/set_cdm_source.sql -q
+
 echo
 echo "Adding constraints..."
 time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM constraints.sql" -q
