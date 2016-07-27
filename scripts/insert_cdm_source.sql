@@ -1,3 +1,4 @@
+/* Add information about the loaded data */
 INSERT INTO cdm_source
 VALUES
 ('Swedish National Registry',
