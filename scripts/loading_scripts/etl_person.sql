@@ -10,7 +10,7 @@ SELECT  -- If record not in LISA, then use the lpnr from the registries.
         CASE WHEN lisa.lpnr IS NULL
              THEN age_gender.lpnr
              ELSE lisa.lpnr
-        END as lpnr2, -- lpnr as person_id and person_source_value. Alternative: create own ids?
+        END as lpnr2, -- lpnr as person_id and person_source_value.
         -- Location (lan == location_id)
         lisa.lan as location_id,
         -- Gender

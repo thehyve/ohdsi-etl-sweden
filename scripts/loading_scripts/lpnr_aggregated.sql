@@ -2,13 +2,13 @@
     Returns: id, MAX(gender), year of birth, immigration, emigration, count.
     Year of birth = Year - Age_end_year (thus highest age recorded = lowest yob).
     Imigration/emmigration only in oppen and sluten files. Aggregate for later use.
-    Gender from Death register is often different from other registries. (20 times out of 179)
-    */
+    Gender from Death register is often different from other registries and
+    therefor excluded here. (20 times out of 179)
+*/
 
--- SELECT * FROM (
 CREATE TABLE etl_input.lpnr_aggregated AS
     SELECT  lpnr,
-            ROUND( AVG(kon) ) as kon, -- Should be all consistent
+            ROUND( AVG(kon) ) as kon,
             FLOOR( AVG(ar - alder) ) as year_of_birth,
 
             -- seninv/utv are the most recent emmigration.
@@ -18,15 +18,12 @@ CREATE TABLE etl_input.lpnr_aggregated AS
                  THEN MAX(seninv)
                  ELSE NULL
             END as seninv,
+
             CASE WHEN MAX(senutv) ~ '^[0-9]'
                  THEN MAX(senutv)
                  ELSE NULL
             END as senutv,
             count(lpnr) as count
-            -- string_agg(seninv,'|') as seninv,
-            -- string_agg(senutv,'|') as senutv,
-            -- array_agg(source_file),
-            -- array_agg(kon) as kon_array
     FROM
     (
         SELECT lpnr, kon, ar, alder, seninv, senutv,
@@ -47,7 +44,7 @@ CREATE TABLE etl_input.lpnr_aggregated AS
 
         UNION ALL
 
-        -- edatum: '24/01/2015'. Year is last four characters from edatum. cast as integer
+        -- edatum: '24/01/2015'. Year is last four characters of edatum. cast as integer
         SELECT lpnr, kon, SUBSTRING(edatum FROM '....$')::integer as ar, alder, NULL, NULL,
                 'drug' AS source_file
         FROM etl_input.drug

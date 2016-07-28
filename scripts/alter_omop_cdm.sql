@@ -23,3 +23,7 @@ ALTER TABLE condition_occurrence ALTER COLUMN condition_occurrence_id SET DEFAUL
 DROP SEQUENCE IF EXISTS procedure_occurrence_seq CASCADE;
 CREATE SEQUENCE procedure_occurrence_seq;
 ALTER TABLE procedure_occurrence ALTER COLUMN procedure_occurrence_id SET DEFAULT nextval('procedure_occurrence_seq');
+
+DROP SEQUENCE IF EXISTS observation_period_seq CASCADE;
+CREATE SEQUENCE observation_period_seq;
+ALTER TABLE observation_period ALTER COLUMN observation_period_id SET DEFAULT nextval('observation_period_seq');

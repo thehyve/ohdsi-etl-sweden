@@ -3,14 +3,12 @@
     Fails if emigration before start of datacut and no immigration (unlikely event)
 */
 INSERT INTO observation_period (
-        observation_period_id,
         person_id,
         observation_period_start_date,
         observation_period_end_date,
         period_type_concept_id
 )
-SELECT  row_number() OVER(ORDER BY person_id) AS observation_period_id,
-        person_id,
+SELECT  person_id,
 
         getObservationStartDate( to_date('19970101','yyyymmdd'), year_of_birth, immi_date, emi_date ) as observation_period_start_date,
         getObservationEndDate( to_date('20150801','yyyymmdd'), death_date, immi_date, emi_date ) as observation_period_end_date,

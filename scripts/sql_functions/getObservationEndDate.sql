@@ -13,21 +13,9 @@ BEGIN
         -- Note, no knowledge about study_start_date
         RETURN LEAST(study_end_date, death_date);
     ELSE
-        -- If only immigration date, return first date of the following.
-        IF immigration_date IS NULL THEN
-            RETURN LEAST(study_end_date, death_date, emigration_date);
-        ELSE
-            -- Both immigration and emigration date.
-            -- if immi after emi, then ignore immigration. (start and end will be between study_start and emi)
-            -- if earlier than emigration, then take immigration into account. (start and end will be between immi and emi)
-            IF immigration_date > emigration_date THEN
-                RETURN LEAST(study_end_date, death_date, emigration_date);
-            ELSE
-                RETURN LEAST(study_end_date, death_date, emigration_date);
-            END IF;
-        END IF;
+        RETURN LEAST(study_end_date, death_date, emigration_date);
     END IF;
-    
+
     -- Should not happen, but study_end_date is a safe option
     RETURN study_end_date;
 END;
