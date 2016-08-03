@@ -22,7 +22,7 @@ SELECT
         	WHEN 4 THEN 4081608 -- Patient died in hospital
         END as value_as_concept_id,
 
-        to_date(indatuma::varchar, 'yyyymmdd'),
+        to_date(utdatuma::varchar, 'yyyymmdd'),
 
         38000280 AS observation_type_concept_id, -- Observation recorded from EHR
 

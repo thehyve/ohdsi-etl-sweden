@@ -93,7 +93,8 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndD
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/convertDeathDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugQuantity.sql
 
-# Actual ETL. Always first Person and Death tables. Other tables rely on that
+# Actual ETL. Order is important.
+# Especially always first Person and Death tables.
 echo
 echo "Performing ETL..."
 printf "%-35s" "Person: "
