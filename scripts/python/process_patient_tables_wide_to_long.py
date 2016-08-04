@@ -16,7 +16,7 @@ HAS_HEADER = True
 
 def is_code_column( column_name ):
     column_name = column_name.lower()
-    if re.match(r'op\d|hdia|bdia\d|ekod\d', column_name):
+    if re.match(r'op\d|hdia|bdia\d|.*ekod.*', column_name): # 2016-08-04 Allow all chars before and after ekod
         return True
     else:
         return False

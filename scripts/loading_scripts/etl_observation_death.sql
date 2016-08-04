@@ -16,7 +16,7 @@ SELECT  lpnr,
              ELSE snomed.target_concept_id
         END AS value_as_concept_id,
 
-        to_date(dodsdat::varchar,'yyyymmdd') as observation_date,
+        convertDeathDate( dodsdat::varchar ) as observation_date,
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
         code_type as observation_source_value,
         death.code as value_as_string -- Original source concept
