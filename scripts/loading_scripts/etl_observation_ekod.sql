@@ -30,6 +30,6 @@ FROM (
     FROM etl_input.patient_oppen_long
     WHERE code_type LIKE 'ekod%'
 ) A
-LEFT JOIN etl_mappings.icd10_ekod icd10
+LEFT JOIN etl_mappings.icd10_snomed icd10
   ON code = source_code
 ;

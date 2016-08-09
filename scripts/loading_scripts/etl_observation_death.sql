@@ -24,7 +24,7 @@ SELECT  lpnr,
 FROM etl_input.death_long as death
 -- ONLY persons that are present in the person table! Otherwise foreign key constraint fails.
 INNER JOIN person as person ON person.person_id = death.lpnr
-LEFT JOIN etl_mappings.snomed AS snomed
+LEFT JOIN etl_mappings.icd10_snomed AS snomed
   ON death.code = snomed.source_code
 WHERE death.code_type LIKE 'morsak%'
 ;

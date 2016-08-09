@@ -44,7 +44,7 @@ INSERT INTO condition_occurrence (
         FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN etl_mappings.snomed AS condition_map
+    LEFT JOIN etl_mappings.icd10_snomed AS condition_map
       ON code = condition_map.source_code
 
     -- Only diagnostic codes

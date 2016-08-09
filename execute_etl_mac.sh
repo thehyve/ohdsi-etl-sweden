@@ -146,10 +146,11 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_condition_
 printf "%-35s" "Drug Era: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.sql
 
-# Insert data information in cdm_source and webapi_sourc[_daimon]
+# Insert data information in cdm_source and webapi_sourc[_daimon] tables
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/insert_cdm_source.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/setSourceDaimon.sql
-sudo -u $USER psql -d $DATABASE_NAME -c "SELECT setSourceDaimon('$DATABASE_SCHEMA','Swedish Registry ETL $DATE','SwedReg');" -q
+echo "The new Source ID is:"
+sudo -u $USER psql -d $DATABASE_NAME -c "SELECT setSourceDaimon('$DATABASE_SCHEMA','Swedish Registry ETL $DATE','SwedReg');" -t
 
 echo
 echo "Adding constraints..."
