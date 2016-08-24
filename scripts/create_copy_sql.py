@@ -78,7 +78,7 @@ class FormatRegistry(object):
                 output_format = ColumnFormat( column_name, 'varchar(255)', 0, dummy_colname )
                 # also add to list of additional columns
                 self.columns_to_be_created.append( output_format )
-                print "\tWarning: '%s' not recognised. Creating a dummy column '%s'." % (column_name, dummy_colname)
+                print( "\tWarning: '%s' not recognised. Creating a dummy column '%s'." % (column_name, dummy_colname))
             else:
                 input_format = self.column_formats[ column_name ]
                 input_format.set_is_seen()
@@ -91,7 +91,7 @@ class FormatRegistry(object):
         # Check which columns are not set, but present in the format file.
         for column_format in self.column_formats.values():
             if not column_format.get_is_seen() and column_format.is_required:
-                print "\tWarning: '%s' is required, but not found in input file." % ( column_format.target_name )
+                print( "\tWarning: '%s' is required, but not found in input file." % ( column_format.target_name ))
 #                raise Warning("Column '%s' is not present in '<filename>', but is a required column." % column_format.name )
 
 
@@ -102,14 +102,14 @@ class FormatRegistry(object):
 
         with open(format_file_path, 'r') as f_format:
             csv_reader = csv.reader( f_format, dialect='excel' )
-            csv_reader.next() #remove header
+            next(csv_reader) #remove header
             columns = {}
             for row in csv_reader:
                 column_name = row[0].lower()
 
                 if column_name in columns:
-                    print "'%s' duplicated in the format file %s" % (column_name, format_file_path)
-                    print "Using first definition"
+                    print( "'%s' duplicated in the format file %s" % (column_name, format_file_path))
+                    print( "Using first definition")
                     continue
 
                 column_format = ColumnFormat( column_name, row[1], row[2], row[3] )
@@ -140,7 +140,7 @@ class FormatRegistry(object):
 
         with open(self.input_filename, 'r') as f_in:
             csv_reader = csv.reader( f_in, dialect='excel' )
-            header = csv_reader.next()
+            header = next(csv_reader)
 
         self.set_file_header( header )
 
@@ -182,7 +182,7 @@ class FormatRegistry(object):
         if type_colname in self.column_formats:
             return template % (self.table_name, type_colname, type_value, type_colname)
         else:
-            print "Type column %s is not present in the table." % type_colname
+            print( "Type column %s is not present in the table." % type_colname)
             return False
 
 def main( source_folder, source_files_overview, schema_name, encoding, out_filepath ):
@@ -201,14 +201,14 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
             filenames = [ filename ]
 
         if not format_filename:
-            print "No format filename found for %s" % filename
+            print( "No format filename found for %s" % filename)
             continue
 
         format_path = os.path.join( source_folder, format_filename )
 
         for filename in filenames:
             file_path = os.path.join( folder_path, filename )
-            print "Processing file '%s'" % file_path
+            print( "Processing file '%s'" % file_path)
 
             formatRegistry = FormatRegistry( file_path, target_table, schema_name )
             formatRegistry.set_format( format_path )
@@ -216,7 +216,7 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
             try:
                 formatRegistry.process_file( )
             except IOError:
-                print "Warning: could not find '%s'" % file_path
+                print( "Warning: could not find '%s'" % file_path)
                 continue
 
             with open(out_filepath, 'a') as f_out:
@@ -228,11 +228,11 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
                 if type_column.strip() != '':
                     f_out.write( formatRegistry.create_add_type( type_column, type_value ) )
                 f_out.write('\n\n')
-            # print "" #newline
+            # print( "" #newline)
 
 def process_overview_file( file_object ):
     csv_file_overview = csv.reader( file_object, dialect='excel' )
-    csv_file_overview.next() #remove header
+    next(csv_file_overview) #remove header
 
     result = []
     for row in csv_file_overview:
@@ -266,8 +266,8 @@ if __name__ == '__main__':
         encoding = sys.argv[2]
         output_folder = sys.argv[3]
     except:
-        print "Please supply a folder and encoding"
-        print "Usage: create_copy_sql.py <source_folder> <encoding> <output_folder>"
+        print( "Please supply a folder and encoding")
+        print( "Usage: create_copy_sql.py <source_folder> <encoding> <output_folder>")
 #        sys.exit(1)
         source_folder = '../source_tables'
         encoding = 'UTF8' # Options are: WIN1252, UTF8, LATIN1

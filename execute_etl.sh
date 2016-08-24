@@ -29,12 +29,12 @@ if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
 fi
 # Defaults
 if [ "$ENCODING" = "" ]; then ENCODING="UTF8"; fi
-if [ "$DATABASE_SCHEMA" = "" ]; then SCHEMA="cdm5"; fi
+if [ "$DATABASE_SCHEMA" = "" ]; then DATABASE_SCHEMA="cdm5"; fi
 if [ "$VOCAB_SCHEMA" = "" ]; then VOCAB_SCHEMA="cdm5"; fi
 
 date
 echo "===== Starting the ETL procedure to OMOP CDM ====="
-echo "Using the database '$DATABASE_NAME' and the cdm5 schema."
+echo "Using the database '$DATABASE_NAME' and the '$DATABASE_SCHEMA' schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
 
@@ -45,12 +45,12 @@ sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET searc
 
 echo
 echo "Preprocessing patient registers..."
-python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
-python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
+python3 $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
+python3 $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
-python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
+python3 $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
 
 echo
 # The following is executed quietly (-q)

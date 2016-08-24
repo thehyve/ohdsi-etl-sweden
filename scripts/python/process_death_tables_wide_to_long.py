@@ -34,14 +34,14 @@ def main( input_files, path_out ):
         filename_out = '%s_long.csv' % ( filebase)
 
         if os.path.exists(filename_out):
-            print "Skipped '%s'" % target_table
-            print "\tBecause long format file '%s' already exists." % filename_out
+            print( "Skipped '%s'" % target_table)
+            print( "\tBecause long format file '%s' already exists." % filename_out)
             continue
         elif not os.path.exists(filename):
-            print "%s does not exist. Please add it." % filename
+            print( "%s does not exist. Please add it." % filename)
             continue
         else:
-            print "Processing %s" % filename
+            print( "Processing %s" % filename)
 
         merger = MergeCSV( filename_out )
 
@@ -50,7 +50,7 @@ def main( input_files, path_out ):
             csv_reader = csv.reader(f_in, dialect='excel')
 
             # Read in the header with column names
-            column_names = csv_reader.next()
+            column_names = next(csv_reader)
             column_names = [x.lower() for x in column_names]
             # Determine which columns contain codes (morsak#)
             code_columns_bool = [is_code_column(col_name) for col_name in column_names]
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv') )
     csv_file_overview = csv.reader( f_file_overview, dialect='excel' )
-    csv_file_overview.next() #remove header
+    next(csv_file_overview) #remove header
 
     input_files = {}
     for row in csv_file_overview:

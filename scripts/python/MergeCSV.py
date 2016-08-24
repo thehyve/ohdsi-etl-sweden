@@ -49,7 +49,7 @@ class MergeCSV(object):
 
         # Skip header if present
         if self.has_header:
-            header = csv_reader.next()
+            header = next(csv_reader)
             header = [x.lower() for x in header]
             self._set_current_header( header )
 
@@ -90,7 +90,7 @@ class MergeCSV(object):
             if file_path == self.out_filename:
                 continue
 
-            print "Opening '%s'" % file_path
+            print("Opening '%s'" % file_path)
             self.add_file( file_path )
 
     def _set_output_header( self, header_list ):
@@ -110,8 +110,8 @@ class MergeCSV(object):
         # Print warning if mismatch in colum names
         for column_name in self.current_header:
             if column_name not in self.output_header:
-                print "WARNING: column '%s' is not present in the output columns of the merge file." % column_name
-                print "Values from column '%s' will NOT be written to merged file" % column_name
+                print( "WARNING: column '%s' is not present in the output columns of the merge file." % column_name)
+                print( "Values from column '%s' will NOT be written to merged file" % column_name)
 
     def _align(self, values, default_value = ''):
         """ Rearranges the values to comply with output_header columns.
@@ -137,7 +137,7 @@ class MergeCSV(object):
 #    try:
 #        foldername = sys.argv[1]
 #    except:
-#        print "Please supply a folder"
+#        print("Please supply a folder")
 ##        sys.exit(1)
 #        foldername = 'drug registries'
 #

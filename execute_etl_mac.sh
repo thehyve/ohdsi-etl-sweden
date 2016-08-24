@@ -34,7 +34,7 @@ if [ "$VOCAB_SCHEMA" = "" ]; then VOCAB_SCHEMA="cdm5"; fi
 
 date
 echo "===== Starting the ETL procedure to OMOP CDM ====="
-echo "Using the database '$DATABASE_NAME' and the '$VOCAB_SCHEMA' schema."
+echo "Using the database '$DATABASE_NAME' and the '$DATABASE_SCHEMA' schema."
 echo "Loading source files from the folder '$SOURCE_FOLDER' "
 echo "Using $ENCODING encoding of the source files."
 
