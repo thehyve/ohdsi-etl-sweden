@@ -45,6 +45,9 @@ sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET searc
 
 echo
 echo "Preprocessing patient registers..."
+# First remove any existing rendered tables
+rm -f rendered_tables/patient_register/*
+rm -f rendered_tables/death_register/*
 python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
 python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
