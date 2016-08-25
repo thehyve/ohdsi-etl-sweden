@@ -1,0 +1,7 @@
+source_tables/death_register/**
+source_tables/drug_register/**
+source_tables/lisa_register/**
+source_tables/patient_register/**
+rendered_tables/death_register/**
+rendered_tables/patient_register/**
+scripts/rendered_sql/**
