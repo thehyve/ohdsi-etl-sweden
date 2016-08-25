@@ -18,6 +18,7 @@ DECLARE
     new_source_id integer;
     max_source_daimon_id integer;
     new_source_daimon_id integer;
+    source_key_unique varchar;
 BEGIN
     EXECUTE 'SELECT MAX(source_id) FROM webapi.source' INTO max_source_id;
     IF max_source_id IS NULL THEN
@@ -26,9 +27,12 @@ BEGIN
         new_source_id := max_source_id + 1;
     END IF;
 
+    -- Concatenate source_id to make source_key unique
+    source_key_unique := concat(source_key,new_source_id::varchar);
+
     INSERT INTO webapi.source (source_id, source_name, source_key, source_connection, source_dialect)
     VALUES
-    (new_source_id, source_name, source_key, 'jdbc:postgresql://localhost:5432/ohdsi?user=webapi&password=webapi', 'postgresql')
+    (new_source_id, source_name, source_key_unique, 'jdbc:postgresql://localhost:5432/ohdsi?user=webapi&password=webapi', 'postgresql')
     ;
 
     EXECUTE 'SELECT MAX(source_daimon_id) FROM webapi.source_daimon' INTO max_source_daimon_id;
