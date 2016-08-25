@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun  6 10:36:15 2016
-
 @author: Maxim
+Creates a sql script to load the source tables into a postgresql database.
 """
 import os, sys, csv, copy
 
@@ -189,12 +189,10 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
     # Open the overview file with all the tables listed
 
 
-    for filename, folder, target_table, format_filename, type_column, type_value in source_files_overview:
-        folder_path = os.path.join( source_folder, folder )
-
+    for filename, directory, target_table, format_filename, type_column, type_value in source_files_overview:
         if filename == '*':
             # Get all filenames in the <folder>
-            filenames = os.listdir( folder_path )
+            filenames = os.listdir( directory )
             # Extension must be csv or txt
             filenames = filter( lambda x: x[-3::] in ['csv','txt'], filenames)
         else:
@@ -207,7 +205,7 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
         format_path = os.path.join( source_folder, format_filename )
 
         for filename in filenames:
-            file_path = os.path.join( folder_path, filename )
+            file_path = os.path.join( directory, filename )
             print( "Processing file '%s'" % file_path)
 
             formatRegistry = FormatRegistry( file_path, target_table, schema_name )
@@ -230,26 +228,26 @@ def main( source_folder, source_files_overview, schema_name, encoding, out_filep
                 f_out.write('\n\n')
             # print( "" #newline)
 
-def process_overview_file( file_object ):
+def process_overview_file( file_object, source_folder, long_tables_folder ):
+    """
+    All source tables are placed in the source_folder. The tables in the long format are in the long_tables_folder.
+    """
     csv_file_overview = csv.reader( file_object, dialect='excel' )
     next(csv_file_overview) #remove header
 
     result = []
     for row in csv_file_overview:
-        result.append(row)
+        filename, registry_folder, target_table, format_filename, type_column, type_value = row
+        directory = os.path.join(source_folder,registry_folder)
+        result.append( [filename, directory, target_table, format_filename, type_column, type_value] )
 
-        # Also read preprocessed long patient and death registries
-        filename, folder, target_table, format_filename, type_column, type_value = row
-        if folder == 'patient_register' :
+        # Also add preprocessed long patient and death registries
+        if registry_folder == 'patient_register' or registry_folder == 'death_register':
             base, extension = filename.rsplit('.',1)
             new_filename = '%s_long.%s' % (base, extension)
             target_table_new = target_table + '_long'
-            result.append([new_filename, folder, target_table_new, format_filename, type_column, type_value])
-        if folder == 'death_register':
-            base, extension = filename.rsplit('.',1)
-            new_filename = '%s_long.%s' % (base, extension)
-            target_table_new = target_table + '_long'
-            result.append([new_filename, folder, target_table_new, format_filename, type_column, type_value])
+            directory = os.path.join( long_tables_folder, registry_folder )
+            result.append( [new_filename, directory, target_table_new, format_filename, type_column, type_value] )
 
     return result
 
@@ -260,6 +258,7 @@ if __name__ == '__main__':
     SCHEMA_NAME = 'etl_input'
     OUT_FILENAME = 'load_tables.sql'
     OVERVIEW_FILENAME = 'overview_source_files.csv'
+    RENDERED_SOURCE_FOLDER = 'rendered_tables'
 
     try:
         source_folder = sys.argv[1]
@@ -279,6 +278,6 @@ if __name__ == '__main__':
 
     overview_file = os.path.join(source_folder, OVERVIEW_FILENAME)
     with open(overview_file) as f_overview:
-        source_files_overview = process_overview_file( f_overview )
+        source_files_overview = process_overview_file( f_overview, source_folder, RENDERED_SOURCE_FOLDER )
 
     main( source_folder, source_files_overview, SCHEMA_NAME, encoding, out_filepath )

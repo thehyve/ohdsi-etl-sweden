@@ -12,6 +12,7 @@ import re, copy, csv, os, sys
 from MergeCSV import MergeCSV as MergeCSV
 
 HAS_HEADER = True
+OUTPUT_FOLDER = 'rendered_tables'
 #DELIMITER = ','
 
 def is_code_column( column_name ):
@@ -31,7 +32,7 @@ def main( input_files, path_out ):
 
     for filename, target_table in input_files.items():
         filebase, extension = filename.rsplit('.',1)
-        filename_out = '%s_long.csv' % ( filebase)
+        filename_out = '%s/%s_long.csv' % ( path_out, os.path.split(filebase)[-1] )
 
         if os.path.exists(filename_out):
             print( "Skipped '%s'" % target_table)
@@ -106,5 +107,5 @@ if __name__ == '__main__':
         if folder == 'death_register' and 'long' not in filename: #hack to not by accident process the long files
             input_files[ os.path.join(source_folder,folder,filename) ] = filename
 
-    path_out = os.path.join( source_folder, 'death_register' )
+    path_out = os.path.join( OUTPUT_FOLDER, 'death_register' )
     main(input_files, path_out)

@@ -19,7 +19,7 @@ PYTHON_FOLDER="$SCRIPTS_FOLDER/python"
 DRUG_MAPPING_FOLDER="$SCRIPTS_FOLDER/drug_mapping"
 OMOP_CDM_FOLDER="$SCRIPTS_FOLDER/OMOPCDM"
 TIME_FORMAT="Elapsed Time: %e sec"
-DATE=`date +%Y-%m-%d`
+DATE=`date +%Y-%m-%d_%H:%M`
 
 # Check whether command line arguments are given
 if [ "$DATABASE_NAME" = "" ] || [ "$USER" = "" ]; then
@@ -50,11 +50,11 @@ python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register
-python $SCRIPTS_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
+python $PYTHON_FOLDER/create_copy_sql.py $SOURCE_FOLDER $ENCODING $DYNAMIC_SCRIPT_FOLDER
 
 echo
 # The following is executed quietly (-q)
-echo "Dropping cdm5 tables and empty schemas..."
+echo "Dropping cdm5 tables and emptying schemas..."
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/empty_schemas.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/drop_cdm_tables.sql -q
 sudo -u $USER psql -d $DATABASE_NAME -f "$OMOP_CDM_FOLDER/OMOP CDM ddl.sql" -q

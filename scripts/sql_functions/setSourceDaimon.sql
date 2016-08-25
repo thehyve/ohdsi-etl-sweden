@@ -1,6 +1,7 @@
 /*
 Add the datasource to the webapi. https://github.com/OHDSI/WebAPI/wiki/Source-Configuration
 Assumes the webapi schema exists in the same database.
+Needs to be a function to easy pass parameters from the main bash script.
 Input: Database name, Database schema
 Daimon_type: 0=CDM, 1=Vocabulary, 2=Results, 3=LAERTES.
 Possible Issue: point two databases to same results schema (webapi in this case). See also:

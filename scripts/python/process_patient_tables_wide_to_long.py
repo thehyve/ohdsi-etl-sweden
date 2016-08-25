@@ -12,6 +12,7 @@ import re, copy, csv, os, sys
 from MergeCSV import MergeCSV as MergeCSV
 
 HAS_HEADER = True
+OUTPUT_FOLDER = 'rendered_tables'
 #DELIMITER = ','
 
 def is_code_column( column_name ):
@@ -114,5 +115,5 @@ if __name__ == '__main__':
         if folder == 'patient_register' and 'long' not in filename: #hack to not by accident process the long files
             input_files[ os.path.join(source_folder,folder,filename) ] = target_table
 
-    path_out = os.path.join(source_folder,'patient_register')
+    path_out = os.path.join(OUTPUT_FOLDER,'patient_register')
     main(input_files, path_out)
