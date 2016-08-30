@@ -152,9 +152,10 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.s
 # Insert data information in cdm_source and webapi_sourc[_daimon] tables
 echo
 sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/insert_cdm_source.sql -q
-sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/setSourceDaimon.sql
-echo "The new Source ID is:"
-sudo -u $USER psql -d $DATABASE_NAME -c "SELECT setSourceDaimon('$DATABASE_SCHEMA','Swedish Registry ETL $DATE','SwedReg');" -t
+# sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/setSourceDaimon.sql
+# echo "The new Source ID is:"
+# sudo -u $USER psql -d $DATABASE_NAME -c "SELECT setSourceDaimon('$DATABASE_SCHEMA','Swedish Registry ETL $DATE','SwedReg');" -t
+
 # Grant access to webapi in order to make the person tab work
 sudo -u $USER psql -d $DATABASE_NAME -c "GRANT SELECT ON ALL TABLES IN SCHEMA $DATABASE_SCHEMA TO webapi;"
 sudo -u $USER psql -d $DATABASE_NAME -c "GRANT USAGE ON SCHEMA $DATABASE_SCHEMA TO webapi;"

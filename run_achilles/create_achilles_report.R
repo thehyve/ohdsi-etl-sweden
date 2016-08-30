@@ -8,25 +8,25 @@ achillesPath <- "/Users/Maxim/Documents/etl_vm/achilles_data/" # Existing folder
 dataName  <- "2ndIteration" # The name will appear in AchillesWeb. Has to be unique
 
 ## Database connection details ##
-connectionDetails <- createConnectionDetails(dbms="postgresql", 
-                                             server="localhost/ohdsi", 
-                                             user="postgres", 
+connectionDetails <- createConnectionDetails(dbms="postgresql",
+                                             server="localhost/ohdsi",
+                                             user="postgres",
                                              password="",
                                              port=5433,
                                              schema="cdm5")
 
-achillesResults <- achilles(connectionDetails, 
-                            cdmDatabaseSchema="cdm5", 
-                            resultsDatabaseSchema = "results_achilles", 
+achillesResults <- achilles(connectionDetails,
+                            cdmDatabaseSchema="cdm5",
+                            resultsDatabaseSchema = "webapi",
                             cdmVersion = "5",
                             smallcellcount = 5,
                             runHeel = TRUE,
-                            validateSchema = FALSE) 
+                            validateSchema = FALSE)
 
 outputPath <- paste(achillesPath, dataName, sep="")
 exportToJson(connectionDetails,
              cdmDatabaseSchema="cdm5",
-             resultsDatabaseSchema = "results_achilles",
+             resultsDatabaseSchema = "webapi",
              outputPath = outputPath,
              cdmVersion = "5")
 
