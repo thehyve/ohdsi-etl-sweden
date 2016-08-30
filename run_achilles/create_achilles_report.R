@@ -22,6 +22,9 @@ achillesResults <- achilles(connectionDetails,
                             smallcellcount = 5,
                             runHeel = TRUE,
                             validateSchema = FALSE)
+# Make sure the webapi can connect to the new tables created by the previous function
+# Needed for Record Counts in Atlas.
+DatabaseConnector::executeSql(connect(connectionDetails), "GRANT SELECT ON ALL TABLES IN SCHEMA webapi TO webapi;")
 
 outputPath <- paste(achillesPath, dataName, sep="")
 exportToJson(connectionDetails,
