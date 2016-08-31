@@ -100,7 +100,7 @@ class FormatRegistry(object):
         Creates dictionary of columns with each a column format
         """
 
-        with open(format_file_path, 'r') as f_format:
+        with open(format_file_path, 'r',encoding='latin1') as f_format:
             csv_reader = csv.reader( f_format, dialect='excel' )
             next(csv_reader) #remove header
             columns = {}
@@ -138,7 +138,7 @@ class FormatRegistry(object):
 
     def process_file(self):
 
-        with open(self.input_filename, 'r') as f_in:
+        with open(self.input_filename, 'r',encoding='latin1') as f_in:
             csv_reader = csv.reader( f_in, dialect='excel' )
             header = next(csv_reader)
 
@@ -277,7 +277,7 @@ if __name__ == '__main__':
     open(out_filepath, 'w').close()
 
     overview_file = os.path.join(source_folder, OVERVIEW_FILENAME)
-    with open(overview_file) as f_overview:
+    with open(overview_file,encoding='latin1') as f_overview:
         source_files_overview = process_overview_file( f_overview, source_folder, RENDERED_SOURCE_FOLDER )
 
     main( source_folder, source_files_overview, SCHEMA_NAME, encoding, out_filepath )

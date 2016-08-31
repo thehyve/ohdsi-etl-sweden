@@ -44,7 +44,7 @@ class MergeCSV(object):
         self.f_out.close()
 
     def add_file(self, filename ):
-        f_in = open( filename, 'r')
+        f_in = open( filename, 'r', encoding='latin-1')
         csv_reader = csv.reader( f_in, dialect='excel' )
 
         # Skip header if present

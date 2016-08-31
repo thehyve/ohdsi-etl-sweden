@@ -47,7 +47,7 @@ def main( input_files, path_out ):
 
         merger = MergeCSV( filename_out )
 
-        with open(filename,'r') as f_in:
+        with open(filename,'r',encoding='latin-1') as f_in:
             # Read csv in the Excel dialect
             csv_reader = csv.reader(f_in, dialect='excel')
 
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     except:
         source_folder = '../source_tables'
 
-    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv') )
+    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv'),encoding='latin-1' )
     csv_file_overview = csv.reader( f_file_overview, dialect='excel' )
     next(csv_file_overview) #remove header
 
