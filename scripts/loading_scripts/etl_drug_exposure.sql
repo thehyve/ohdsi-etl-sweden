@@ -1,4 +1,5 @@
-/* Saves drugs to the drug_exposure table with simple mapping to to ingredient.
+/* Saves drugs to the drug_exposure table.
+   The drug mapping has to be build before running this script.
 */
 
 INSERT INTO drug_exposure (

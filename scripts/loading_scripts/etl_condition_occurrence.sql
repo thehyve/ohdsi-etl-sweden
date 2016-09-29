@@ -1,15 +1,15 @@
-/* Procedures
+/* Conditions.
+For each diagnostic code in the long format patient registries, add a row in
+condition_occurrence. Dates are
 */
 
 INSERT INTO condition_occurrence (
-    -- condition_occurrence_id,
     person_id, condition_concept_id, condition_start_date,
     condition_type_concept_id, visit_occurrence_id,
     condition_source_value, condition_source_concept_id
 )
 
-    SELECT  --row_number() OVER (ORDER BY lpnr) as condition_occurrence_id,
-            lpnr,
+    SELECT  lpnr,
             CASE WHEN condition_map.target_concept_id IS NULL
                  THEN 0 -- cannot be mapped
                  ELSE condition_map.target_concept_id

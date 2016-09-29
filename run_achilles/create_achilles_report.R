@@ -4,8 +4,8 @@ library(Achilles)
 
 ## Settings for achilles output ##
 # Path to folder where Achilles json files will be stored
-achillesPath <- "/Users/Maxim/Documents/etl_vm/achilles_data/" # Existing folder with trailing slash
-dataName  <- "2ndIteration" # The name will appear in AchillesWeb. Has to be unique
+achillesPath <- "/Volumes/G-raid/Dropbox/OHDSI/etl_vm/achilles_data/" # Users/Maxim/Documents/etl_vm/achilles_data/" # Existing folder with trailing slash
+dataName  <- "2rdIteration" # The name will appear in AchillesWeb. Has to be unique
 
 ## Database connection details ##
 connectionDetails <- createConnectionDetails(dbms="postgresql",
@@ -22,7 +22,8 @@ achillesResults <- achilles(connectionDetails,
                             smallcellcount = 5,
                             runHeel = TRUE,
                             validateSchema = FALSE)
-# Make sure the webapi can connect to the new tables created by the previous function
+
+# Give the WebApi all access rights to the new tables created by the previous function.
 # Needed for Record Counts in Atlas.
 DatabaseConnector::executeSql(connect(connectionDetails), "GRANT SELECT ON ALL TABLES IN SCHEMA webapi TO webapi;")
 

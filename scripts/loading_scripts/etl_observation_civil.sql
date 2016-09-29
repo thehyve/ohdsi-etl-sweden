@@ -1,3 +1,7 @@
+/* Civil/Marital status. Married, single, divorced, widow, etc.
+   Retrieved from the inpatient and outpatient files.
+*/
+
 INSERT INTO observation (
         -- observation_id is auto incremented by a sequence
         person_id,
