@@ -95,6 +95,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStar
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/convertDeathDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugQuantity.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugEndDate.sql
 
 # Actual ETL. Order is important.
 # Especially always first Person and Death tables.
