@@ -140,8 +140,8 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_
 
 printf "%-35s" "Measurement Income: " #Only Lisa
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
-printf "%-35s" "Measurement Age: " #All registers
-time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
+# printf "%-35s" "Measurement Age: " #All registers
+# time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
 echo "Building Eras..."
