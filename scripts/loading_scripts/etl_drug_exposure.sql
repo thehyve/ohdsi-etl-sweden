@@ -7,7 +7,7 @@ INSERT INTO drug_exposure (
     person_id,
     drug_concept_id,
     drug_exposure_start_date,
-    drug_exposure_end_date
+    drug_exposure_end_date,
     drug_type_concept_id,
 
     drug_source_value,
@@ -29,7 +29,7 @@ SELECT  --row_number() OVER (ORDER BY lpnr),
         END as drug_concept_id,
 
         to_date(edatum, 'mm/dd/yyyy') as drug_exposure_start_date,
-        getDrugEndDate(edatum, forpsqtl, antal, 1.5) as drug_exposure_end_date, -- Hard coded presctiption of 1.5 per day.
+        getDrugEndDate(edatum, forpstl, antal, 1.5) as drug_exposure_end_date, -- Hard coded presctiption of 1.5 per day.
 
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
