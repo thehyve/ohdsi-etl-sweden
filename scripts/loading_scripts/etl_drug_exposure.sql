@@ -3,7 +3,6 @@
 */
 
 INSERT INTO drug_exposure (
-    -- drug_exposure_id,
     person_id,
     drug_concept_id,
     drug_exposure_start_date,
@@ -11,18 +10,18 @@ INSERT INTO drug_exposure (
     drug_type_concept_id,
 
     drug_source_value,
+    drug_source_concept_id,
+
     quantity,
     effective_drug_dose,
     dose_unit_concept_id,
     dose_unit_source_value,
     provider_id,
     sig, -- The directions (signetur) of prescription as printed on container
-    -- route_concept_id,
+
     route_source_value
 )
--- EXPLAIN ANALYZE
-SELECT  --row_number() OVER (ORDER BY lpnr),
-        lpnr,
+SELECT  lpnr,
         CASE WHEN vnr_mapping.target_concept_id IS NULL
              THEN 0 -- Not mappable
              ELSE vnr_mapping.target_concept_id
@@ -35,6 +34,7 @@ SELECT  --row_number() OVER (ORDER BY lpnr),
 
         -- Combine varunr with drug name. Just 50 characters allowed
         SUBSTRING( varunr || '|' || drug_source.lnamn FROM 0 FOR 50) as drug_source_value,
+        vnr_to_ingredient.atc_concept_id as drug_source_concept_id,
 
         getDrugQuantity(forpstl, antal) as quantity,
         styrknum,
@@ -51,15 +51,15 @@ SELECT  --row_number() OVER (ORDER BY lpnr),
         END as provider_id,
         doser as sig, -- The directions (signetur) of prescription as printed on container
 
-        -- lformgrupp as route_concept_id
         lformgrupp as route_source_value
 
 FROM etl_input.drug as drug_source
 
--- LEFT JOIN etl_mappings.atc_to_ingredient
-  -- ON atc_concept_code = atc
 LEFT JOIN etl_mappings.vnr_mapping as vnr_mapping
   ON drug_source.varunr = vnr_mapping.source_concept_id
+-- ATC concept_id as source_concept
+LEFT JOIN drugmap.vnr_to_ingredient
+  ON drug_source.varunr = vnr_to_ingredient.vnr
 
 LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
