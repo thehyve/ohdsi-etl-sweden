@@ -1,5 +1,6 @@
 #!/bin/sh
-#Note: no space around assignment '=' signs
+# Python 3 required!
+# Switch to python3 with the command: 'source activate py3'
 
 # Variables
 DATABASE_NAME="$1"
@@ -83,6 +84,7 @@ echo
 echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_mapping_tables.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/process_nomesco_mapping.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_source_to_concept_map.sql
 time sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
 # time sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
 
