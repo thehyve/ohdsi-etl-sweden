@@ -38,7 +38,7 @@ one_char_mapping as (
     WHERE code NOT IN (SELECT code FROM five_char_mapping UNION ALL SELECT code FROM two_char_mapping)
 )
 
-SELECT code as source_code, source_name as source_description, target_concept_id
+SELECT code as source_code, b.source_description, target_concept_id
 INTO etl_mappings.nomesco_processed
 FROM (
     SELECT * FROM one_char_mapping
@@ -47,4 +47,6 @@ FROM (
     UNION ALL
     SELECT * FROM five_char_mapping
 ) a
+LEFT JOIN etl_mappings.nomesco_description b ON
+    a.code = b.source_code
 ;

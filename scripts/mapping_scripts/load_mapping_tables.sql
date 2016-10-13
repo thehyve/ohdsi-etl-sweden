@@ -24,6 +24,12 @@ CREATE TABLE etl_mappings.nomesco (
 )
 ;
 
+CREATE TABLE etl_mappings.nomesco_description (
+    source_code	varchar(50) PRIMARY KEY,
+    source_description varchar(255)
+)
+;
+
 CREATE TABLE etl_mappings.dose_form (
     source_code	varchar(50) PRIMARY KEY,
     frequency integer,
@@ -44,6 +50,7 @@ CREATE TABLE etl_mappings.unit (
 -- Load the tables
 \copy etl_mappings.icd10_snomed FROM './mapping_tables/ICD10_SNOMED.csv'   WITH HEADER CSV
 \copy etl_mappings.nomesco FROM './mapping_tables/NOMESCO.csv'   WITH HEADER CSV
+\copy etl_mappings.nomesco_description FROM './mapping_tables/nomesco_description.csv'   WITH HEADER CSV
 \copy etl_mappings.dose_form FROM './mapping_tables/dose_form.csv'   WITH HEADER CSV
 \copy etl_mappings.unit FROM './mapping_tables/unit.csv'   WITH HEADER CSV
 

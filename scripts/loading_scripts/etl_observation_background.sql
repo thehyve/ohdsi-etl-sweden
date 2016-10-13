@@ -22,7 +22,7 @@ SELECT  lpnr,
             WHEN 23 THEN 43021808 -- Native
             ELSE 0 -- Not mappable
          END AS observation_concept_id,
-         4188539 as value_as_concept_id, -- Yes
+         4188539 as value_as_concept_id, -- Yes to suggestive statement
 
         to_date(year,'yyyy'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
