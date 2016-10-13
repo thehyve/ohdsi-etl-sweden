@@ -3,7 +3,7 @@
 INSERT INTO observation (
         person_id,
         observation_concept_id,
-        qualifier_concept_id,
+        value_as_concept_id,
         observation_date,
         observation_type_concept_id,
         observation_source_value,
@@ -11,18 +11,19 @@ INSERT INTO observation (
         visit_occurrence_id
     )
 SELECT  lpnr,
-        4161676 as observation_concept_id, -- Planned, qualifier value
+        -- 4161676 as observation_concept_id, -- Planned, qualifier value
 
         CASE pvard
-            WHEN 1 THEN 4188539 -- Yes
-            WHEN 2 THEN 4188540 -- No
-            ELSE 4185231 -- Unknown
-        END AS qualifier_concept_id,
+            WHEN 1 THEN 4228491 -- Planned admission
+            WHEN 2 THEN 44803024 -- Unplanned local admission
+            ELSE 0 -- Unknown
+        END AS observation_concept_id,
+        4188539 as value_as_concept_id, -- Yes to suggestive statement
 
         to_date(indatuma::varchar, 'yyyymmdd'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
-        'pvard' as observation_source_value,
-        pvard as qualifier_source_value,
+        pvard as observation_source_value,
+        'pvard' as qualifier_source_value,
         visit_id
 FROM (
     -- ekod status only in sluten and oppen registries

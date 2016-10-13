@@ -1,5 +1,6 @@
 SELECT
     varunr as vnr,
+    atc_concept_id,
     ingredient_concept_id
 INTO drugmap.vnr_to_ingredient
 FROM drugmap.unique_varunr

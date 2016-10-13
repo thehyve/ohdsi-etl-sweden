@@ -10,10 +10,15 @@ INSERT INTO observation_period (
 )
 SELECT  person_id,
 
-        getObservationStartDate( to_date('19970101','yyyymmdd'), year_of_birth, immi_date, emi_date ) as observation_period_start_date,
-        getObservationEndDate( to_date('20150801','yyyymmdd'), death_date, immi_date, emi_date ) as observation_period_end_date,
+        -- 2016-10-11 Just take start and end of study as
+        to_date('19970101','yyyymmdd'),
+        to_date('20150801','yyyymmdd'),
 
-        44814724 AS period_type_concept_id -- 'Period inferred by algorithm'
+        44814724 AS period_type_concept_id -- 'Period covering healthcare encounters'
+
+        -- getObservationStartDate( to_date('19970101','yyyymmdd'), year_of_birth, immi_date, emi_date ) as observation_period_start_date,
+        -- getObservationEndDate( to_date('20150801','yyyymmdd'), death_date, immi_date, emi_date ) as observation_period_end_date,
+        -- 44814725 AS period_type_concept_id -- 'Period inferred by algorithm'
 
     FROM (
         SELECT person.person_id,

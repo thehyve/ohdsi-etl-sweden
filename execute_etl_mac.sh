@@ -1,5 +1,6 @@
 #!/bin/sh
-#Note: no space around assignment '=' signs
+# Python 3 required!
+# Switch to python3 with the command: 'source activate py3'
 
 # Variables
 DATABASE_NAME="$1"
@@ -84,6 +85,8 @@ echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_mapping_tables.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/process_nomesco_mapping.sql
 time sh execute_drug_mapping.sh $DATABASE_NAME $USER $DRUG_MAPPING_FOLDER
+echo "Loading mappings into the source_to_concept_map:"
+sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_source_to_concept_map.sql
 # time sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/map_icd10_to_snomed.sql
 
 echo
@@ -95,6 +98,7 @@ sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationStar
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getObservationEndDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/convertDeathDate.sql
 sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugQuantity.sql
+sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/getDrugEndDate.sql
 
 # Actual ETL. Order is important.
 # Especially always first Person and Death tables.
@@ -139,8 +143,8 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_
 
 printf "%-35s" "Measurement Income: " #Only Lisa
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_income.sql
-printf "%-35s" "Measurement Age: " #All registers
-time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
+# printf "%-35s" "Measurement Age: " #All registers
+# time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_measurement_age.sql
 
 echo
 echo "Building Eras..."
