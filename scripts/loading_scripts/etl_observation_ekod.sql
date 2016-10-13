@@ -1,7 +1,7 @@
 INSERT INTO observation (
         person_id,
         observation_concept_id,
-        -- value_as_concept_id,
+        value_as_concept_id,
         observation_date,
         observation_type_concept_id,
         observation_source_value,
@@ -15,6 +15,7 @@ SELECT  lpnr,
              THEN 0 -- cannot be mapped
              ELSE icd10_to_snomed.target_concept_id
         END as observation_concept_id,
+        4188539 as value_as_concept_id, -- Yes to suggestive statement
 
         to_date(indatuma::varchar, 'yyyymmdd'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR

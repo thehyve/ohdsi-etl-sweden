@@ -1,7 +1,7 @@
 INSERT INTO observation (
         person_id,
         observation_concept_id,
-        -- value_as_concept_id,
+        value_as_concept_id,
         observation_date,
         observation_type_concept_id,
         observation_source_value,
@@ -16,6 +16,7 @@ SELECT  lpnr,
             WHEN 6 THEN 4251171 -- Unemployed
             ELSE 0 -- Not mappable
          END AS observation_concept_id,
+         4188539 as value_as_concept_id, -- Yes to suggestive statement
 
         to_date(year,'yyyy'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
