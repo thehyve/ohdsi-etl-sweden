@@ -4,15 +4,15 @@ library(Achilles)
 
 ## Settings for achilles output ##
 # Path to folder where Achilles json files will be stored
-achillesPath <- "/Volumes/G-raid/Dropbox/OHDSI/etl_vm/achilles_data/" # Users/Maxim/Documents/etl_vm/achilles_data/" # Existing folder with trailing slash
-dataName  <- "2rdIteration" # The name will appear in AchillesWeb. Has to be unique
+achillesPath <- "/Users/Maxim/Documents/etl_vm/achilles_data/" # Existing folder with trailing slash
+dataName  <- "sampleTest" # The name will appear in AchillesWeb. Has to be unique
 
 ## Database connection details ##
 connectionDetails <- createConnectionDetails(dbms="postgresql",
                                              server="localhost/ohdsi",
                                              user="postgres",
                                              password="",
-                                             port=5433,
+                                             port=5432,
                                              schema="cdm5")
 
 achillesResults <- achilles(connectionDetails,

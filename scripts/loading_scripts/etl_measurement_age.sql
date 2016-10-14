@@ -21,25 +21,24 @@ SELECT  lpnr,
         alder as value_as_number,
         'alder' as measurement_source_value,
         alder as value_source_value,
-        9448 as unit_concept_id -- Unit: year
-        --visit_id
+        9448 as unit_concept_id -- Unit = year
 FROM (
-    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
+    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder
     FROM etl_input.patient_sluten
 
     UNION ALL
 
-    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
+    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder
     FROM etl_input.patient_oppen
 
     UNION ALL
 
-    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder--, visit_id
+    SELECT lpnr, to_date(indatuma::varchar,'yyyymmdd') as indate, alder
     FROM etl_input.patient_dag_kiru
 
     UNION ALL
 
-    SELECT lpnr, to_date(edatum,'dd/mm/yyyy') as indate, alder--, visit_id
+    SELECT lpnr, to_date(edatum,'dd/mm/yyyy') as indate, alder
     FROM etl_input.drug
 
 ) patient_reg

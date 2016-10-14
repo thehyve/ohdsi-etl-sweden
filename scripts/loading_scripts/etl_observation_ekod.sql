@@ -10,7 +10,7 @@ INSERT INTO observation (
         visit_occurrence_id
     )
 SELECT  lpnr,
-        -- 4081668 as observation_concept_id, -- Cause of accident type
+
         CASE WHEN icd10_to_snomed.target_concept_id IS NULL
              THEN 0 -- cannot be mapped
              ELSE icd10_to_snomed.target_concept_id

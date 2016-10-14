@@ -8,10 +8,9 @@ INSERT INTO observation (
         qualifier_source_value
     )
 SELECT  lpnr,
-        -- 4022643 as observation_concept_id, -- Educational achievement
 
         -- Categorization based on the first digit
-        CASE SUBSTRING(sun2000niva::varchar FROM 1 FOR 1)::integer -- floor(sun2000niva/100),
+        CASE SUBSTRING(sun2000niva::varchar FROM 1 FOR 1)::integer
             WHEN 1 THEN 43022063 -- Received elementary school education
             WHEN 2 THEN 44800023 -- Educated to primary school level
             WHEN 3 THEN 43021808 -- Educated to high school level

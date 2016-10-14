@@ -8,7 +8,6 @@ INSERT INTO observation (
         qualifier_source_value
     )
 SELECT  lpnr,
-        -- 4073163 as observation_concept_id, -- Employment Status
 
         CASE syssstat11
             WHEN 1 THEN 4076340 -- Employed

@@ -32,7 +32,7 @@ SELECT  lpnr,
 
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
-        -- Combine varunr with drug name. Just 50 characters allowed
+        /* Combine varunr with drug name. Just 50 characters allowed */
         SUBSTRING( varunr || '|' || drug_source.lnamn FROM 0 FOR 50) as drug_source_value,
         vnr_to_ingredient.atc_concept_id as drug_source_concept_id,
 

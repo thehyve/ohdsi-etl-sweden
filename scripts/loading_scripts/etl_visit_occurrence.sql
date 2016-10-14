@@ -21,9 +21,9 @@ INSERT INTO visit_occurrence (visit_occurrence_id, person_id,
             END,
 
             CASE visit_source_value
-                WHEN 'sluten' THEN 9201 -- Inpatient visit
-                WHEN 'oppen' THEN 9202 -- Outpatient visit
-                WHEN 'dag kiru' THEN 9202 -- 45878057 ambulatory surgery
+                WHEN 'sluten' THEN 9201     -- Inpatient visit
+                WHEN 'oppen' THEN 9202      -- Outpatient visit
+                WHEN 'dag kiru' THEN 9202   -- Outpatient visit Alternative: 45878057 ambulatory surgery
                 ELSE 0
             END as visit_concept_id,
 
@@ -46,7 +46,7 @@ INSERT INTO visit_occurrence (visit_occurrence_id, person_id,
     ) patient_reg
 
     -- It is possible that hospitals in patient registries
-    -- are missing in care_site table. Thus, left join.
+    -- are missing in care_site table.
     LEFT JOIN care_site care_site
         ON patient_reg.sjukhus = care_site.care_site_source_value
 ;

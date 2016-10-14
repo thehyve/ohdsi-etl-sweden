@@ -1,5 +1,4 @@
 INSERT INTO observation (
-        -- observation_id is auto incremented by a sequence
         person_id,
         visit_occurrence_id,
         observation_concept_id,
@@ -13,7 +12,6 @@ INSERT INTO observation (
 SELECT
         lpnr,
         visit_id,
-        -- 40757182 AS observation_concept_id,
 
         CASE utsatt
         	WHEN 1 THEN 4142018 -- Discharge to hospital
@@ -31,7 +29,7 @@ SELECT
         utsatt AS observation_source_value,
         'utsatt' AS qualifier_source_value
 FROM (
-    -- Civil status only in sluten and oppen registries
+    -- Utsatt only in sluten registry
     SELECT DISTINCT lpnr, indatuma, utdatuma, utsatt, visit_id
     FROM etl_input.patient_sluten_long
 

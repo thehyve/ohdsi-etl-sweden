@@ -11,7 +11,6 @@ INSERT INTO observation (
         qualifier_source_value
     )
 SELECT  lpnr,
-        -- 4136468 as observation_concept_id, -- Ethnic background
 
         -- 11 and 12 are foreign (no OMOP concept found), 21,22,23 are native Swedish
         CASE utlsvbakgalt

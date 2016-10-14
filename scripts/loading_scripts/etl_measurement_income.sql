@@ -17,8 +17,8 @@ SELECT  lpnr,
         dispinkpersf04 as value_as_number,
         'dispinkpersf04' as measurement_source_value,
         dispinkpersf04 as value_source_value,
-        44818647 as unit_concept_id -- Currency: Swedish krona/kronor
+        44818647 as unit_concept_id -- Currency = Swedish krona/kronor
 FROM etl_input.lisa as lisa
--- ONLY persons that are present in the person table!
+-- ONLY persons that are present in the person table.
 INNER JOIN person as person ON person.person_id = lisa.lpnr
 ;

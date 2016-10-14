@@ -16,19 +16,19 @@ INSERT INTO condition_occurrence (
             END as concept_id,
 
             CASE WHEN indatuma IS NULL
-                THEN to_date( '19000101', 'yyyymmdd')
+                THEN to_date( '19000101', 'yyyymmdd') -- Should not happen
                 ELSE to_date( indatuma::varchar, 'yyyymmdd')
             END as condition_start_date,
 
             CASE code_type
-                WHEN 'hdia' THEN 44786627 -- Primary Condition
-                WHEN 'bdia1' THEN 44786628 -- First Position Condition
-                ELSE 44786629 -- Secondary Condition (for bdia2+)
+                WHEN 'hdia' THEN 44786627   -- Primary Condition
+                WHEN 'bdia1' THEN 44786628  -- First Position Condition
+                ELSE 44786629               -- Secondary Condition (for bdia2+)
             END as condition_type_concept_id,
 
             visit_id,
             code as condition_source_value,
-            intermediate_concept_id as condition_source_concept_id -- 13-07-2016
+            intermediate_concept_id as condition_source_concept_id -- ICD10 concept_id (13-07-2016)
     FROM (
         SELECT lpnr, indatuma, code_type, code, visit_id
         FROM etl_input.patient_sluten_long

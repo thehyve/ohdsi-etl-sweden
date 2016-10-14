@@ -60,7 +60,6 @@ CREATE TABLE etl_input.lpnr_aggregated AS
     ) persons
     WHERE lpnr IS NOT NULL
     GROUP BY lpnr
-    -- ) B where kon_temp != kon
 ;
 
 -- Add primary key index on lpnr to speed up joins on lpnr.

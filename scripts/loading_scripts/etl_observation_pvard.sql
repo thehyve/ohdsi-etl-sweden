@@ -1,4 +1,4 @@
-/* Planned or not. observation = 'Planned', value = 'Yes' or 'No'.
+/* Visit planned or not.
 */
 INSERT INTO observation (
         person_id,
@@ -11,12 +11,11 @@ INSERT INTO observation (
         visit_occurrence_id
     )
 SELECT  lpnr,
-        -- 4161676 as observation_concept_id, -- Planned, qualifier value
 
         CASE pvard
-            WHEN 1 THEN 4228491 -- Planned admission
-            WHEN 2 THEN 44803024 -- Unplanned local admission
-            ELSE 0 -- Unknown
+            WHEN 1 THEN 4228491     -- Planned admission
+            WHEN 2 THEN 44803024    -- Unplanned local admission
+            ELSE 0 -- Not mappable
         END AS observation_concept_id,
         4188539 as value_as_concept_id, -- Yes to suggestive statement
 
@@ -26,7 +25,7 @@ SELECT  lpnr,
         'pvard' as qualifier_source_value,
         visit_id
 FROM (
-    -- ekod status only in sluten and oppen registries
+    -- pvard status only in sluten and oppen registries
     SELECT DISTINCT lpnr, indatuma, pvard, visit_id
     FROM etl_input.patient_sluten_long
 

@@ -16,17 +16,16 @@ INSERT INTO observation (
 SELECT
         lpnr,
         visit_id,
-        -- 4053609 AS observation_concept_id, -- Marital status
 
         CASE civil
-            WHEN 'G' THEN 4338692 -- Married
-            WHEN 'OG' THEN 4053842 -- Single Person
-            WHEN 'O' THEN 0 -- Not mappable
-            WHEN 'S' THEN 4069297 -- Divorced
-            WHEN 'Ä' THEN 4143188 -- Widower
-            WHEN 'RP' THEN 4325710 -- Domestic partnership
-            WHEN 'SP' THEN 4069297 -- Divorced
-            WHEN 'EP' THEN 4143188 -- Widower
+            WHEN 'G' THEN 4338692   -- Married
+            WHEN 'OG' THEN 4053842  -- Single Person
+            WHEN 'O' THEN 0         -- Not mappable
+            WHEN 'S' THEN 4069297   -- Divorced
+            WHEN 'Ä' THEN 4143188   -- Widower
+            WHEN 'RP' THEN 4325710  -- Domestic partnership
+            WHEN 'SP' THEN 4069297  -- Divorced
+            WHEN 'EP' THEN 4143188  -- Widower
             ELSE 0
         END as observation_concept_id,
         4188539 as value_as_concept_id, -- Yes

@@ -3,7 +3,6 @@ Simple first letter mapping for nomesco chapters.
 */
 
 INSERT INTO procedure_occurrence (
-    -- procedure_occurrence_id,
     person_id,
     procedure_concept_id,
     procedure_date,
@@ -12,15 +11,14 @@ INSERT INTO procedure_occurrence (
     visit_occurrence_id,
     procedure_source_value
 )
-    SELECT  --row_number() OVER (ORDER BY lpnr),
-            lpnr,
+    SELECT  lpnr,
             CASE WHEN procedure_map.target_concept_id IS NULL
-                 THEN 0 --not mappable
+                 THEN 0 -- not mappable
                  ELSE procedure_map.target_concept_id
             END as concept_id,
 
             CASE WHEN utdatuma IS NULL
-                THEN to_date( '19000101', 'yyyymmdd') -- Have to give some date
+                THEN to_date( '19000101', 'yyyymmdd') -- Should not happen
                 ELSE to_date( utdatuma::varchar, 'yyyymmdd')
             END as procedure_date,
 
@@ -48,12 +46,6 @@ INSERT INTO procedure_occurrence (
 
     LEFT JOIN etl_mappings.nomesco_processed AS procedure_map
       ON code = procedure_map.source_code --OR
-    --      -- Match on first two letters. Only if complete code not in the mappping table (otherwise double entries)
-    --      (SUBSTRING(code FROM 1 FOR 2) = procedure_map.source_code AND
-    --       code NOT IN (SELECT source_code FROM etl_mappings.nomesco) ) OR
-    --      -- Match on first letter. Only if complete code and 2 letter code not in the mappping table (otherwise double entries)
-    --      (SUBSTRING(code FROM 1 FOR 1) = procedure_map.source_code AND
-    --       SUBSTRING(code FROM 1 FOR 2) NOT IN (SELECT source_code FROM etl_mappings.nomesco) )
 
     -- Only procedure codes
     -- Only codes starting with three letters (=NOMESCO), otherwise KVA (two letters) (15-06-2016)
