@@ -23,13 +23,6 @@ JOIN drugmap.drug_strength_single_ingredient AS drug_strength
         ( round(drug_strength.amount_value,2) = round(unique_varunr.styrknum,2)
           AND drug_strength.amount_unit_concept_id = unit_map.target_concept_id
         )
-        -- 05-07-2016: ignore denominator for the Bayer drugs
-        -- OR
-        -- ( round(drug_strength.numerator_value,2) =
-        --   round(unique_varunr.styrknum,2)
-        --     AND drug_strength.numerator_unit_concept_id  = auh.map_unit.num_unit_concept_id
-        --     AND drug_strength.denominator_unit_concept_id = auh.map_unit.denom_unit_concept_id
-        -- )
     )
 
 /* Add all info of the drug concepts */
