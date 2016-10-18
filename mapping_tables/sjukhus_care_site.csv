@@ -1,4 +1,4 @@
-id,sjukhus_id,sjukhus_name,lan_kom
+id,source_code,source_name,lan_kid
 1,10010,Sabbatsbergs sjukhus,1
 2,10011,S:t Görans sjukhus,1
 3,10012,S:t Eriks sjukhus,1

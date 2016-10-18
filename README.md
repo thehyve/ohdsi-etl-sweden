@@ -29,6 +29,9 @@ SET search_path TO cdm5,public; -- Note: by default this is set to "$user",publi
  - Prepared execute script with database = 'ohdsi', user = 'postgres' and encoding = 'LATIN1'. Also logs the output to log.txt
  ``` sh ./execute_log_etl.sh ```
 
+ ## Licence
+ Published under Apache 2.0 licence.
+
 <!-- ## Order of scripts executed
  - Execute the python script
  ```python process_patient_tables_wide_to_long.py```

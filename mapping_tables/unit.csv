@@ -1,24 +1,23 @@
-source_code,frequency,target_concept_id,target_description
-mg,7587563,8576,milligram
-  ,446512,,
-mikrog,323508,9655,microgram
-E/ml,96133,,
-mg/dos,54137,,
-IE/ml,53103,,
-enheter/ml,36274,,
-IE,30412,,
-mg/ml,24229,,
-g,16271,8504,gram
-anti-Xa IE,12016,,
-mikrog/24 timmar,7933,,
-mg/g,7052,,
-%,2186,,
-mikrog/g,468,,
-mikrog/dos,281,,
-Ospecificerad,263,,
-mg/24 timmar,198,,
-mikrog/ml,100,,
-anti-Xa IE/ml,42,,
-ELISA U/ml,8,,
-enheter,5,,
-E,1,,
+source_code,target_concept_id,target_description
+mg,8576,milligram
+mikrog,9655,microgram
+E/ml,,
+mg/dos,,
+IE/ml,,
+enheter/ml,,
+IE,,
+mg/ml,,
+g,8504,gram
+anti-Xa IE,,
+mikrog/24 timmar,,
+mg/g,,
+%,,
+mikrog/g,,
+mikrog/dos,,
+Ospecificerad,,
+mg/24 timmar,,
+mikrog/ml,,
+anti-Xa IE/ml,,
+ELISA U/ml,,
+enheter,,
+E,,

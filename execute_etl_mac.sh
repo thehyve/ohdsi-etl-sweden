@@ -1,6 +1,9 @@
 #!/bin/sh
-# Python 3 required!
-# Switch to python3 with the command: 'source activate py3'
+# Created by Maxim Moinat.
+# Copyright (c) 2016 The Hyve B.V.
+# This code is licensed under the Apache License version 2.0
+
+# Python 3 is required!
 
 # Variables
 DATABASE_NAME="$1"

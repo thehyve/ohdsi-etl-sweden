@@ -1,131 +1,131 @@
-source_code,source_name,target_name,target_concept_id
-A,Nervous system,Operation on nervous system,4041193
-B,Endocrine system,Operation on endocrine system,4194964
-C,Eye and adjacent structures,Surgical procedure on eye region,4154279
-H,Mammary gland,Operation on breast,4194253
-J,Digestive system and spleen,Operative procedure on digestive system,4030654
-L,Female genital organs,Operation on female genital organs,4129747
-M,Obstetric procedures,Obstetric procedure,4302541
-N,Musculoskeletal system,Operation on musculoskeletal system,4012907
-Q,Skin,Operation on skin,4213041
-T,Minor surgical procedures,Non-urgent surgical admission ,4084670
-U,Transluminal endoscopy,Endoscopy,4313889
-DA,Auricle,Operation on the ear,4238720
-DB,External auditory canal,Operation on the ear,4238720
-DC,Eardrum and middle ear,Operation on the ear,4238720
-DD,Ossicles of ear,Operation on the ear,4238720
-DF,Inner ear,Operation on the ear,4238720
-DG,Eustachian tube,Operation on the ear,4238720
-DH,Nose,Operation on nose,4228050
-DJ,Septum of nose,Operation on nose,4228050
-DK,Control of epistaxis,Epistaxis control,4115343
-DL,Plastic operations on nose,Operation on nose,4228050
-DN,Ethmoidal sinus and bone,Operation on nose,4228050
-DQ,Larynx,Operation on larynx,4300372
-EA,Lips,Operation on mouth ,4296695
-EB,Teeth,Procedure on tooth,4040556
-ED,Mandible,Operation on mandible,4030715
-EF,Miscellaneous operations on jaws,Operation on facial bone,4273546
-EG,Mandibular joint,Operation on facial joint,4216723
-EH,Palate,Operation on palate,4112031
-EK,Cheek,Cheek operation,4122590
-EL,Salivary glands,Operation on salivary gland,4012317
-EM,Tonsils and adenoids,Operative procedure on tonsils AND/OR adenoids,4029569
-EN,Pharynx and adjacent structures,Operation on pharynx,4046828
-GA,Chest wall pleura and diaphragm,Chest wall pleura and diaphragm operations,4138599
-GB,Trachea,Operation on trachea,4336544
-GC,Bronchus,Operation on bronchus,4097064
-GD,Lung,Operation on lung,4301352
-GE,Mediastinum,Operation on mediastinum,4299725
-JA,Abdominal wall mesentry peritoneum and greater omentum,Operative procedure on digestive system,4030654
-JB,Diaphragm and gastro-oesophageal reflux,Operative procedure on digestive system,4030654
-JC,Oesophagus,Operative procedure on digestive system,4030654
-JD,Stomach and duodenum,Operative procedure on digestive system,4030654
-JE,Appendix,Operative procedure on digestive system,4030654
-JF,Intestine,Operative procedure on digestive system,4030654
-JG,Rectum,Operative procedure on digestive system,4030654
-JH,Anus and perianal tissue,Operative procedure on digestive system,4030654
-JJ,Liver,Operative procedure on digestive system,4030654
-JK,Biliary tract,Operative procedure on digestive system,4030654
-JL,Pancreas,Operative procedure on digestive system,4030654
-JM,Spleen,Operation on spleen,4241198
-JW,Reoperations in gastroenterological surgery,Operative procedure on digestive system,4030654
-JX,Abdominal operations with other or overlapping anatomical location,Operative procedure on digestive system,4030654
-KA,Kidney and pelvis of kidney ,Kidney operation,4022804
-KB,Ureter,Operation on ureter,4302675
-KC,Bladder,Operation on bladder,4032929
-KD,Urethra,Operation on urethra,4034845
-KE,Prostate and seminal vesicles,Operation on prostate,4250917
-KF,Scrotum and scrotal organs,Operation on scrotum,4077750
-KG,Penis,Operation on penis,4324260
-KK,Retroperitoneal space,Retroperitoneal tissue operations,4121769
-FNG06,Percutaneous transluminal coronary angioplasty withinsertion of stent,Percutaneous transluminal coronary angioplasty,4006788
-FNG05,Percutaneous transluminal coronary angioplasty (PTCA) with implantation of a stent (in),Placement of stent in coronary artery,4283892
-FXA00,Total cardiopulmonary bypass in normothermia or moderate hypothermia,Cardiopulmonary bypass operation,4272324
-FNA00,Anastomosis between the artery thoracica internal and coronary artery,Anastomosis of thoracic artery to coronary artery single,4168141
-FPE20,Implantation of transvenous pacemaker with atrial and ventrikelelektrod,Implantation of cardiac pacemaker,4144921
-FNC20,Aortokoronar bypass with two vein graft,Aortocoronary artery bypass graft with two vein grafts,4228304
-FNG00,Dilation of the coronary artery (s),Coronary angioplasty,4184832
-FNC10,Aortokoronar bypass with simple vein graft,Aortocoronary artery bypass graft with vein graft,4063237
-FNG02,Percutaneous transluminal coronary angioplasty (PTCA) (in),Percutaneous transluminal coronary angioplasty,4006788
-FNC30,Aortokoronar bypass with three vein graft,Aortocoronary artery bypass graft with three vein grafts,4228305
-FMD10,Implantation of biological aortic valve prosthesis,Replacement of aortic valve with tissue graft,40480947
-FPB10,Kryoablation ectopic cardiac focus,Cryoablation operation for arrhythmia,4050570
-FPB22,Transvenous radiofrequency ablation of aberrant conduction pathway or arytmifokus (i),Radiofrequency ablation operation for arrhythmia,4049987
-FPB32,Transvenous radio frequency ablation of focus or pathway in vena pulmonalis,Radiofrequency ablation operation for arrhythmia,4049987
-FPE00,Implantation of transvenous pacemaker with ventrikelelektrod,Insertion of permanent pacemaker with transvenous electrodes ventricular,4204395
-FPE30,Replacing pulse generator on permanent transvenous pacemaker,Replacement of electronic heart device pulse generator,4149327
-FMD00,Implantation of mechanical aortic valve prosthesis,Mechanical prosthetic aortic valve replacement,4018561
-FWE00,Reoperation for deep haemorrhage,Control of hemorrhage,4201120
-FNC40,Aortokoronar bypass with four vein grafts,Aortocoronary artery bypass graft with vein graft,4063237
-FKB10,Anuloplastik ring at mitral insufficiency,Mitral annuloplasty using ring,4337061
-FPG33,Implantation of transvenous cardioverter-defibrillators and atrial and ventricular electrode,Implantation of cardioverter defibrillator with two electrode leads,4144899
-FWC00,Reoperation for deep infection,Infection control procedure,4298121
-FPB20,Radio frequency ablation of aberrant cardiac focus (i),Radiofrequency ablation operation for arrhythmia,4049987
-FCA50,Resection and reconstruction of the ascending aorta with a vascular prosthesis,Repair of ascending aorta,44782479
-FPE96,Other implantation or replacement of transvenous pacemaker (i),Implantation of cardiac pacemaker,4144921
-FJA12,Percutaneous transluminal biopsy of the right ventricle,Percutaneous transluminal biopsy of right ventricle,4181954
-FXG00,Use of IABP,Cardioassist by aortic balloon pump,4163287
-FPE26,Implantation of transvenous pacemaker with biventricular electrodes,Implantation of biventricular cardiac pacemaker system,4179363
-FPJ00,Revision of pacemaker or electrodes,Revision of pacemaker electrode leads,4209904
-FPE40,Replacement electrode for permanent transvenous pacemaker,Replacement of permanent transvenous electrodes,4046707
-FPD96,Other operation for atrial fibrillation (i),Procedure for arrhythmia,4051932
-FPG30,Implantation of transvenous cardioverter-defibrillator and ventricular lead,Implantation of cardioverter defibrillator with one electrode lead,4137700
-FCA60,Resection of aortic root and ascending aorta with reimplantation of the coronary arteries and use of flap bearing Endoprosthesis,Repair of ascending aorta,44782479
-FKD00,Implantation of mechanical mitralklaffprotes,Mechanical prosthetic mitral valve replacement,4160418
-FPE10,Implantation of transvenous pacemaker with atrial lead,Implantation of cardiac pacemaker,4144921
-FNA10,Sequential anastomoses between arteria thoracica internal and coronary arteries,Coronary artery bypass graft anastomosis of artery of thorax to coronary artery,4000733
-FXA20,Total cardiopulmonary bypass deep hypothermia and cardiac arrest,Cardiopulmonary bypass operation,4272324
-FWB00,Reoperation for superficial infection,Infection control procedure,4298121
-FPG36,Implantation of transvenous cardioverter-defibrillator with biventricular electrodes,Implantation of automatic cardiac defibrillator,4050572
-FNE96,Coronary bypass with other free arterial graft,Coronary artery bypass graft,4336464
-FPH00,Transvenous extraction of transvenous systems,Removal of transvenous electrodes,4099484
-FKC60,Resection of mitralklaffsegel with reconstruction,Mitral valve operation,4337060
-FPG40,Replacing pulse generator in transvenous cardioverter-defibrillator systems,Replacement of pulse generator of automatic cardioverter/defibrillator,44782864
-FXH00,Removal of IABP,Intraaortic balloon pump removal,4222272
-FKC20,Mitral valve repair operation,Repair of mitral valve,4297235
-PA,Operations on arteries of aortic arch and branches,Operation on aorta ,4139931
-PB,Operations on arteries of upper extremity,Operative procedure on artery of extremity,4331725
-PC,Operations on suprarenal abdominal aorta and visceral arteries,Procedure on artery of abdomen,4040554
-PD,Operations on infrarenal abdominal aorta and iliac arteries and distal connections,Procedure on artery of abdomen,4040554
-PE,Operations on femoral artery with branches and connection to popliteal artery,Operative procedure on artery of extremity,4331725
-PF,Connection from femoral artery to infrapopliteal arteries and operations on popliteal artery and arteries of lower leg and foot,Operative procedure on artery of extremity,4331725
-PG,Extra-anatomic bypass operations,Extra-anatomical bypass graft,4050281
-PH,Operations on veins,Operative procedure on vein,4302533
-PJ,Operations on lymphatic system,Operation on lymphatic structure,4175627
-DR014,Hemodiafiltration (in),Hemodiafiltration,4049845
-DR015,Hemodialysis acute (in),Emergency hemodialysis,46270933
-DR016,Hemodialysis chronic (in),Maintenance hemodialysis,46273700
-DR023,Peritoneal dialysis acute,Peritoneal dialysis,4324124
-DR024,Peritoneal dialysis chronic (in),Chronic peritoneal dialysis,4021976
-DR029,Transfusion erythrocytes allogeneic,Transfusion of red blood cells,4022173
-DR030,Transfusion red cells autologous,Autotransfusion of red cells,4037780
-DR033,Transfusion of whole blood allogeneic,Transfusion of whole blood,4142651
-DR034,Transfusion of whole blood autologous,Autotransfusion of whole blood,4035109
-DR036,Transfusion plasma allogeneic,Transfusion of plasma,4028665
-DR037,Transfusion plasma autologous,Transfusion of plasma,4028665
-DR055,Citratdialys (in),Dialysis procedure,4032243
-DR056,Heparinfri dialysis (in),Dialysis procedure,4032243
-UJD02,Gastroscopy,Endoscopy of stomach,4297516
-UJD05,Gastroscopy with biopsy,Endoscopic biopsy of stomach,4004241
-UJF32,Colonoscopy,Colonoscopy,4249893
+source_code,source_name,target_concept_id,target_name
+A,Nervous system,4041193,Operation on nervous system
+B,Endocrine system,4194964,Operation on endocrine system
+C,Eye and adjacent structures,4154279,Surgical procedure on eye region
+H,Mammary gland,4194253,Operation on breast
+J,Digestive system and spleen,4030654,Operative procedure on digestive system
+L,Female genital organs,4129747,Operation on female genital organs
+M,Obstetric procedures,4302541,Obstetric procedure
+N,Musculoskeletal system,4012907,Operation on musculoskeletal system
+Q,Skin,4213041,Operation on skin
+T,Minor surgical procedures,4084670,Non-urgent surgical admission 
+U,Transluminal endoscopy,4313889,Endoscopy
+DA,Auricle,4238720,Operation on the ear
+DB,External auditory canal,4238720,Operation on the ear
+DC,Eardrum and middle ear,4238720,Operation on the ear
+DD,Ossicles of ear,4238720,Operation on the ear
+DF,Inner ear,4238720,Operation on the ear
+DG,Eustachian tube,4238720,Operation on the ear
+DH,Nose,4228050,Operation on nose
+DJ,Septum of nose,4228050,Operation on nose
+DK,Control of epistaxis,4115343,Epistaxis control
+DL,Plastic operations on nose,4228050,Operation on nose
+DN,Ethmoidal sinus and bone,4228050,Operation on nose
+DQ,Larynx,4300372,Operation on larynx
+EA,Lips,4296695,Operation on mouth 
+EB,Teeth,4040556,Procedure on tooth
+ED,Mandible,4030715,Operation on mandible
+EF,Miscellaneous operations on jaws,4273546,Operation on facial bone
+EG,Mandibular joint,4216723,Operation on facial joint
+EH,Palate,4112031,Operation on palate
+EK,Cheek,4122590,Cheek operation
+EL,Salivary glands,4012317,Operation on salivary gland
+EM,Tonsils and adenoids,4029569,Operative procedure on tonsils AND/OR adenoids
+EN,Pharynx and adjacent structures,4046828,Operation on pharynx
+GA,Chest wall pleura and diaphragm,4138599,Chest wall pleura and diaphragm operations
+GB,Trachea,4336544,Operation on trachea
+GC,Bronchus,4097064,Operation on bronchus
+GD,Lung,4301352,Operation on lung
+GE,Mediastinum,4299725,Operation on mediastinum
+JA,Abdominal wall mesentry peritoneum and greater omentum,4030654,Operative procedure on digestive system
+JB,Diaphragm and gastro-oesophageal reflux,4030654,Operative procedure on digestive system
+JC,Oesophagus,4030654,Operative procedure on digestive system
+JD,Stomach and duodenum,4030654,Operative procedure on digestive system
+JE,Appendix,4030654,Operative procedure on digestive system
+JF,Intestine,4030654,Operative procedure on digestive system
+JG,Rectum,4030654,Operative procedure on digestive system
+JH,Anus and perianal tissue,4030654,Operative procedure on digestive system
+JJ,Liver,4030654,Operative procedure on digestive system
+JK,Biliary tract,4030654,Operative procedure on digestive system
+JL,Pancreas,4030654,Operative procedure on digestive system
+JM,Spleen,4241198,Operation on spleen
+JW,Reoperations in gastroenterological surgery,4030654,Operative procedure on digestive system
+JX,Abdominal operations with other or overlapping anatomical location,4030654,Operative procedure on digestive system
+KA,Kidney and pelvis of kidney ,4022804,Kidney operation
+KB,Ureter,4302675,Operation on ureter
+KC,Bladder,4032929,Operation on bladder
+KD,Urethra,4034845,Operation on urethra
+KE,Prostate and seminal vesicles,4250917,Operation on prostate
+KF,Scrotum and scrotal organs,4077750,Operation on scrotum
+KG,Penis,4324260,Operation on penis
+KK,Retroperitoneal space,4121769,Retroperitoneal tissue operations
+FNG06,Percutaneous transluminal coronary angioplasty withinsertion of stent,4006788,Percutaneous transluminal coronary angioplasty
+FNG05,Percutaneous transluminal coronary angioplasty (PTCA) with implantation of a stent (in),4283892,Placement of stent in coronary artery
+FXA00,Total cardiopulmonary bypass in normothermia or moderate hypothermia,4272324,Cardiopulmonary bypass operation
+FNA00,Anastomosis between the artery thoracica internal and coronary artery,4168141,Anastomosis of thoracic artery to coronary artery single
+FPE20,Implantation of transvenous pacemaker with atrial and ventrikelelektrod,4144921,Implantation of cardiac pacemaker
+FNC20,Aortokoronar bypass with two vein graft,4228304,Aortocoronary artery bypass graft with two vein grafts
+FNG00,Dilation of the coronary artery (s),4184832,Coronary angioplasty
+FNC10,Aortokoronar bypass with simple vein graft,4063237,Aortocoronary artery bypass graft with vein graft
+FNG02,Percutaneous transluminal coronary angioplasty (PTCA) (in),4006788,Percutaneous transluminal coronary angioplasty
+FNC30,Aortokoronar bypass with three vein graft,4228305,Aortocoronary artery bypass graft with three vein grafts
+FMD10,Implantation of biological aortic valve prosthesis,40480947,Replacement of aortic valve with tissue graft
+FPB10,Kryoablation ectopic cardiac focus,4050570,Cryoablation operation for arrhythmia
+FPB22,Transvenous radiofrequency ablation of aberrant conduction pathway or arytmifokus (i),4049987,Radiofrequency ablation operation for arrhythmia
+FPB32,Transvenous radio frequency ablation of focus or pathway in vena pulmonalis,4049987,Radiofrequency ablation operation for arrhythmia
+FPE00,Implantation of transvenous pacemaker with ventrikelelektrod,4204395,Insertion of permanent pacemaker with transvenous electrodes ventricular
+FPE30,Replacing pulse generator on permanent transvenous pacemaker,4149327,Replacement of electronic heart device pulse generator
+FMD00,Implantation of mechanical aortic valve prosthesis,4018561,Mechanical prosthetic aortic valve replacement
+FWE00,Reoperation for deep haemorrhage,4201120,Control of hemorrhage
+FNC40,Aortokoronar bypass with four vein grafts,4063237,Aortocoronary artery bypass graft with vein graft
+FKB10,Anuloplastik ring at mitral insufficiency,4337061,Mitral annuloplasty using ring
+FPG33,Implantation of transvenous cardioverter-defibrillators and atrial and ventricular electrode,4144899,Implantation of cardioverter defibrillator with two electrode leads
+FWC00,Reoperation for deep infection,4298121,Infection control procedure
+FPB20,Radio frequency ablation of aberrant cardiac focus (i),4049987,Radiofrequency ablation operation for arrhythmia
+FCA50,Resection and reconstruction of the ascending aorta with a vascular prosthesis,44782479,Repair of ascending aorta
+FPE96,Other implantation or replacement of transvenous pacemaker (i),4144921,Implantation of cardiac pacemaker
+FJA12,Percutaneous transluminal biopsy of the right ventricle,4181954,Percutaneous transluminal biopsy of right ventricle
+FXG00,Use of IABP,4163287,Cardioassist by aortic balloon pump
+FPE26,Implantation of transvenous pacemaker with biventricular electrodes,4179363,Implantation of biventricular cardiac pacemaker system
+FPJ00,Revision of pacemaker or electrodes,4209904,Revision of pacemaker electrode leads
+FPE40,Replacement electrode for permanent transvenous pacemaker,4046707,Replacement of permanent transvenous electrodes
+FPD96,Other operation for atrial fibrillation (i),4051932,Procedure for arrhythmia
+FPG30,Implantation of transvenous cardioverter-defibrillator and ventricular lead,4137700,Implantation of cardioverter defibrillator with one electrode lead
+FCA60,Resection of aortic root and ascending aorta with reimplantation of the coronary arteries and use of flap bearing Endoprosthesis,44782479,Repair of ascending aorta
+FKD00,Implantation of mechanical mitralklaffprotes,4160418,Mechanical prosthetic mitral valve replacement
+FPE10,Implantation of transvenous pacemaker with atrial lead,4144921,Implantation of cardiac pacemaker
+FNA10,Sequential anastomoses between arteria thoracica internal and coronary arteries,4000733,Coronary artery bypass graft anastomosis of artery of thorax to coronary artery
+FXA20,Total cardiopulmonary bypass deep hypothermia and cardiac arrest,4272324,Cardiopulmonary bypass operation
+FWB00,Reoperation for superficial infection,4298121,Infection control procedure
+FPG36,Implantation of transvenous cardioverter-defibrillator with biventricular electrodes,4050572,Implantation of automatic cardiac defibrillator
+FNE96,Coronary bypass with other free arterial graft,4336464,Coronary artery bypass graft
+FPH00,Transvenous extraction of transvenous systems,4099484,Removal of transvenous electrodes
+FKC60,Resection of mitralklaffsegel with reconstruction,4337060,Mitral valve operation
+FPG40,Replacing pulse generator in transvenous cardioverter-defibrillator systems,44782864,Replacement of pulse generator of automatic cardioverter/defibrillator
+FXH00,Removal of IABP,4222272,Intraaortic balloon pump removal
+FKC20,Mitral valve repair operation,4297235,Repair of mitral valve
+PA,Operations on arteries of aortic arch and branches,4139931,Operation on aorta 
+PB,Operations on arteries of upper extremity,4331725,Operative procedure on artery of extremity
+PC,Operations on suprarenal abdominal aorta and visceral arteries,4040554,Procedure on artery of abdomen
+PD,Operations on infrarenal abdominal aorta and iliac arteries and distal connections,4040554,Procedure on artery of abdomen
+PE,Operations on femoral artery with branches and connection to popliteal artery,4331725,Operative procedure on artery of extremity
+PF,Connection from femoral artery to infrapopliteal arteries and operations on popliteal artery and arteries of lower leg and foot,4331725,Operative procedure on artery of extremity
+PG,Extra-anatomic bypass operations,4050281,Extra-anatomical bypass graft
+PH,Operations on veins,4302533,Operative procedure on vein
+PJ,Operations on lymphatic system,4175627,Operation on lymphatic structure
+DR014,Hemodiafiltration (in),4049845,Hemodiafiltration
+DR015,Hemodialysis acute (in),46270933,Emergency hemodialysis
+DR016,Hemodialysis chronic (in),46273700,Maintenance hemodialysis
+DR023,Peritoneal dialysis acute,4324124,Peritoneal dialysis
+DR024,Peritoneal dialysis chronic (in),4021976,Chronic peritoneal dialysis
+DR029,Transfusion erythrocytes allogeneic,4022173,Transfusion of red blood cells
+DR030,Transfusion red cells autologous,4037780,Autotransfusion of red cells
+DR033,Transfusion of whole blood allogeneic,4142651,Transfusion of whole blood
+DR034,Transfusion of whole blood autologous,4035109,Autotransfusion of whole blood
+DR036,Transfusion plasma allogeneic,4028665,Transfusion of plasma
+DR037,Transfusion plasma autologous,4028665,Transfusion of plasma
+DR055,Citratdialys (in),4032243,Dialysis procedure
+DR056,Heparinfri dialysis (in),4032243,Dialysis procedure
+UJD02,Gastroscopy,4297516,Endoscopy of stomach
+UJD05,Gastroscopy with biopsy,4004241,Endoscopic biopsy of stomach
+UJF32,Colonoscopy,4249893,Colonoscopy

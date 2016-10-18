@@ -1,4 +1,4 @@
-sourceCode,sourceName,conceptId,sourceName
+source_code,source_concept_name,target_concept_id,source_concept_name
 0,Allmänmedicin,38004446,Allmänmedicin
 1,Anestesi- och intensivvård,38004450,Anestesi- och intensivvård
 5,Barn- och ungdomsmedicin,38004477,Barn- och ungdomsmedicin

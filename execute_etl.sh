@@ -1,5 +1,7 @@
 #!/bin/sh
-#Note: no space around assignment '=' signs
+# Created by Maxim Moinat.
+# Copyright (c) 2016 The Hyve B.V.
+# This code is licensed under the Apache License version 2.0 
 
 # Variables
 DATABASE_NAME="$1"

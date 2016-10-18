@@ -3,24 +3,21 @@ CREATE SCHEMA etl_mappings;
 
 CREATE TABLE etl_mappings.icd10_snomed (
     source_code	varchar(50) PRIMARY KEY,
-    frequency integer,
-    intermediate_concept_id integer,
     intermediate_code varchar(50),
+    intermediate_concept_id integer,
     intermediate_name varchar(200),
     intermediate_vocabulary varchar(50),
     target_concept_id integer,
-    target_code varchar(50),
     target_name varchar(200),
-    target_vocabulary varchar(50),
-    domain_id varchar(50)
+    target_vocabulary varchar(50)
 )
 ;
 
 CREATE TABLE etl_mappings.nomesco (
     source_code	varchar(50) PRIMARY KEY,
     source_name varchar(255),
-    target_name varchar(255),
-    target_concept_id integer
+    target_concept_id integer,
+    target_name varchar(255)
 )
 ;
 
@@ -32,7 +29,6 @@ CREATE TABLE etl_mappings.nomesco_description (
 
 CREATE TABLE etl_mappings.dose_form (
     source_code	varchar(50) PRIMARY KEY,
-    frequency integer,
     source_code_description varchar(200),
     target_concept_id integer,
     target_description varchar(100)
@@ -41,15 +37,14 @@ CREATE TABLE etl_mappings.dose_form (
 
 CREATE TABLE etl_mappings.unit (
     source_code	varchar(50) PRIMARY KEY,
-    frequency integer,
     target_concept_id integer,
     target_description varchar(100)
 )
 ;
 
 -- Load the tables
-\copy etl_mappings.icd10_snomed FROM './mapping_tables/ICD10_SNOMED.csv'   WITH HEADER CSV
-\copy etl_mappings.nomesco FROM './mapping_tables/NOMESCO.csv'   WITH HEADER CSV
+\copy etl_mappings.icd10_snomed FROM './mapping_tables/ICD10se.csv'   WITH HEADER CSV
+\copy etl_mappings.nomesco FROM './mapping_tables/nomesco.csv'   WITH HEADER CSV
 \copy etl_mappings.nomesco_description FROM './mapping_tables/nomesco_description.csv'   WITH HEADER CSV
 \copy etl_mappings.dose_form FROM './mapping_tables/dose_form.csv'   WITH HEADER CSV
 \copy etl_mappings.unit FROM './mapping_tables/unit.csv'   WITH HEADER CSV
