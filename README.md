@@ -1,6 +1,6 @@
 # ETL for Swedish Electronic Health Records
 
-## Prerequisites
+## Requirements
  - PostgreSQL and psql
  - Python 3
  - OMOP tables configured (see below)
