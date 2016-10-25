@@ -15,7 +15,7 @@ class MergeCSV(object):
     Merge multiple text files. The one is appended to the other.
     Only single lines loaded into memory.
     """
-    def __init__( self, output_filename = 'merged.csv', output_header = True ):
+    def __init__( self, output_filename = 'merged.csv', output_header = True, file_encoding = 'utf8' ):
         """
         output_header - boolean or list of column names.
                         If header given as list, all files are aligned to this header.
@@ -23,11 +23,12 @@ class MergeCSV(object):
                         If False, no header is used and all lines are simply added.
         """
         self.out_filename = output_filename
+        self.file_encoding = file_encoding
         self.n_files_added = 0
         self.n_lines_added = 0
 
         # Create  new out file
-        self.f_out = open(self.out_filename, 'w')
+        self.f_out = open(self.out_filename, 'w', encoding = self.file_encoding)
         self.csv_writer = csv.writer( self.f_out, dialect = 'excel')
 
         if output_header:
@@ -44,7 +45,7 @@ class MergeCSV(object):
         self.f_out.close()
 
     def add_file(self, filename ):
-        f_in = open( filename, 'r', encoding='latin-1')
+        f_in = open( filename, 'r', encoding = self.file_encoding)
         csv_reader = csv.reader( f_in, dialect='excel' )
 
         # Skip header if present

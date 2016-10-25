@@ -52,8 +52,8 @@ echo "Preprocessing patient registers..."
 # First remove any existing rendered tables
 rm -f rendered_tables/patient_register/*
 rm -f rendered_tables/death_register/*
-python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER
-python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER
+python $PYTHON_FOLDER/process_patient_tables_wide_to_long.py $SOURCE_FOLDER $ENCODING
+python $PYTHON_FOLDER/process_death_tables_wide_to_long.py $SOURCE_FOLDER $ENCODING
 echo
 echo "Reading headers of source tables..."
 # python $SCRIPTS_FOLDER/process_drug_registries.py $SOURCE_FOLDER/drug_register

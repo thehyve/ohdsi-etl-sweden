@@ -28,7 +28,7 @@ def is_code_column( column_name ):
 #    line += '\n'
 #    return line
 
-def main( input_files, path_out ):
+def main( input_files, path_out, file_encoding ):
 
     for filename, target_table in input_files.items():
         filebase, extension = filename.rsplit('.',1)
@@ -46,7 +46,7 @@ def main( input_files, path_out ):
 
         merger = MergeCSV( filename_out )
 
-        with open(filename,'r',encoding='latin1') as f_in:
+        with open( filename, 'r', encoding = file_encoding ) as f_in:
             # Read csv in the Excel dialect
             csv_reader = csv.reader(f_in, dialect='excel')
 
@@ -89,12 +89,15 @@ def main( input_files, path_out ):
         merger.close()
 
 if __name__ == '__main__':
+    # Usage: python process_death_tables_wide_to_long.py <source_folder> <encoding>
     try:
         source_folder = sys.argv[1]
-    except:
-        source_folder = '../source_tables'
+        file_encoding = sys.argv[2]
+    except IndexError:
+        source_folder = '../../source_tables'
+        file_encoding = 'utf8'
 
-    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv'),encoding='latin1' )
+    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv'), encoding = file_encoding )
     csv_file_overview = csv.reader( f_file_overview, dialect='excel' )
     next(csv_file_overview) #remove header
 
@@ -108,4 +111,4 @@ if __name__ == '__main__':
             input_files[ os.path.join(source_folder,folder,filename) ] = filename
 
     path_out = os.path.join( OUTPUT_FOLDER, 'death_register' )
-    main(input_files, path_out)
+    main(input_files, path_out, file_encoding)

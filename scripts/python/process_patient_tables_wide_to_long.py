@@ -12,8 +12,6 @@ import re, copy, csv, os, sys
 from MergeCSV import MergeCSV as MergeCSV
 
 HAS_HEADER = True
-OUTPUT_FOLDER = 'rendered_tables'
-#DELIMITER = ','
 
 def is_code_column( column_name ):
     column_name = column_name.lower()
@@ -22,13 +20,7 @@ def is_code_column( column_name ):
     else:
         return False
 
-#def create_csv_line( values, delimiter ):
-#    values = [x.replace(delimiter,'') for x in values]
-#    line = delimiter.join( values )
-#    line += '\n'
-#    return line
-
-def main( input_files, path_out ):
+def main( input_files, path_out, file_encoding ):
     # Create unique visit id for each row in both oppen, sluten and dag_kiru
     visit_id = 1
 
@@ -47,7 +39,7 @@ def main( input_files, path_out ):
 
         merger = MergeCSV( filename_out )
 
-        with open(filename,'r',encoding='latin-1') as f_in:
+        with open( filename, 'r', encoding = file_encoding ) as f_in:
             # Read csv in the Excel dialect
             csv_reader = csv.reader(f_in, dialect='excel')
 
@@ -66,7 +58,6 @@ def main( input_files, path_out ):
 
                 # All values that are NOT op/dia/ekod codes
                 visit_values = [value for value, is_code_bool in zip(values_array, code_columns_bool) if not is_code_bool]
-    #            visit_values.append( care_type )
                 visit_values.append( str(visit_id) )
                 visit_id += 1
 
@@ -93,16 +84,16 @@ def main( input_files, path_out ):
         merger.close()
 
 if __name__ == '__main__':
-#    INPUT_FILES = {'source_tables/patient_register/patient_oppen.csv':'oppen',
-#                   'source_tables/patient_register/patient_sluten.csv':'sluten',
-#                   'source_tables/patient_register/patient_dag_kiru.csv':'dag_kiru'}
-
+    # Usage: python process_patient_tables_wide_to_long.py <source_folder> <encoding>
+    OUTPUT_FOLDER = 'rendered_tables'
     try:
         source_folder = sys.argv[1]
-    except:
-        source_folder = '../source_tables'
+        file_encoding = sys.argv[2]
+    except IndexError:
+        source_folder = '../../source_tables'
+        file_encoding = 'utf8'
 
-    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv'),encoding='latin-1' )
+    f_file_overview = open( os.path.join(source_folder, 'overview_source_files.csv'), encoding = file_encoding )
     csv_file_overview = csv.reader( f_file_overview, dialect='excel' )
     next(csv_file_overview) #remove header
 
@@ -116,4 +107,4 @@ if __name__ == '__main__':
             input_files[ os.path.join(source_folder,folder,filename) ] = target_table
 
     path_out = os.path.join(OUTPUT_FOLDER,'patient_register')
-    main(input_files, path_out)
+    main(input_files, path_out, file_encoding)
