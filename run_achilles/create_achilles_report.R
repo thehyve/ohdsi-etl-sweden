@@ -4,7 +4,7 @@ library(Achilles)
 
 ## Settings for achilles output ##
 # Path to folder where Achilles json files will be stored
-achillesPath <- "/pathTo/targetFolder" # Existing folder with trailing slash
+achillesPath <- "/pathTo/targetFolder/" # Existing folder with trailing slash
 dataName  <- "sampleTest" # The name will appear in AchillesWeb. Has to be unique
 
 ## Database connection details ##

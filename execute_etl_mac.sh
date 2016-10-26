@@ -5,14 +5,25 @@
 
 # Python 3 is required!
 
-# Variables
+# Command line Variables
 DATABASE_NAME="$1"
 USER="$2"
 ENCODING="$3"
-DATABASE_SCHEMA="$4" # Schema of the vocabulary tables
+DATABASE_SCHEMA="$4"
 VOCAB_SCHEMA="$5"
 
-# Constants
+# ETL parameters
+DATA_START_DATE="19970101"
+DATA_END_DATE="20150801"
+# Source daimon parameters
+DATASET_NAME="Swedish Registry ETL $DATE"
+DATASET_ABBREV="SwedReg"
+WEBAPI_SCHEMA="webapi" #Schema of source an source_daimon tables and results tables
+CONNECTION_STRING="jdbc:postgresql://localhost:5432/ohdsi?user=webapi&password=webapi"
+PRIO_DAIMONS=1
+
+
+# System Constants
 SCRIPTS_FOLDER="scripts"
 SOURCE_FOLDER="source_tables"
 MAP_SCRIPT_FOLDER="$SCRIPTS_FOLDER/mapping_scripts"
@@ -114,7 +125,7 @@ printf "%-35s" "Death with addendum table: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
 printf "%-35s" "Observation Period: "
-time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql
+time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql -v data_start_date=$DATA_START_DATE -v data_end_date=$DATA_END_DATE
 printf "%-35s" "Visit Occurrence: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_visit_occurrence.sql
 
@@ -159,7 +170,7 @@ time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/build_drug_era.s
 
 # Insert data information in cdm_source and webapi_sourc[_daimon] tables
 echo
-sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/insert_cdm_source.sql -q
+sudo -u $USER psql -d $DATABASE_NAME -f $SCRIPTS_FOLDER/insert_cdm_source.sql -q -v source_release_date=$DATA_END_DATE
 # sudo -u $USER psql -d $DATABASE_NAME -f $SQL_FUNCTIONS_FOLDER/setSourceDaimon.sql
 # echo "The new Source ID is:"
 # sudo -u $USER psql -d $DATABASE_NAME -c "SELECT setSourceDaimon('$DATABASE_SCHEMA','Swedish Registry ETL $DATE','SwedReg');" -t
