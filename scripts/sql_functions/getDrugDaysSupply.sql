@@ -1,18 +1,14 @@
 /*  Calculates the number of days a drug is supplied.
+    Input: size of the pack, number of tablets in a pack and the number of prescription instruction (as tablets per day)
 */
-CREATE OR REPLACE FUNCTION getDrugDaysSupply( packsize_str varchar, amount decimal, daily_prescription decimal)
+CREATE OR REPLACE FUNCTION getDrugDaysSupply( packsize_str varchar, pack_amount decimal, daily_prescription decimal)
     RETURNS integer AS
 $$
 DECLARE
-    start_date date;
     quantity integer;
-    days integer;
 BEGIN
-    -- Datum
-    start_date := to_date(start_date_raw, 'mm/dd/yyyy');
-
     -- Quantity
-    quantity := getDrugQuantity(packsize_str, amount);
+    quantity := getDrugQuantity(packsize_str, pack_amount);
     IF quantity IS NULL THEN
         RETURN NULL;
     END IF;
