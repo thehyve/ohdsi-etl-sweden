@@ -125,7 +125,7 @@ printf "%-35s" "Death with addendum table: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death.sql
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_death_addendum.sql -q
 printf "%-35s" "Observation Period: "
-time -f "$TIME_FORMAT" sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql -v data_start_date=$DATA_START_DATE -v data_end_date=$DATA_END_DATE
+time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_observation_period.sql -v data_start_date=$DATA_START_DATE -v data_end_date=$DATA_END_DATE
 printf "%-35s" "Visit Occurrence: "
 time sudo -u $USER psql -d $DATABASE_NAME -f $ETL_SCRIPT_FOLDER/etl_visit_occurrence.sql
 
