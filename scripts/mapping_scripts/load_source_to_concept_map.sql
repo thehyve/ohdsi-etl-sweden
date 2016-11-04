@@ -1,5 +1,5 @@
 /* Nomesco */
-INSERT INTO vocabulary VALUES ('NOMESCO and KVÅ','Nordic Medico-Statistical Committee (NOMESCO) Classification of Surgical Procedures and Klassifikation av vårdåtgärder (KVÅ)','http://nowbase.org/da','1.16',0);
+INSERT INTO vocabulary VALUES ('NOMESCO','Nordic Medico-Statistical Committee (NOMESCO) Classification of Surgical Procedures and Klassifikation av vårdåtgärder (KVÅ)','http://nowbase.org/da','1.16',0);
 
 INSERT INTO source_to_concept_map (
     source_code,
