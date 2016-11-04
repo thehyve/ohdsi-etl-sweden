@@ -1,0 +1,14 @@
+source_code,source_name,target_concept_id,target_name
+DR014,Hemodiafiltration (in),4049845,Hemodiafiltration
+DR015,Hemodialysis acute (in),46270933,Emergency hemodialysis
+DR016,Hemodialysis chronic (in),46273700,Maintenance hemodialysis
+DR023,Peritoneal dialysis acute,4324124,Peritoneal dialysis
+DR024,Peritoneal dialysis chronic (in),4021976,Chronic peritoneal dialysis
+DR029,Transfusion erythrocytes allogeneic,4022173,Transfusion of red blood cells
+DR030,Transfusion red cells autologous,4037780,Autotransfusion of red cells
+DR033,Transfusion of whole blood allogeneic,4142651,Transfusion of whole blood
+DR034,Transfusion of whole blood autologous,4035109,Autotransfusion of whole blood
+DR036,Transfusion plasma allogeneic,4028665,Transfusion of plasma
+DR037,Transfusion plasma autologous,4028665,Transfusion of plasma
+DR055,Citratdialys (in),4032243,Dialysis procedure
+DR056,Heparinfri dialysis (in),4032243,Dialysis procedure

@@ -1,5 +1,5 @@
 /* Nomesco */
-INSERT INTO vocabulary VALUES ('NOMESCO','Nordic Medico-Statistical Committee (NOMESCO) Classification of Surgical Procedures','http://nowbase.org/da','1.16',0);
+INSERT INTO vocabulary VALUES ('NOMESCO and KVÅ','Nordic Medico-Statistical Committee (NOMESCO) Classification of Surgical Procedures and Klassifikation av vårdåtgärder (KVÅ)','http://nowbase.org/da','1.16',0);
 
 INSERT INTO source_to_concept_map (
     source_code,
@@ -20,7 +20,7 @@ SELECT nomesco.source_code,
        0 as source_concept_id,
        now(),
        to_date('31-12-2099','dd-mm-yyyy') -- Default
-FROM etl_mappings.nomesco_processed as nomesco
+FROM etl_mappings.procedures_processed as nomesco
 JOIN cdm5.concept
     ON nomesco.target_concept_id = concept.concept_id
 ;

@@ -44,10 +44,9 @@ INSERT INTO procedure_occurrence (
         FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN etl_mappings.nomesco_processed AS procedure_map
-      ON code = procedure_map.source_code --OR
+    LEFT JOIN etl_mappings.procedures_processed AS procedure_map
+      ON code = procedure_map.source_code
 
-    -- Only procedure codes
-    -- Only codes starting with three letters (=NOMESCO), otherwise KVA (two letters) (15-06-2016)
-    WHERE code_type like 'op%' AND code ~ '[a-zA-Z][a-zA-Z][a-zA-Z]'
+    -- Only operation codes
+    WHERE code_type like 'op%'
 ;
