@@ -15,13 +15,16 @@ INSERT INTO source_to_concept_map (
 SELECT nomesco.source_code,
        'NOMESCO' as source_vocabulary_id,
        nomesco.source_description,
-       nomesco.target_concept_id,
+       CASE WHEN nomesco.target_concept_id IS NULL
+            THEN 0
+            ELSE nomesco.target_concept_id
+       END AS target_concept_id,
        concept.vocabulary_id,
        0 as source_concept_id,
        now(),
        to_date('31-12-2099','dd-mm-yyyy') -- Default
 FROM etl_mappings.procedures_processed as nomesco
-JOIN cdm5.concept
+LEFT JOIN cdm5.concept
     ON nomesco.target_concept_id = concept.concept_id
 ;
 
@@ -42,7 +45,10 @@ INSERT INTO source_to_concept_map (
 SELECT icd10se.source_code,
        'ICD10-SE' as source_vocabulary_id,
        '' as source_description,
-       icd10se.target_concept_id,
+       CASE WHEN icd10se.target_concept_id IS NULL
+            THEN 0
+            ELSE icd10se.target_concept_id
+       END AS target_concept_id,
        concept.vocabulary_id,
        CASE WHEN intermediate_concept_id IS NULL
             THEN 0
@@ -51,7 +57,7 @@ SELECT icd10se.source_code,
        now(),
        to_date('31-12-2099','dd-mm-yyyy') -- Default
 FROM etl_mappings.icd10_snomed as icd10se
-JOIN cdm5.concept
+LEFT JOIN cdm5.concept
     ON icd10se.target_concept_id = concept.concept_id
 ;
 
