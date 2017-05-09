@@ -1,64 +1,4 @@
 source_code,source_name,target_concept_id,target_name
-A,Nervous system,4041193,Operation on nervous system
-B,Endocrine system,4194964,Operation on endocrine system
-C,Eye and adjacent structures,4154279,Surgical procedure on eye region
-H,Mammary gland,4194253,Operation on breast
-J,Digestive system and spleen,4030654,Operative procedure on digestive system
-L,Female genital organs,4129747,Operation on female genital organs
-M,Obstetric procedures,4302541,Obstetric procedure
-N,Musculoskeletal system,4012907,Operation on musculoskeletal system
-Q,Skin,4213041,Operation on skin
-T,Minor surgical procedures,4084670,Non-urgent surgical admission 
-U,Transluminal endoscopy,4313889,Endoscopy
-DA,Auricle,4238720,Operation on the ear
-DB,External auditory canal,4238720,Operation on the ear
-DC,Eardrum and middle ear,4238720,Operation on the ear
-DD,Ossicles of ear,4238720,Operation on the ear
-DF,Inner ear,4238720,Operation on the ear
-DG,Eustachian tube,4238720,Operation on the ear
-DH,Nose,4228050,Operation on nose
-DJ,Septum of nose,4228050,Operation on nose
-DK,Control of epistaxis,4115343,Epistaxis control
-DL,Plastic operations on nose,4228050,Operation on nose
-DN,Ethmoidal sinus and bone,4228050,Operation on nose
-DQ,Larynx,4300372,Operation on larynx
-EA,Lips,4296695,Operation on mouth 
-EB,Teeth,4040556,Procedure on tooth
-ED,Mandible,4030715,Operation on mandible
-EF,Miscellaneous operations on jaws,4273546,Operation on facial bone
-EG,Mandibular joint,4216723,Operation on facial joint
-EH,Palate,4112031,Operation on palate
-EK,Cheek,4122590,Cheek operation
-EL,Salivary glands,4012317,Operation on salivary gland
-EM,Tonsils and adenoids,4029569,Operative procedure on tonsils AND/OR adenoids
-EN,Pharynx and adjacent structures,4046828,Operation on pharynx
-GA,Chest wall pleura and diaphragm,4138599,Chest wall pleura and diaphragm operations
-GB,Trachea,4336544,Operation on trachea
-GC,Bronchus,4097064,Operation on bronchus
-GD,Lung,4301352,Operation on lung
-GE,Mediastinum,4299725,Operation on mediastinum
-JA,Abdominal wall mesentry peritoneum and greater omentum,4030654,Operative procedure on digestive system
-JB,Diaphragm and gastro-oesophageal reflux,4030654,Operative procedure on digestive system
-JC,Oesophagus,4030654,Operative procedure on digestive system
-JD,Stomach and duodenum,4030654,Operative procedure on digestive system
-JE,Appendix,4030654,Operative procedure on digestive system
-JF,Intestine,4030654,Operative procedure on digestive system
-JG,Rectum,4030654,Operative procedure on digestive system
-JH,Anus and perianal tissue,4030654,Operative procedure on digestive system
-JJ,Liver,4030654,Operative procedure on digestive system
-JK,Biliary tract,4030654,Operative procedure on digestive system
-JL,Pancreas,4030654,Operative procedure on digestive system
-JM,Spleen,4241198,Operation on spleen
-JW,Reoperations in gastroenterological surgery,4030654,Operative procedure on digestive system
-JX,Abdominal operations with other or overlapping anatomical location,4030654,Operative procedure on digestive system
-KA,Kidney and pelvis of kidney ,4022804,Kidney operation
-KB,Ureter,4302675,Operation on ureter
-KC,Bladder,4032929,Operation on bladder
-KD,Urethra,4034845,Operation on urethra
-KE,Prostate and seminal vesicles,4250917,Operation on prostate
-KF,Scrotum and scrotal organs,4077750,Operation on scrotum
-KG,Penis,4324260,Operation on penis
-KK,Retroperitoneal space,4121769,Retroperitoneal tissue operations
 FNG06,Percutaneous transluminal coronary angioplasty withinsertion of stent,4006788,Percutaneous transluminal coronary angioplasty
 FNG05,Percutaneous transluminal coronary angioplasty (PTCA) with implantation of a stent (in),4283892,Placement of stent in coronary artery
 FXA00,Total cardiopulmonary bypass in normothermia or moderate hypothermia,4272324,Cardiopulmonary bypass operation
@@ -104,28 +44,6 @@ FKC60,Resection of mitralklaffsegel with reconstruction,4337060,Mitral valve ope
 FPG40,Replacing pulse generator in transvenous cardioverter-defibrillator systems,44782864,Replacement of pulse generator of automatic cardioverter/defibrillator
 FXH00,Removal of IABP,4222272,Intraaortic balloon pump removal
 FKC20,Mitral valve repair operation,4297235,Repair of mitral valve
-PA,Operations on arteries of aortic arch and branches,4139931,Operation on aorta 
-PB,Operations on arteries of upper extremity,4331725,Operative procedure on artery of extremity
-PC,Operations on suprarenal abdominal aorta and visceral arteries,4040554,Procedure on artery of abdomen
-PD,Operations on infrarenal abdominal aorta and iliac arteries and distal connections,4040554,Procedure on artery of abdomen
-PE,Operations on femoral artery with branches and connection to popliteal artery,4331725,Operative procedure on artery of extremity
-PF,Connection from femoral artery to infrapopliteal arteries and operations on popliteal artery and arteries of lower leg and foot,4331725,Operative procedure on artery of extremity
-PG,Extra-anatomic bypass operations,4050281,Extra-anatomical bypass graft
-PH,Operations on veins,4302533,Operative procedure on vein
-PJ,Operations on lymphatic system,4175627,Operation on lymphatic structure
-DR014,Hemodiafiltration (in),4049845,Hemodiafiltration
-DR015,Hemodialysis acute (in),46270933,Emergency hemodialysis
-DR016,Hemodialysis chronic (in),46273700,Maintenance hemodialysis
-DR023,Peritoneal dialysis acute,4324124,Peritoneal dialysis
-DR024,Peritoneal dialysis chronic (in),4021976,Chronic peritoneal dialysis
-DR029,Transfusion erythrocytes allogeneic,4022173,Transfusion of red blood cells
-DR030,Transfusion red cells autologous,4037780,Autotransfusion of red cells
-DR033,Transfusion of whole blood allogeneic,4142651,Transfusion of whole blood
-DR034,Transfusion of whole blood autologous,4035109,Autotransfusion of whole blood
-DR036,Transfusion plasma allogeneic,4028665,Transfusion of plasma
-DR037,Transfusion plasma autologous,4028665,Transfusion of plasma
-DR055,Citratdialys (in),4032243,Dialysis procedure
-DR056,Heparinfri dialysis (in),4032243,Dialysis procedure
 UJD02,Gastroscopy,4297516,Endoscopy of stomach
 UJD05,Gastroscopy with biopsy,4004241,Endoscopic biopsy of stomach
 UJF32,Colonoscopy,4249893,Colonoscopy
