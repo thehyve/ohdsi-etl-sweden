@@ -31,37 +31,9 @@ LEFT JOIN cdm5.concept
 /* ICD10SE */
 INSERT INTO vocabulary VALUES ('ICD10-SE','International Classification of Diseases Swedish Dialect','http://www.socialstyrelsen.se/klassificeringochkoder/diagnoskodericd-10','',0);
 
-\copy source_to_concept_map FROM './mapping_tables/icd10-se_source_to_concept_map.csv' WITH HEADER CSV
+\copy source_to_concept_map FROM './mapping_tables/icd10-se_source_to_concept_map.csv' WITH HEADER CSV ENCODING 'UTF8'
 
-/* ATC drug */
-INSERT INTO source_to_concept_map (
-    source_code,
-    source_vocabulary_id,
-    source_code_description,
-    target_concept_id,
-    target_vocabulary_id,
-    -- Required fields, but useless:
-    source_concept_id,
-    valid_start_date,
-    valid_end_date
-)
-SELECT atc,
-       'ATC' as source_vocabulary_id,
-       vnr_mapping.lnamn as source_description,
-       vnr_mapping.target_concept_id,
-       concept.vocabulary_id,
-       CASE WHEN atc_concept_id IS NULL
-            THEN 0
-            ELSE atc_concept_id
-       END as source_concept_id,
-       now(),
-       to_date('31-12-2099','dd-mm-yyyy') -- Default
-FROM etl_mappings.vnr_mapping
-JOIN drugmap.vnr_to_ingredient
-    ON source_concept_id = vnr_to_ingredient.vnr
-JOIN drugmap.unique_varunr
-    ON unique_varunr.varunr = source_concept_id
-JOIN cdm5.concept
-    ON vnr_mapping.target_concept_id = concept.concept_id
-ON CONFLICT DO NOTHING -- If unique constraint violated, then skip the row (happens if same atc_code and target_concept_id, different brand)
-;
+/* VaruNummer */
+INSERT INTO vocabulary VALUES ('VaruNummer','Swedish Drug Article Numbers','https://npl.mpa.se/','',0);
+
+\copy source_to_concept_map FROM './mapping_tables/varunr_source_to_concept_map.csv' WITH HEADER CSV ENCODING 'UTF8'

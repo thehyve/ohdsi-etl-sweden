@@ -8,7 +8,7 @@ CREATE TABLE etl_input.drug (
     atc		    varchar(10),
     forpstl		varchar(20),
     lnamn		varchar(100),
-    varunr		integer,
+    varunr		varchar(20),
     lpnr		integer,
     edatum		varchar(20),
     fdatum		varchar(20),

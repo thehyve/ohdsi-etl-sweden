@@ -10,7 +10,6 @@ INSERT INTO drug_exposure (
     drug_type_concept_id,
 
     drug_source_value,
-    drug_source_concept_id,
 
     quantity,
     effective_drug_dose,
@@ -22,9 +21,9 @@ INSERT INTO drug_exposure (
     route_source_value
 )
 SELECT  lpnr,
-        CASE WHEN vnr_mapping.target_concept_id IS NULL
+        CASE WHEN drug_mapping.target_concept_id IS NULL
              THEN 0 -- Not mappable
-             ELSE vnr_mapping.target_concept_id
+             ELSE drug_mapping.target_concept_id
         END as drug_concept_id,
 
         to_date(edatum, 'mm/dd/yyyy') as drug_exposure_start_date,
@@ -33,8 +32,7 @@ SELECT  lpnr,
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
         /* Combine varunr with drug name. Just 50 characters allowed */
-        SUBSTRING( varunr || '|' || drug_source.lnamn FROM 0 FOR 50) as drug_source_value,
-        vnr_to_ingredient.atc_concept_id as drug_source_concept_id,
+        SUBSTRING( drug_mapping.source_code || '|' || drug_source.lnamn FROM 0 FOR 50) as drug_source_value,
 
         getDrugQuantity(forpstl, antal) as quantity,
         styrknum,
@@ -55,11 +53,9 @@ SELECT  lpnr,
 
 FROM etl_input.drug as drug_source
 
-LEFT JOIN etl_mappings.vnr_mapping as vnr_mapping
-  ON drug_source.varunr = vnr_mapping.source_concept_id
--- ATC concept_id as source_concept
-LEFT JOIN drugmap.vnr_to_ingredient
-  ON drug_source.varunr = vnr_to_ingredient.vnr
+LEFT JOIN source_to_concept_map as drug_mapping
+  ON drug_mapping.source_vocabulary_id = 'VaruNummer'
+  AND drug_source.varunr = drug_mapping.source_code
 
 LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
