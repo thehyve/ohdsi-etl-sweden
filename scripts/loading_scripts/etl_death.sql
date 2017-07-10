@@ -1,5 +1,15 @@
 /* Populate death table */
-
+WITH distinct_persons AS (
+    -- Only one row per person. One death per person
+    SELECT DISTINCT ON (lpnr) *
+    FROM etl_input.death
+), condition_map_one_to_one AS (
+    -- Prevent inserting more than one row due to one to many mappings
+    SELECT source_code, MIN(target_concept_id) AS target_concept_id
+    FROM source_to_concept_map
+    WHERE source_vocabulary_id = 'ICD10-SE'
+    GROUP BY source_code
+)
 INSERT INTO death (person_id, death_date, cause_concept_id, cause_source_value, death_type_concept_id)
 SELECT lpnr,
        convertDeathDate(dodsdat),
@@ -10,10 +20,7 @@ SELECT lpnr,
        ulorsak,
        38003569 -- EHR record patient status "Deceased"
 
-FROM (SELECT DISTINCT ON (lpnr) * FROM etl_input.death ) AS death -- Only one row per person. One death per person
-
-LEFT JOIN etl_mappings.icd10_snomed AS ulorsak_map
+FROM distinct_persons AS death
+LEFT JOIN condition_map_one_to_one AS ulorsak_map
   ON death.ulorsak = ulorsak_map.source_code
-
--- WHERE dodsdat::varchar LIKE '%00'
 ;

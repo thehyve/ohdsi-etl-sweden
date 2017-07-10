@@ -4,9 +4,12 @@ condition_occurrence. Dates are
 */
 
 INSERT INTO condition_occurrence (
-    person_id, condition_concept_id, condition_start_date,
-    condition_type_concept_id, visit_occurrence_id,
-    condition_source_value, condition_source_concept_id
+    person_id,
+    condition_concept_id,
+    condition_start_date,
+    condition_type_concept_id,
+    visit_occurrence_id,
+    condition_source_value
 )
 
     SELECT  lpnr,
@@ -27,8 +30,7 @@ INSERT INTO condition_occurrence (
             END as condition_type_concept_id,
 
             visit_id,
-            code as condition_source_value,
-            intermediate_concept_id as condition_source_concept_id -- ICD10 concept_id (13-07-2016)
+            code as condition_source_value
     FROM (
         SELECT lpnr, indatuma, code_type, code, visit_id
         FROM etl_input.patient_sluten_long
@@ -44,8 +46,9 @@ INSERT INTO condition_occurrence (
         FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN etl_mappings.icd10_snomed AS condition_map
-      ON code = condition_map.source_code
+    LEFT JOIN source_to_concept_map AS condition_map
+      ON condition_map.source_vocabulary_id = 'ICD10-SE'
+      AND patient_reg.code = condition_map.source_code
 
     -- Only diagnostic codes
     WHERE code_type = 'hdia' or code_type like 'bdia%'
