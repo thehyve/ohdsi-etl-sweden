@@ -28,7 +28,7 @@ INSERT INTO procedure_occurrence (
             END as procedure_type_concept_id,
 
             visit_id,
-            code as condition_source_value
+            code as procedure_source_value
     FROM (
         SELECT lpnr, indatuma, utdatuma, code_type, code, visit_id
         FROM etl_input.patient_sluten_long

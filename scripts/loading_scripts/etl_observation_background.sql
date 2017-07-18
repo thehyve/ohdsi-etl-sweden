@@ -26,7 +26,7 @@ SELECT  lpnr,
         to_date(year,'yyyy'),
         38000280 as observation_type_concept_id, -- Observation recorded from EHR
         utlsvbakgalt as observation_source_value,
-        'UtlSvBakgAlt' as qualifier_source_value
+        'utlsvbakgalt' as qualifier_source_value
 FROM etl_input.lisa as lisa
 -- ONLY persons that are present in the person table! Otherwise foreign key constraint fails.
 INNER JOIN person as person ON person.person_id = lisa.lpnr
