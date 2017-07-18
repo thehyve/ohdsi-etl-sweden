@@ -49,43 +49,43 @@ UJD05,Gastroscopy with biopsy,4004241,Endoscopic biopsy of stomach
 UJF32,Colonoscopy,4249893,Colonoscopy
 NFB09,Primary partial prosthetic replacement of hip joint not using cement,4297365,Partial hip replacement by prosthesis
 NFB19,Primary partial prosthetic replacement of hip joint using cement,4297365,Partial hip replacement by prosthesis
-NFB29,Primary total prosthetic replacement of hip joint not using cement,4142077,Other total prosthetic replacement of hip joint
-NFB39,Primary total prosthetic replacement of hip joint using hybrid technique,4142077,Other total prosthetic replacement of hip joint
-NFB49,Primary total prosthetic replacement of hip joint using cement,4142077,Other total prosthetic replacement of hip joint
-NFB62,Primary prosthetic replacement of joint surface of femoral head,4142077,Other total prosthetic replacement of hip joint
-NFB99,Other primary prosthetic replacement of hip joint,4142077,Other total prosthetic replacement of hip joint
-NFC09,Secondary implantation of partial prosthesis in hip joint not using,4142077,Other total prosthetic replacement of hip joint
-NFC19,Secondary implantation of partial prosthesis in hip joint using cement,4142077,Other total prosthetic replacement of hip joint
-NFC20,Secondary implantation of total prosthesis in hip joint not using cement - All parts,4142077,Other total prosthetic replacement of hip joint
-NFC21,Secondary implantation of total prosthesis in hip joint not using cement - Single part - proximal,4142077,Other total prosthetic replacement of hip joint
-NFC22,Secondary implantation of total prosthesis in hip joint not using cement - Single part - distal,4142077,Other total prosthetic replacement of hip joint
-NFC23,Secondary implantation of total prosthesis in hip joint not using cement - Single part - other,4142077,Other total prosthetic replacement of hip joint
-NFC29,Secondary implantation of total prosthesis in hip joint not using cement - Other or Unspecified,4142077,Other total prosthetic replacement of hip joint
-NFC30,Secondary implantation of total prosthesis in hip joint using hybrid - All parts,4142077,Other total prosthetic replacement of hip joint
-NFC31,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - proximal,4142077,Other total prosthetic replacement of hip joint
-NFC32,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - distal,4142077,Other total prosthetic replacement of hip joint
-NFC33,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - other,4142077,Other total prosthetic replacement of hip joint
-NFC39,Secondary implantation of total prosthesis in hip joint using hybrid - Other or Unspecified,4142077,Other total prosthetic replacement of hip joint
-NFC40,Secondary implantation of total prosthesis in hip joint using cement - All parts,4142077,Other total prosthetic replacement of hip joint
-NFC41,Secondary implantation of total prosthesis in hip joint using cement - Single part - proximal,4142077,Other total prosthetic replacement of hip joint
-NFC42,Secondary implantation of total prosthesis in hip joint using cement - Single part - distal,4142077,Other total prosthetic replacement of hip joint
-NFC43,Secondary implantation of total prosthesis in hip joint using cement - Single part - other,4142077,Other total prosthetic replacement of hip joint
-NFC49,Secondary implantation of total prosthesis in hip joint using cement - Other or Unspecified,4142077,Other total prosthetic replacement of hip joint
-NFC59,Secondary implantation of interposition prosthesis in hip joint,4142077,Other total prosthetic replacement of hip joint
-NFC99,Other secondary prosthetic replacement in hip joint,4142077,Other total prosthetic replacement of hip joint
-NGB09,Primary partial prosthetic replacement of knee joint not using cement,4079653,Uncemented unicompartmental knee replacement
+NFB29,Primary total prosthetic replacement of hip joint not using cement,4203771,Total replacement of hip
+NFB39,Primary total prosthetic replacement of hip joint using hybrid technique,4203771,Total replacement of hip
+NFB49,Primary total prosthetic replacement of hip joint using cement,4203771,Total replacement of hip
+NFB62,Primary prosthetic replacement of joint surface of femoral head,4203771,Total replacement of hip
+NFB99,Other primary prosthetic replacement of hip joint,4203771,Total replacement of hip
+NFC09,Secondary implantation of partial prosthesis in hip joint not using,4203771,Total replacement of hip
+NFC19,Secondary implantation of partial prosthesis in hip joint using cement,4203771,Total replacement of hip
+NFC20,Secondary implantation of total prosthesis in hip joint not using cement - All parts,4203771,Total replacement of hip
+NFC21,Secondary implantation of total prosthesis in hip joint not using cement - Single part - proximal,4203771,Total replacement of hip
+NFC22,Secondary implantation of total prosthesis in hip joint not using cement - Single part - distal,4203771,Total replacement of hip
+NFC23,Secondary implantation of total prosthesis in hip joint not using cement - Single part - other,4203771,Total replacement of hip
+NFC29,Secondary implantation of total prosthesis in hip joint not using cement - Other or Unspecified,4203771,Total replacement of hip
+NFC30,Secondary implantation of total prosthesis in hip joint using hybrid - All parts,4203771,Total replacement of hip
+NFC31,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - proximal,4203771,Total replacement of hip
+NFC32,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - distal,4203771,Total replacement of hip
+NFC33,Secondary implantation of total prosthesis in hip joint using hybrid - Single part - other,4203771,Total replacement of hip
+NFC39,Secondary implantation of total prosthesis in hip joint using hybrid - Other or Unspecified,4203771,Total replacement of hip
+NFC40,Secondary implantation of total prosthesis in hip joint using cement - All parts,4203771,Total replacement of hip
+NFC41,Secondary implantation of total prosthesis in hip joint using cement - Single part - proximal,4203771,Total replacement of hip
+NFC42,Secondary implantation of total prosthesis in hip joint using cement - Single part - distal,4203771,Total replacement of hip
+NFC43,Secondary implantation of total prosthesis in hip joint using cement - Single part - other,4203771,Total replacement of hip
+NFC49,Secondary implantation of total prosthesis in hip joint using cement - Other or Unspecified,4203771,Total replacement of hip
+NFC59,Secondary implantation of interposition prosthesis in hip joint,4203771,Total replacement of hip
+NFC99,Other secondary prosthetic replacement in hip joint,4203771,Total replacement of hip
+NGB09,Primary partial prosthetic replacement of knee joint not using cement,43531648,Uncemented unicompartmental knee replacement
 NGB19,Primary partial prosthetic replacement of knee joint using cement,4079651,Cemented unicompartmental knee replacement
-NGB29,Primary total prosthetic replacement of knee joint not using cement,4138874,Other total prosthetic replacement of knee joint
-NGB39,Primary total prosthetic replacement of knee joint using hybrid technique,4138874,Other total prosthetic replacement of knee joint
-NGB49,Primary total prosthetic replacement of knee joint using cement,4138874,Other total prosthetic replacement of knee joint
-NGB53,,4138874,Other total prosthetic replacement of knee joint
-NGB59,Primary prosthetic interposition arthroplasty of knee joint,4138874,Other total prosthetic replacement of knee joint
-NGB99,Other primary prosthetic replacement of knee joint,4138874,Other total prosthetic replacement of knee joint
-NGC09,Secondary implantation of partial prosthesis in knee joint not using,4138874,Other total prosthetic replacement of knee joint
-NGC19,Secondary implantation of partial prosthesis in knee joint using cement,4138874,Other total prosthetic replacement of knee joint
-NGC29,Secondary implantation of total prosthesis in knee joint not using,4138874,Other total prosthetic replacement of knee joint
-NGC39,Secondary implantation of total prosthesis in knee joint using hybrid,4138874,Other total prosthetic replacement of knee joint
-NGC49,Secondary implantation of total prosthesis in knee joint using cement,4138874,Other total prosthetic replacement of knee joint
-NGC53,,4138874,Other total prosthetic replacement of knee joint
-NGC59,Secondary implantation of interposition prosthesis in knee joint,4138874,Other total prosthetic replacement of knee joint
-NGC99,Other secondary prosthetic replacement in knee joint,4138874,Other total prosthetic replacement of knee joint
+NGB29,Primary total prosthetic replacement of knee joint not using cement,43531648,Total knee replacement
+NGB39,Primary total prosthetic replacement of knee joint using hybrid technique,43531648,Total knee replacement
+NGB49,Primary total prosthetic replacement of knee joint using cement,43531648,Total knee replacement
+NGB53,,43531648,Total knee replacement
+NGB59,Primary prosthetic interposition arthroplasty of knee joint,43531648,Total knee replacement
+NGB99,Other primary prosthetic replacement of knee joint,43531648,Total knee replacement
+NGC09,Secondary implantation of partial prosthesis in knee joint not using,43531648,Total knee replacement
+NGC19,Secondary implantation of partial prosthesis in knee joint using cement,43531648,Total knee replacement
+NGC29,Secondary implantation of total prosthesis in knee joint not using,43531648,Total knee replacement
+NGC39,Secondary implantation of total prosthesis in knee joint using hybrid,43531648,Total knee replacement
+NGC49,Secondary implantation of total prosthesis in knee joint using cement,43531648,Total knee replacement
+NGC53,,43531648,Total knee replacement
+NGC59,Secondary implantation of interposition prosthesis in knee joint,43531648,Total knee replacement
+NGC99,Other secondary prosthetic replacement in knee joint,43531648,Total knee replacement
