@@ -22,5 +22,5 @@ SELECT lpnr,
 
 FROM distinct_persons AS death
 LEFT JOIN condition_map_one_to_one AS ulorsak_map
-  ON death.ulorsak = ulorsak_map.source_code
+  ON TRIM(trailing '-xXpPtT' from death.ulorsak) = ulorsak_map.source_code
 ;

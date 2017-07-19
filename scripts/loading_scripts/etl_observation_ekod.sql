@@ -35,5 +35,5 @@ FROM (
 ) patient_registry
 LEFT JOIN source_to_concept_map AS condition_map
   ON condition_map.source_vocabulary_id = 'ICD10-SE'
-  AND patient_registry.code = condition_map.source_code
+  AND TRIM(trailing '-xXpPtT' from patient_registry.code) = condition_map.source_code
 ;

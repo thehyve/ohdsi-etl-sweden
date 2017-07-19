@@ -26,6 +26,6 @@ FROM etl_input.death_long as death
 INNER JOIN person as person ON person.person_id = death.lpnr
 LEFT JOIN source_to_concept_map AS condition_map
   ON condition_map.source_vocabulary_id = 'ICD10-SE'
-  AND death.code = condition_map.source_code
+  AND TRIM(trailing '-xXpPtT' from death.code) = condition_map.source_code
 WHERE death.code_type LIKE 'morsak%'
 ;

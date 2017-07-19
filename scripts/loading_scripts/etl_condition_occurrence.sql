@@ -48,7 +48,7 @@ INSERT INTO condition_occurrence (
 
     LEFT JOIN source_to_concept_map AS condition_map
       ON condition_map.source_vocabulary_id = 'ICD10-SE'
-      AND patient_reg.code = condition_map.source_code
+      AND TRIM(trailing '-xXpPtT' from patient_reg.code) = condition_map.source_code
 
     -- Only diagnostic codes
     WHERE code_type = 'hdia' or code_type like 'bdia%'
