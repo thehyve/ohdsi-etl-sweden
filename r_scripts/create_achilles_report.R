@@ -1,11 +1,11 @@
 library(devtools)
-install_github("ohdsi/Achilles", ref="v1.2")
+install_github("thehyve/Achilles", ref="master")
 library(Achilles)
 
 ## Settings for achilles output ##
 # Path to folder where Achilles json files will be stored
-achillesPath <- "/pathTo/targetFolder/" # Existing folder with trailing slash
-dataName  <- "sampleTest" # The name will appear in AchillesWeb. Has to be unique
+ACHILLES_DATA_PATH <- "path/to/etl_vm/achilles_data"
+DATA_NAME  <- "sample1" # The name will appear in AchillesWeb. Has to be unique
 
 ## Database connection details ##
 connectionDetails <- createConnectionDetails(dbms="postgresql",
@@ -27,24 +27,12 @@ achillesResults <- achilles(connectionDetails,
 # Needed for Record Counts in Atlas.
 DatabaseConnector::executeSql(connect(connectionDetails), "GRANT SELECT ON ALL TABLES IN SCHEMA webapi TO webapi;")
 
-outputPath <- paste(achillesPath, dataName, sep="")
+outputPath <- paste(ACHILLES_DATA_PATH, DATA_NAME, sep="/")
 exportToJson(connectionDetails,
              cdmDatabaseSchema="cdm5",
              resultsDatabaseSchema = "webapi",
              outputPath = outputPath,
              cdmVersion = "5")
 
-## Update the datasources file ##
-#library(rjson) #included in Achilles
-datasourcePath <- paste(achillesPath, "datasources.json", sep="")
-# Read the json file or create new if not exists
-if ( file.exists(datasourcePath) ){
-  j <- fromJSON( file = datasourcePath )
-} else {
-  j <- fromJSON(json_str='{"datasources":[{"name":"DEFAULT","folder":"DEFAULT","cdmVersion":""}]}')
-}
-# Add new item to the existing datasources
-new_datasource <- list("name"=dataName,"folder"=dataName,"cdmVersion"=5)
-j$datasources[[2]] <- new_datasource
-# Overwrite existing json file
-write(toJSON(j), datasourcePath)
+# Update the datasources file #
+Achilles::addDatasource(outputPath, DATA_NAME)
