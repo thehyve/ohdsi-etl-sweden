@@ -33,6 +33,12 @@ INSERT INTO vocabulary VALUES ('ICD10-SE','International Classification of Disea
 
 \copy source_to_concept_map FROM './mapping_tables/icd10-se_source_to_concept_map.csv' WITH HEADER CSV ENCODING 'UTF8'
 
+/* Dose Form */
+INSERT INTO vocabulary VALUES ('VnrDoseForm','Swedish Dose Form codes','https://npl.mpa.se/','',0);
+
+\copy source_to_concept_map FROM './mapping_tables/dose_form_source_to_concept_map.csv' WITH HEADER CSV ENCODING 'UTF8'
+
+
 /* VaruNummer */
 INSERT INTO vocabulary VALUES ('VaruNummer','Swedish Drug Article Numbers','https://npl.mpa.se/','',0);
 

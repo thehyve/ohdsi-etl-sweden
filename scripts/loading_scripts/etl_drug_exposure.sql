@@ -31,7 +31,7 @@ SELECT  lpnr as person_id,
         43542356 as drug_type_concept_id, -- Physician administered drug (identified from EHR problem list)
 
         /* Combine varunr with drug name. Just 50 characters allowed */
-        drug_source.varunr as drug_source_value,
+        TRIM(leading '0' from drug_source.varunr) as drug_source_value,
 
         getDrugQuantity(forpstl, antal) as quantity,
 
@@ -57,7 +57,7 @@ SELECT  lpnr as person_id,
 FROM etl_input.drug as drug_source
 LEFT JOIN source_to_concept_map as drug_mapping
   ON drug_mapping.source_vocabulary_id = 'VaruNummer'
-  AND drug_source.varunr = drug_mapping.source_code
+  AND TRIM(leading '0' from drug_source.varunr) = drug_mapping.source_code
 LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
 LEFT JOIN etl_mappings.unit
