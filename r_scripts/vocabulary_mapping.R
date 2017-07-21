@@ -4,29 +4,32 @@ library(Achilles)
 
 ## Database connection details ##
 connectionDetails <- createConnectionDetails(dbms="postgresql",
-                                             server="localhost/ohdsi2",
+                                             server="localhost/ohdsi",
                                              user="postgres",
                                              password="",
-                                             port=5432,
+                                             port=5433,
                                              schema="cdm5")
 
 condition.stats <- vocabularyMapping(connectionDetails, "condition_occurrence", "ICD10-SE")
-condition.unmapped <- topUnmapped(connectionDetails, "condition_occurrence", "ICD10-SE",10)
-condition.mapped <- topMapped(connectionDetails, "condition_occurrence", "ICD10-SE",10)
+condition.topUnmapped <- topUnmapped(connectionDetails, "condition_occurrence", "ICD10-SE",10)
+condition.topMapped <- topMapped(connectionDetails, "condition_occurrence", "ICD10-SE",10)
 View(condition.stats)
-View(condition.unmapped)
-View(condition.mapped)
+View(condition.topUnmapped)
+View(condition.topMapped)
 
 drug.stats <- vocabularyMapping(connectionDetails, "drug_exposure", "VaruNummer")
-drug.unmapped <- topUnmapped(connectionDetails, "drug_exposure", "VaruNummer",10)
-drug.mapped <- topMapped(connectionDetails, "drug_exposure", "VaruNummer",10)
+drug.topUnmapped <- topUnmapped(connectionDetails, "drug_exposure", "VaruNummer",10)
+drug.topMapped <- topMapped(connectionDetails, "drug_exposure", "VaruNummer",10)
 View(drug.stats)
-View(drug.unmapped)
-View(drug.mapped)
+View(drug.topUnmapped)
+View(drug.topMapped)
 
-procedure.stats <- procedure_occurrence <- vocabularyMapping(connectionDetails, "procedure_occurrence", "NOMESCO")
-procedure.unmapped <- topUnmapped(connectionDetails, "procedure_occurrence", "NOMESCO",10)
-procedure.mapped <- topMapped(connectionDetails, "procedure_occurrence", "NOMESCO",10)
+procedure.stats <- procedure_occurrence <- vocabularyMapping(connectionDetails, "procedure_occurrence", "KVA-NOMESCO")
+procedure.topUnmapped <- topUnmapped(connectionDetails, "procedure_occurrence", "KVA-NOMESCO",10)
+procedure.topMapped <- topMapped(connectionDetails, "procedure_occurrence", "KVA-NOMESCO",10)
 View(procedure.stats)
-View(procedure.unmapped)
-View(procedure.mapped)
+View(procedure.topUnmapped)
+View(procedure.topMapped)
+
+#write a table to csv:
+write.csv(condition.stats, '~/Documents/condition_mapping_stats.csv')
