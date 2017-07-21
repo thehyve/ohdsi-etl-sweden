@@ -1,3 +1,5 @@
+/*** DEPRECATED since July 2017 *****/
+
 /* Process the nomesco and kva codes separately and put back together.
 
    Nomesco codes consist of 3 letters and 2 digits. They are mapped on all five

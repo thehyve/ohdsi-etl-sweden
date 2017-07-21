@@ -128,7 +128,7 @@ Standardized health economics
 
 ALTER TABLE payer_plan_period ADD CONSTRAINT xpk_payer_plan_period PRIMARY KEY ( payer_plan_period_id ) ;
 
-ALTER TABLE visit_cost ADD CONSTRAINT xpk_visit_cost PRIMARY KEY ( visit_cost_id ) ;
+-- ALTER TABLE visit_cost ADD CONSTRAINT xpk_visit_cost PRIMARY KEY ( visit_cost_id ) ;
 
 ALTER TABLE procedure_cost ADD CONSTRAINT xpk_procedure_cost PRIMARY KEY ( procedure_cost_id ) ;
 
@@ -401,11 +401,11 @@ Standardized health economics
 ALTER TABLE payer_plan_period ADD CONSTRAINT fpk_payer_plan_period FOREIGN KEY (person_id)  REFERENCES person (person_id);
 
 
-ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_id FOREIGN KEY (visit_occurrence_id)  REFERENCES visit_occurrence (visit_occurrence_id);
+-- ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_id FOREIGN KEY (visit_occurrence_id)  REFERENCES visit_occurrence (visit_occurrence_id);
 
-ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_currency FOREIGN KEY (currency_concept_id)  REFERENCES concept (concept_id);
+-- ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_currency FOREIGN KEY (currency_concept_id)  REFERENCES concept (concept_id);
 
-ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_period FOREIGN KEY (payer_plan_period_id)  REFERENCES payer_plan_period (payer_plan_period_id);
+-- ALTER TABLE visit_cost ADD CONSTRAINT fpk_visit_cost_period FOREIGN KEY (payer_plan_period_id)  REFERENCES payer_plan_period (payer_plan_period_id);
 
 
 ALTER TABLE procedure_cost ADD CONSTRAINT fpk_procedure_cost_id FOREIGN KEY (procedure_occurrence_id)  REFERENCES procedure_occurrence (procedure_occurrence_id);

@@ -37,8 +37,8 @@ SELECT  lpnr as person_id,
 
         styrknum as effective_drug_dose,
 
-        CASE WHEN unit.target_concept_id IS NOT NULL
-             THEN unit.target_concept_id
+        CASE WHEN unit_mapping.target_concept_id IS NOT NULL
+             THEN unit_mapping.target_concept_id
              ELSE 0
         END as dose_unit_concept_id,
 
@@ -60,7 +60,8 @@ LEFT JOIN source_to_concept_map as drug_mapping
   AND TRIM(leading '0' from drug_source.varunr) = drug_mapping.source_code
 LEFT JOIN provider
   ON drug_source.spkod1 = provider_id
-LEFT JOIN etl_mappings.unit
-  ON drug_source.styrka_enh = unit.source_code
+LEFT JOIN source_to_concept_map as unit_mapping
+  ON drug_source.styrka_enh = unit_mapping.source_code
+  AND unit_mapping.source_vocabulary_id = 'unit-se'
 WHERE antal > 0 -- Ignore negative antals, administrative issue.
 ;

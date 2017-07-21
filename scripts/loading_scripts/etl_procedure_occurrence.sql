@@ -44,8 +44,9 @@ INSERT INTO procedure_occurrence (
         FROM etl_input.patient_dag_kiru_long
     ) patient_reg
 
-    LEFT JOIN etl_mappings.procedures_processed AS procedure_map
-      ON code = procedure_map.source_code
+    LEFT JOIN source_to_concept_map AS procedure_map
+        ON patient_reg.code = procedure_map.source_code
+        AND procedure_map.source_vocabulary_id = 'KVA-NOMESCO'
 
     -- Only operation codes
     WHERE code_type like 'op%'

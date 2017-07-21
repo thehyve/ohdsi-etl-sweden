@@ -94,7 +94,6 @@ sudo -u $USER psql -d $DATABASE_NAME -c "ALTER DATABASE $DATABASE_NAME SET searc
 echo
 echo "Creating mapping tables..."
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_mapping_tables.sql
-sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/process_nomesco_mapping.sql
 echo "Loading mappings into the source_to_concept_map:"
 sudo -u $USER psql -d $DATABASE_NAME -f $MAP_SCRIPT_FOLDER/load_source_to_concept_map.sql
 
